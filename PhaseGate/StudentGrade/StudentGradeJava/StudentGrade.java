@@ -29,9 +29,9 @@ public class StudentGrade {
     
     public int[][] getQuestionsForStudents(int[][] numbers, Scanner input) {
         for (int row = 0; row < numbers.length; row++) {
-            System.out.println("\nentering score for student " + (row + 1));
+            System.out.println("\nPlease provide score for student " + (row + 1));
             for (int column = 0; column < numbers[row].length; column++) {
-                System.out.print("entering score for subject " + (column + 1) + ": ");
+                System.out.print("Please provide score for subject " + (column + 1) + ": ");
                 int answer = input.nextInt();
                 if (answer >= 0 && answer <= 100) {
                     numbers[row][column] = answer;
