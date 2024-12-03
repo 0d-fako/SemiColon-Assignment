@@ -20,4 +20,3 @@ class StudentGradeTest(TestCase):
         
         result = number_of_passes(0, mock_scores)
         self.assertEqual(result, [2, 1, 0])
-
