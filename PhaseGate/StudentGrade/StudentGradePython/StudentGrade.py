@@ -41,7 +41,7 @@ def display_summary(numbers):
             print(f"{score}\t\t", end="")
         print(f"{total}\t\t{average:.2f}\t\t  {position}")
     
-    print("=" * 100)
+    print("=" * 105)
     print("\n")
     subject_summary(numbers)
 
