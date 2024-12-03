@@ -3,161 +3,162 @@ import java.util.Arrays;
 
 public class StudentGrade {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        StudentGrade studentGrade = new StudentGrade();
+        Scanner inputScanner = new Scanner(System.in);
+        StudentGrade studentGradeApp = new StudentGrade();
 
         System.out.println("Welcome to the Student Grade App");
         
         System.out.print("Please enter how many students are in your class: ");
-        int numberOfStudents = input.nextInt();
+        int totalStudentCount = inputScanner.nextInt();
         System.out.print("Please enter how many subjects are taught in your class: ");
-        int numberOfSubjects = input.nextInt();
+        int totalSubjectCount = inputScanner.nextInt();
         
-        int[] numbers = studentGrade.getNumberOfStudentsAndSubjects(numberOfStudents, numberOfSubjects);
-        int[][] students = studentGrade.getScoresForEveryStudentAndSubject(numbers);
-        int[][] results = studentGrade.getQuestionsForStudents(students, input);
-        studentGrade.displaySummary(results);
+        int[] studentSubjectCounts = studentGradeApp.getNumberOfStudentsAndSubjects(totalStudentCount, totalSubjectCount);
+        int[][] studentScores = studentGradeApp.getScoresForEveryStudentAndSubject(studentSubjectCounts);
+        int[][] processedStudentScores = studentGradeApp.getQuestionsForStudents(studentScores, inputScanner);
+        studentGradeApp.displaySummary(processedStudentScores);
     }
 
-    public int[] getNumberOfStudentsAndSubjects(int numberOfStudents, int numberOfSubjects) {
-        return new int[]{numberOfStudents, numberOfSubjects};
+    public int[] getNumberOfStudentsAndSubjects(int totalStudentCount, int totalSubjectCount) {
+        return new int[]{totalStudentCount, totalSubjectCount};
     }
     
-    public int[][] getScoresForEveryStudentAndSubject(int[] numbers) {
-        return new int[numbers[0]][numbers[1]];
+    public int[][] getScoresForEveryStudentAndSubject(int[] studentSubjectCounts) {
+        return new int[studentSubjectCounts[0]][studentSubjectCounts[1]];
     }
     
-    public int[][] getQuestionsForStudents(int[][] numbers, Scanner input) {
-        for (int row = 0; row < numbers.length; row++) {
-            System.out.println("\nPlease provide score for student " + (row + 1));
-            for (int column = 0; column < numbers[row].length; column++) {
-                System.out.print("Please provide score for subject " + (column + 1) + ": ");
-                int answer = input.nextInt();
-                if (answer >= 0 && answer <= 100) {
-                    numbers[row][column] = answer;
+    public int[][] getQuestionsForStudents(int[][] studentScores, Scanner inputScanner) {
+        for (int studentIndex = 0; studentIndex < studentScores.length; studentIndex++) {
+            System.out.println("\nPlease provide score for student " + (studentIndex + 1));
+            for (int subjectIndex = 0; subjectIndex < studentScores[studentIndex].length; subjectIndex++) {
+                System.out.print("Please provide score for subject " + (subjectIndex + 1) + ": ");
+                int studentScore = inputScanner.nextInt();
+                if (studentScore >= 0 && studentScore <= 100) {
+                    studentScores[studentIndex][subjectIndex] = studentScore;
                 } else {
                     System.out.println("error, invalid input: number must be between 0 and 100. Try again...");
-                    column--;
+                    subjectIndex--;
                 }
             }
         }
-        return numbers;
+        return studentScores;
     }
     
-    public void displaySummary(int[][] numbers) {
-        double[] averages = new double[numbers.length];
-        int[] positions = new int[numbers.length];
+    public void displaySummary(int[][] studentScores) {
+        double[] studentAverages = new double[studentScores.length];
+        int[] studentPositions = new int[studentScores.length];
         
-       
-        for (int i = 0; i < numbers.length; i++) {
-            int total = Arrays.stream(numbers[i]).sum();
-            averages[i] = (double) total / numbers[i].length;
-            positions[i] = i + 1;
+        for (int studentIndex = 0; studentIndex < studentScores.length; studentIndex++) {
+            int totalScore = 0;
+            for (int score : studentScores[studentIndex]) {
+                totalScore += score;
+            }
+            studentAverages[studentIndex] = (double) totalScore / studentScores[studentIndex].length;
+            studentPositions[studentIndex] = studentIndex + 1;
         }
         
-        
-        for (int i = 0; i < averages.length - 1; i++) {
-            for (int j = 0; j < averages.length - i - 1; j++) {
-                if (averages[j] < averages[j + 1]) {
+        for (int passIndex = 0; passIndex < studentAverages.length - 1; passIndex++) {
+            for (int compareIndex = 0; compareIndex < studentAverages.length - passIndex - 1; compareIndex++) {
+                if (studentAverages[compareIndex] < studentAverages[compareIndex + 1]) {
                     
-                    double tempAvg = averages[j];
-                    averages[j] = averages[j + 1];
-                    averages[j + 1] = tempAvg;
+                    double tempAverage = studentAverages[compareIndex];
+                    studentAverages[compareIndex] = studentAverages[compareIndex + 1];
+                    studentAverages[compareIndex + 1] = tempAverage;
                     
-                    int tempPos = positions[j];
-                    positions[j] = positions[j + 1];
-                    positions[j + 1] = tempPos;
+                    int tempPosition = studentPositions[compareIndex];
+                    studentPositions[compareIndex] = studentPositions[compareIndex + 1];
+                    studentPositions[compareIndex + 1] = tempPosition;
                 }
             }
         }
         
         System.out.println("=========================================================================================================");
-        displayHeader(numbers);
+        displayHeader(studentScores);
         System.out.println("=========================================================================================================");
         
-        for (int row = 0; row < numbers.length; row++) {
-            int total = 0;
-            System.out.print("Student " + (row + 1) + "\t");
+        for (int studentIndex = 0; studentIndex < studentScores.length; studentIndex++) {
+            int totalStudentScore = 0;
+            System.out.print("Student " + (studentIndex + 1) + "\t");
             
-            for (int column = 0; column < numbers[row].length; column++) {
-                System.out.print(numbers[row][column] + "\t\t");
-                total += numbers[row][column];
+            for (int subjectIndex = 0; subjectIndex < studentScores[studentIndex].length; subjectIndex++) {
+                System.out.print(studentScores[studentIndex][subjectIndex] + "\t\t");
+                totalStudentScore += studentScores[studentIndex][subjectIndex];
             }
             
-            double average = (double) total / numbers[row].length;
-            int position = 1;
-            for (int i = 0; i < positions.length; i++) {
-                if (positions[i] == row + 1) {
-                    position = i + 1;
+            double studentAverage = (double) totalStudentScore / studentScores[studentIndex].length;
+            int studentPosition = 1;
+            for (int positionIndex = 0; positionIndex < studentPositions.length; positionIndex++) {
+                if (studentPositions[positionIndex] == studentIndex + 1) {
+                    studentPosition = positionIndex + 1;
                     break;
                 }
             }
-            System.out.printf("%d\t\t%.2f\t\t  %d%n", total, average, position);
+            System.out.printf("%d\t\t%.2f\t\t  %d%n", totalStudentScore, studentAverage, studentPosition);
         }
         
         System.out.println("==========================================================================================================");
         System.out.println("\n");
-        subjectSummary(numbers);
+        subjectSummary(studentScores);
     }
     
-    public void displayHeader(int[][] numbers) {
+    public void displayHeader(int[][] studentScores) {
         System.out.print("Students\t");
-        for (int column = 0; column < numbers[0].length; column++) {
-            System.out.print("Subject " + (column + 1) + "\t");
+        for (int subjectIndex = 0; subjectIndex < studentScores[0].length; subjectIndex++) {
+            System.out.print("Subject " + (subjectIndex + 1) + "\t");
         }
         System.out.println("TOTAL\t\tAVERAGE\t\tPOSITION");
     }
     
-    public void subjectSummary(int[][] numbers) {
+    public void subjectSummary(int[][] studentScores) {
         System.out.println("===========================================================");
         System.out.println("Subject summary");
-        for (int row = 0; row < numbers[0].length; row++) {
-            decideForEachSubject(row, numbers);
+        for (int subjectIndex = 0; subjectIndex < studentScores[0].length; subjectIndex++) {
+            decideForEachSubject(subjectIndex, studentScores);
         }
     }
     
-    public void decideForEachSubject(int row, int[][] numbers) {
-        int largest = numbers[0][row];
-        int largestIndex = 0;
-        int smallest = numbers[0][row];
-        int smallestIndex = 0;
-        int total = 0;
+    public void decideForEachSubject(int subjectIndex, int[][] studentScores) {
+        int largestScore = studentScores[0][subjectIndex];
+        int largestScoreStudentIndex = 0;
+        int smallestScore = studentScores[0][subjectIndex];
+        int smallestScoreStudentIndex = 0;
+        int totalSubjectScore = 0;
         
-        for (int column = 0; column < numbers.length; column++) {
-            if (numbers[column][row] > largest) {
-                largest = numbers[column][row];
-                largestIndex = column;
+        for (int studentIndex = 0; studentIndex < studentScores.length; studentIndex++) {
+            if (studentScores[studentIndex][subjectIndex] > largestScore) {
+                largestScore = studentScores[studentIndex][subjectIndex];
+                largestScoreStudentIndex = studentIndex;
             }
-            if (numbers[column][row] < smallest) {
-                smallest = numbers[column][row];
-                smallestIndex = column;
+            if (studentScores[studentIndex][subjectIndex] < smallestScore) {
+                smallestScore = studentScores[studentIndex][subjectIndex];
+                smallestScoreStudentIndex = studentIndex;
             }
-            total += numbers[column][row];
+            totalSubjectScore += studentScores[studentIndex][subjectIndex];
         }
         
-        double average = (double) total / numbers.length;
-        System.out.println("Subject " + (row + 1));
-        System.out.println("highest scoring is:   student " + (largestIndex + 1) + " scoring: " + largest);
-        System.out.println("lowest scoring is:    student " + (smallestIndex + 1) + " scoring: " + smallest);
-        System.out.printf("Total score: %d%nAverage score: %.2f%n", total, average);
+        double subjectAverage = (double) totalSubjectScore / studentScores.length;
+        System.out.println("Subject " + (subjectIndex + 1));
+        System.out.println("highest scoring is:   student " + (largestScoreStudentIndex + 1) + " scoring: " + largestScore);
+        System.out.println("lowest scoring is:    student " + (smallestScoreStudentIndex + 1) + " scoring: " + smallestScore);
+        System.out.printf("Total score: %d%nAverage score: %.2f%n", totalSubjectScore, subjectAverage);
         
-        int[] passAndFail = numberOfPasses(row, numbers);
+        int[] passAndFail = numberOfPasses(subjectIndex, studentScores);
         System.out.println("Number of passes: " + passAndFail[0] + "\nNumber of fails: " + passAndFail[1]);
         System.out.println("===========================================================");
     }
     
-    public int[] numberOfPasses(int row, int[][] numbers) {
-        int pass = 0;
-        int fail = 0;
+    public int[] numberOfPasses(int subjectIndex, int[][] studentScores) {
+        int passingStudentCount = 0;
+        int failingStudentCount = 0;
         
-        for (int column = 0; column < numbers.length; column++) {
-            if (numbers[column][row] >= 50) {
-                pass++;
+        for (int studentIndex = 0; studentIndex < studentScores.length; studentIndex++) {
+            if (studentScores[studentIndex][subjectIndex] >= 50) {
+                passingStudentCount++;
             } else {
-                fail++;
+                failingStudentCount++;
             }
         }
         
-        return new int[]{pass, fail, row};
+        return new int[]{passingStudentCount, failingStudentCount, subjectIndex};
     }
 }
