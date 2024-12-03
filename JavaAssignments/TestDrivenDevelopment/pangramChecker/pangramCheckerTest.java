@@ -1,5 +1,5 @@
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
@@ -17,7 +17,7 @@ public class pangramCheckerTest{
 		boolean result = pangramChecker.isPangram(input);
 
 		//Check
-		assertTrue(result);
+		assertEquals(result, true);
 		
 	}
 
