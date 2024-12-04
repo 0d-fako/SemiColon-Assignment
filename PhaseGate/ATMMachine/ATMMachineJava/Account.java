@@ -4,6 +4,7 @@ public class Account {
 	private String accountNumber;
 	private double balance;
 	private String pin;
+	private boolean isActive;
 
 	public Account(String accountNumber, String pin, String firstName, String lastName) {
         	this.accountNumber = accountNumber;
@@ -75,6 +76,13 @@ public class Account {
 	public String getLastName() {
 		return lastName;
 	}
+		
+	public boolean isActive(){
+		return isActive;
+	
+	}
 
-
+	public void deactivate(){
+		this.isActive = false;
+	}
 }
