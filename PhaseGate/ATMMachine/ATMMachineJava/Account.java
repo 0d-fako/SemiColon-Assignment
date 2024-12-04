@@ -66,8 +66,15 @@ public class Account {
 		this.firstName = firstName;
 	}
 	
-	public String getName() {
-		return name;
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setLastName (String lastName) {
+		this.lastName = lastName;
+	}
+	
+	public String getLastName() {
+		return lastname;
 	}
 
 
