@@ -5,18 +5,17 @@ public class Account {
 	private double balance;
 	private String pin;
 
-	public Account(String accountNumber, String pin, String accountHolderName, String firstName, String lastName) {
+	public Account(String accountNumber, String pin, String firstName, String lastName) {
         	this.accountNumber = accountNumber;
         	this.pin = pin;
-        	this.accountHolderName = accountHolderName;
         	this.balance = 0.0;
 		this.firstName = firstName;
-		this.lastName = lastName
+		this.lastName = lastName;
     	}
 
 
 	public String getAccountNumber(){
-		return accountNumber
+		return accountNumber;
 	
 	}
 
@@ -27,7 +26,7 @@ public class Account {
 
 	public void changePin(String oldPin, String newPin){
 		if(validatePin(oldPin)){
-			this.pin == newPin;
+			this.pin = newPin;
 			System.out.print("PIN changed successfully");
 		}else {
 			System.out.print("Incorrect current Pin. Pin change unsuccessful");
@@ -56,7 +55,7 @@ public class Account {
 			return true;
 	
 		} else {
-			System.out.println ("Insufficient Funds or Invalid Withdrawal amount")
+			System.out.println ("Insufficient Funds or Invalid Withdrawal amount");
 			return false;
 		}
 		
@@ -74,7 +73,7 @@ public class Account {
 	}
 	
 	public String getLastName() {
-		return lastname;
+		return lastName;
 	}
 
 
