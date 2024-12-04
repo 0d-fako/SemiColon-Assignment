@@ -51,4 +51,22 @@ public class StudentGradeTest {
     assertArrayEquals(new int[]{75, 80, 90}, result[0]);
     }
 
+
+      @Test
+    public void testFindStudentPosition() {
+        StudentGrade studentGrade = new StudentGrade();
+        
+        int[] positions1 = {3, 1, 2};
+        assertEquals(2, studentGrade.findStudentPosition(positions1, 1));
+       
+        int[] positions2 = {1, 2, 3};
+        assertEquals(1, studentGrade.findStudentPosition(positions2, 0));
+        
+        int[] positions3 = {2, 3, 1};
+        assertEquals(3, studentGrade.findStudentPosition(positions3, 2));
+        
+        int[] positions4 = {2, 3, 4};
+        assertEquals(-1, studentGrade.findStudentPosition(positions4, 5));
+    }
+
 }

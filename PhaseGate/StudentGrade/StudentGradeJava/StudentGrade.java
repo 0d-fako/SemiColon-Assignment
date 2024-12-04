@@ -36,63 +36,69 @@ public class StudentGrade {
         return studentScores;
     }
     
-    public void displaySummary(int[][] studentScores) {
-        double[] studentAverages = new double[studentScores.length];
-        int[] studentPositions = new int[studentScores.length];
-        
-        for (int studentIndex = 0; studentIndex < studentScores.length; studentIndex++) {
-            int totalScore = 0;
-            for (int score : studentScores[studentIndex]) {
-                totalScore += score;
-            }
-            studentAverages[studentIndex] = (double) totalScore / studentScores[studentIndex].length;
-            studentPositions[studentIndex] = studentIndex + 1;
-        }
-        
-        for (int passIndex = 0; passIndex < studentAverages.length - 1; passIndex++) {
-            for (int compareIndex = 0; compareIndex < studentAverages.length - passIndex - 1; compareIndex++) {
-                if (studentAverages[compareIndex] < studentAverages[compareIndex + 1]) {
-                    
-                    double tempAverage = studentAverages[compareIndex];
-                    studentAverages[compareIndex] = studentAverages[compareIndex + 1];
-                    studentAverages[compareIndex + 1] = tempAverage;
-                    
-                    int tempPosition = studentPositions[compareIndex];
-                    studentPositions[compareIndex] = studentPositions[compareIndex + 1];
-                    studentPositions[compareIndex + 1] = tempPosition;
-                }
-            }
-        }
-        
-        System.out.println("=========================================================================================================");
-        displayHeader(studentScores);
-        System.out.println("=========================================================================================================");
-        
-        for (int studentIndex = 0; studentIndex < studentScores.length; studentIndex++) {
-            int totalStudentScore = 0;
-            System.out.print("Student " + (studentIndex + 1) + "\t");
-            
-            for (int subjectIndex = 0; subjectIndex < studentScores[studentIndex].length; subjectIndex++) {
-                System.out.print(studentScores[studentIndex][subjectIndex] + "\t\t");
-                totalStudentScore += studentScores[studentIndex][subjectIndex];
-            }
-            
-            double studentAverage = (double) totalStudentScore / studentScores[studentIndex].length;
-            int studentPosition = 0;
-            for (int positionIndex = 0; positionIndex < studentPositions.length; positionIndex++) {
-                if (studentPositions[positionIndex] == studentIndex + 1) {
-                    studentPosition = positionIndex + 1;
-                    break;
-                }
-            }
-            System.out.printf("%d\t\t%.2f\t\t  %d%n", totalStudentScore, studentAverage, studentPosition);
-        }
-        
-        System.out.println("==========================================================================================================");
-        System.out.println("\n");
-        subjectSummary(studentScores);
+    public int findStudentPosition(int[] studentPositions, int studentIndex) {
+    	for (int positionIndex = 0; positionIndex < studentPositions.length; positionIndex++) {
+        	if (studentPositions[positionIndex] == studentIndex + 1) {
+            		return positionIndex + 1; // Return 1-based position
+        	}
+    	}
+    	return -1;
     }
     
+    public void displaySummary(int[][] studentScores) {
+    	double[] studentAverages = new double[studentScores.length];
+    	int[] studentPositions = new int[studentScores.length];
+    
+    	for (int studentIndex = 0; studentIndex < studentScores.length; studentIndex++) {
+        	int totalScore = 0;
+        	for (int score : studentScores[studentIndex]) {
+            		totalScore += score;
+        	}
+        	studentAverages[studentIndex] = (double) totalScore / studentScores[studentIndex].length;
+        	studentPositions[studentIndex] = studentIndex + 1;
+    	}
+    
+       for (int passIndex = 0; passIndex < studentAverages.length - 1; passIndex++) {
+        for (int compareIndex = 0; compareIndex < studentAverages.length - passIndex - 1; compareIndex++) {
+            if (studentAverages[compareIndex] < studentAverages[compareIndex + 1]) {
+                
+                double tempAverage = studentAverages[compareIndex];
+                studentAverages[compareIndex] = studentAverages[compareIndex + 1];
+                studentAverages[compareIndex + 1] = tempAverage;
+                
+              
+                int tempPosition = studentPositions[compareIndex];
+                studentPositions[compareIndex] = studentPositions[compareIndex + 1];
+                studentPositions[compareIndex + 1] = tempPosition;
+            }
+        }
+    }
+    
+    System.out.println("=========================================================================================================");
+    displayHeader(studentScores);
+    System.out.println("=========================================================================================================");
+    
+    for (int studentIndex = 0; studentIndex < studentScores.length; studentIndex++) {
+        int totalStudentScore = 0;
+        System.out.print("Student " + (studentIndex + 1) + "\t");
+        
+        for (int subjectIndex = 0; subjectIndex < studentScores[studentIndex].length; subjectIndex++) {
+            System.out.print(studentScores[studentIndex][subjectIndex] + "\t\t");
+            totalStudentScore += studentScores[studentIndex][subjectIndex];
+        }
+        
+        double studentAverage = (double) totalStudentScore / studentScores[studentIndex].length;
+        
+
+        int studentPosition = findStudentPosition(studentPositions, studentIndex);
+        
+        System.out.printf("%d\t\t%.2f\t\t  %d%n", totalStudentScore, studentAverage, studentPosition);
+    }
+    
+    	System.out.println("==========================================================================================================");
+    	System.out.println("\n");
+    	subjectSummary(studentScores);
+    }
     public void displayHeader(int[][] studentScores) {
         System.out.print("Students\t");
         for (int subjectIndex = 0; subjectIndex < studentScores[0].length; subjectIndex++) {
