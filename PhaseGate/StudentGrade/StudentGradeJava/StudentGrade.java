@@ -78,7 +78,7 @@ public class StudentGrade {
             }
             
             double studentAverage = (double) totalStudentScore / studentScores[studentIndex].length;
-            int studentPosition = 1;
+            int studentPosition = 0;
             for (int positionIndex = 0; positionIndex < studentPositions.length; positionIndex++) {
                 if (studentPositions[positionIndex] == studentIndex + 1) {
                     studentPosition = positionIndex + 1;
