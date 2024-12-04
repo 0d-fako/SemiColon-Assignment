@@ -10,32 +10,25 @@ public class ATMMachineApp{
 
 	System.out.print("Are you a new or existing user?\nSelect one for New User and Select Two for Existing User")	
 	int UserType = input.nextInt();
-	if (userType = 1){};
-	else if(user == 2){};
+	if (userType == 1){
+		createAccount()
+	};
+	else if(user == 2){
+		mainMenu();	
+	};
 	else ("Please enter a valid input")
 
 	
 
 	}
 
-
-	public int[]{] createAccount(Scanner input){
-
-
-	}
+	public void mainMenu (Scanner input){
+	System.out.print()
 	
-	public void closeAccount(){
 
 
 
 	}
-	
-	public void DepositMoney(){
 
-	
-	}
-
-
-	public void TransferMoney(){}
 
 }

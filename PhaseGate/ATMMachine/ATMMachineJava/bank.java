@@ -51,7 +51,7 @@ public class Bank{
 
 	public boolean isAccountNumberUnique(String accountNumber){
 		for (int i = 0; i < currentAccountCount; i++){
-			if (account[i].getAccountNumber().equals(accountNumber)){
+			if (accounts[i].getAccountNumber().equals(accountNumber)){
 				return false;
 			}
 		} 
@@ -121,7 +121,7 @@ public class Bank{
 		System.out.println("Are you sure you want to close this account");
 		String response = input.nextLine().toLowerCase();
 		
-		if (reponse.equals(!"yes")){
+		if (!response.equals("yes")){
 			System.out.println("Account closure cancelled");
 			return;
 		}
@@ -137,7 +137,7 @@ public class Bank{
 			if(accounts[i] == accountToRemove){
 				for (int j = i; j < currentAccountCount - 1; j++){
 					accounts[j] = accounts[j+1];
-					accouns[currentAccountCount -1] = null;
+					accounts[currentAccountCount -1] = null;
 					currentAccountCount--;
 					break;
 				}
