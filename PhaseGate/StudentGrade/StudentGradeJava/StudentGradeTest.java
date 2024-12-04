@@ -3,13 +3,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.Scanner;
 
 public class StudentGradeTest {
-    @Test
-    public void testGetNumberOfStudentsAndSubjects() {
-        StudentGrade studentGrade = new StudentGrade();
-        int[] result = studentGrade.getNumberOfStudentsAndSubjects(3, 4);
-        
-        assertArrayEquals(new int[]{3, 4}, result);
-    }
     
     
     @Test
@@ -24,5 +17,22 @@ public class StudentGradeTest {
         int[] result = studentGrade.numberOfPasses(0, mockScores);
         
         assertArrayEquals(new int[]{2, 1, 0}, result);
+    }
+
+
+
+
+
+    @Test
+    public void testGetQuestionsForStudents() {
+    StudentGrade studentGrade = new StudentGrade();
+    
+    
+    Scanner mockScanner = new Scanner("75\n80\n90\n");
+    int[][] mockScores = new int[1][3];
+    
+    int[][] result = studentGrade.getQuestionsForStudents(mockScores, mockScanner);
+    
+    assertArrayEquals(new int[]{75, 80, 90}, result[0]);
     }
 }
