@@ -35,4 +35,20 @@ public class StudentGradeTest {
     
     assertArrayEquals(new int[]{75, 80, 90}, result[0]);
     }
+
+
+
+    @Test
+    public void testInvalidScoreInput() {
+    StudentGrade studentGrade = new StudentGrade();
+    
+
+    Scanner mockScanner = new Scanner("110\n75\n80\n90\n");
+    int[][] mockScores = new int[1][3];
+    
+    int[][] result = studentGrade.getQuestionsForStudents(mockScores, mockScanner);
+    
+    assertArrayEquals(new int[]{75, 80, 90}, result[0]);
+    }
+
 }
