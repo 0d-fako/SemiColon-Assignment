@@ -13,18 +13,10 @@ public class StudentGrade {
         System.out.print("Please enter how many subjects are taught in your class: ");
         int totalSubjectCount = inputScanner.nextInt();
         
-        int[] studentSubjectCounts = studentGradeApp.getNumberOfStudentsAndSubjects(totalStudentCount, totalSubjectCount);
-        int[][] studentScores = studentGradeApp.getScoresForEveryStudentAndSubject(studentSubjectCounts);
-        int[][] processedStudentScores = studentGradeApp.getQuestionsForStudents(studentScores, inputScanner);
-        studentGradeApp.displaySummary(processedStudentScores);
-    }
+	int[][] studentScores = new int[totalStudentCount][totalSubjectCount];
+    	int[][] processedStudentScores = studentGradeApp.getQuestionsForStudents(studentScores, inputScanner);
+    	studentGradeApp.displaySummary(processedStudentScores);
 
-    public int[] getNumberOfStudentsAndSubjects(int totalStudentCount, int totalSubjectCount) {
-        return new int[]{totalStudentCount, totalSubjectCount};
-    }
-    
-    public int[][] getScoresForEveryStudentAndSubject(int[] studentSubjectCounts) {
-        return new int[studentSubjectCounts[0]][studentSubjectCounts[1]];
     }
     
     public int[][] getQuestionsForStudents(int[][] studentScores, Scanner inputScanner) {

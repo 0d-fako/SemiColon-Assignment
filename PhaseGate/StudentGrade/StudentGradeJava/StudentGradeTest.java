@@ -11,14 +11,6 @@ public class StudentGradeTest {
         assertArrayEquals(new int[]{3, 4}, result);
     }
     
-    @Test
-    public void testGetScoresForEveryStudentAndSubject() {
-        StudentGrade studentGrade = new StudentGrade();
-        int[][] result = studentGrade.getScoresForEveryStudentAndSubject(new int[]{3, 4});
-        
-        assertEquals(3, result.length);
-        assertEquals(4, result[0].length);
-    }
     
     @Test
     public void testNumberOfPasses() {
