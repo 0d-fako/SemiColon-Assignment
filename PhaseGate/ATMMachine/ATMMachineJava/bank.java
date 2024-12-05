@@ -113,7 +113,7 @@ public class Bank{
 		}
 	}
 
-	private void closeAccount(Account account){
+	public void closeAccount(Account account){
 		if (account.getBalance() > 0){
 			System.out.print("Cannot close account. Balance must be zero");
 			return;
