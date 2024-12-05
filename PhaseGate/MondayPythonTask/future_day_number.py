@@ -1,16 +1,10 @@
-def future_day_number():
-    day_number = int(input("enter today number: "))
-    future_number = int(input("enter number of days elapsed since: "))
-    total = day_number + future_number
-    if total < 7 and total >= 0:
-        future_day = decide_day(total)
-        today = decide_day(day_number)
-        print(f"today is {today} and the future day is {future_day}")
-    else:
-        total = total % 7
-        future = decide_day(total)
-        today = decide_day(day_number)
-        print(f"today is {today} and the future day is {future}")
+def future_day_number(day_number, future_number):
+    if not 0 <= day_number <= 6:
+        return "Invalid input: day number must be between 0-6"
+    total = (day_number + future_number) % 7
+    today = decide_day(day_number)
+    future = decide_day(total)
+    return f"Today is {today} and the future day is {future}
 
 
 def decide_day(number):
@@ -29,4 +23,4 @@ def decide_day(number):
     else:
         return "sunday"
 
-future_day_number()
+future_day_number(1,5)

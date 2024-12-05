@@ -1,12 +1,11 @@
-def sum_all_digits():
-    number = int(input("Provide a number between 0 and 1000 to get the sum of all digits: "))
-    if number < 0:
-        return "invalid input, number below zero"
+def sum_all_digits(number):
+    if number < 0 or number > 1000:
+        return "Invalid input: number must be between 0 and 1000"
     total = 0
     while number > 0:
-        remainder = number % 10
-        total += remainder
+        total += number % 10
         number //= 10
     return total
-    
-print(sum_all_digits())
+
+
+print(sum_all_digits(932))
