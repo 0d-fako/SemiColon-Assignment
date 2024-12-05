@@ -57,7 +57,7 @@ public class ATMMachineApp {
             System.out.print("Choose an option: ");
             
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine(); 
             
             switch (choice) {
                 case 1:
@@ -66,13 +66,13 @@ public class ATMMachineApp {
                 case 2:
                     System.out.print("Enter deposit amount: ");
                     double depositAmount = scanner.nextDouble();
-                    scanner.nextLine(); // Consume newline
+                    scanner.nextLine(); 
                     account.deposit(depositAmount);
                     break;
                 case 3:
                     System.out.print("Enter withdrawal amount: ");
                     double withdrawAmount = scanner.nextDouble();
-                    scanner.nextLine(); // Consume newline
+                    scanner.nextLine(); 
                     account.withdraw(withdrawAmount);
                     break;
                 case 4:
