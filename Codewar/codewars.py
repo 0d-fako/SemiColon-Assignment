@@ -1,11 +1,11 @@
 def unsorted(numbers:list)->list:
 	pairs = []
 	for index in range(len(numbers)):
-		for second_index in range(3, len(numbers)-1):
-			if numbers[index] == numbers[second_index]:
-				if numbers[index] in pairs:continue
-				else:pairs.append(numbers[index])
-	return[sorted(pairs),[numbers[0],numbers[-1]]]
+		for second_index in range(len(numbers)-1):
+			if numbers[index] - numbers[second_index]== 3 or numbers[second_index] -numbers[index] == 3 :
+				if [numbers[index],numbers[second_index]] in pairs:continue
+				else:pairs.append([numbers[index],numbers[second_index]] )
+	return pairs
 
 
 
