@@ -4,7 +4,7 @@ public class TicTacToe{
 
 	public enum Cell {X, O, EMPTY}
 
-	public Enum GameStatus {XWINS, OWINS, DRAW, INCOMPLETE}
+	public enum GameStatus {XWINS, OWINS, DRAW, INCOMPLETE}
 	
 	private Cell[][] board;
 	private String[] players;
@@ -19,9 +19,9 @@ public class TicTacToe{
 		numMoves = 0;
 
 		for (int row = 0; row < 3; row++){
-			for (column = 0; column < 3; column++){
+			for (int column = 0; column < 3; column++){
 
-				board[row][column] = Cell.EMPTY
+				board[row][column] = Cell.EMPTY;
 			}
 
 
@@ -30,7 +30,7 @@ public class TicTacToe{
 	}
 
 	public boolean makeMove (int row, int column){
-		if (row < 0 || row >=3 || column < 0 || column >= 3 || board[row][column] != Cell.Empty){
+		if (row < 0 || row >=3 || column < 0 || column >= 3 || board[row][column] != Cell.EMPTY){
 			return false;
 		}
 		
@@ -43,21 +43,21 @@ public class TicTacToe{
 
 	public GameStatus getGameStatus(){
 		for (int row = 0; row < 3; row++){
-			if (board[row][0] != Cell.Empty && board[row][0] == board[row][1] && board[row][1] == board[row][2]){
-				return (board[0][column] == Cell.X)? GameStatus.XWINS : GameStatus.OWINS;
+			if (board[row][0] != Cell.EMPTY && board[row][0] == board[row][1] && board[row][1] == board[row][2]){
+				return (board[row][0] == Cell.X)? GameStatus.XWINS : GameStatus.OWINS;
 
 			}
 		}
 	
 		for (int column = 0; column < 3; column++){
-			if (board[0][column] != Cell.EMPTY && board[0][col] == board[1][column] && board[1][column] == board[2][column]){
+			if (board[0][column] != Cell.EMPTY && board[0][column] == board[1][column] && board[1][column] == board[2][column]){
 				return(board[0][column] == Cell.X)? GameStatus.XWINS :GameStatus.OWINS;
 			}
 
 		}
 
 
-		if (board[0][0] != Cell.EMPTY && board[0][0] == board[1][1] && board[1][1] == board[2][2]{
+		if (board[0][0] != Cell.EMPTY && board[0][0] == board[1][1] && board[1][1] == board[2][2]){
 			return(board[0][0] == Cell.X)? GameStatus.XWINS : GameStatus.OWINS;
 		}
 	
@@ -65,6 +65,7 @@ public class TicTacToe{
 			return(board[0][2] == Cell.X)? GameStatus.XWINS: GameStatus.OWINS;
 		
 		}
+		return(numMoves == 9)? GameStatus.DRAW : GameStatus.INCOMPLETE;
 	}
 
 
