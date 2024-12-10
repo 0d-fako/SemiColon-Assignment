@@ -82,6 +82,24 @@ public class TicTacToe{
 	
 	}
 
+	public Cell getCurrentTurn(){
+		return turn;
+	}
+
+	public String getCurrentPlayer(){
+		return (turn == Cell.X)? players[0] : players[1];
+	}
+
+
+	public static void main (String... args){
+
+
+
+
+
+
+
+	}
 
 
 
