@@ -68,6 +68,19 @@ public class TicTacToe{
 		return(numMoves == 9)? GameStatus.DRAW : GameStatus.INCOMPLETE;
 	}
 
+	public void printBoard(){
+		System.out.println("\nCurrent Board");
+		for (int row = 0; row < 3; row++){
+			for (int column = 0; column < 3; column++){
+				String gameBoard = (board[row][column] == Cell.EMPTY)? " ": board[row][column].toString();
+				System.out.print(" " + gameBoard + " ");
+				if (column < 2) System.out.print("|");
+			}
+			System.out.println();
+			if (row < 2) System.out.print("---------------");
+		}
+	
+	}
 
 
 
