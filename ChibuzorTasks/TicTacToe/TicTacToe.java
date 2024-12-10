@@ -103,7 +103,25 @@ public class TicTacToe{
 		TicTacToe game = new TicTacToe(player1,player2);
 
 
+		while (game.getGameStatus() == GameStatus.INCOMPLETE){
+			game.printBoard():
 
+			String currentPlayer = game.getCurrentPlayer();
+
+			System.out.println(currentPlayer + "turn" + game.getCurrenTurn());
+
+			System.out.print("Enter row");
+			int row = input.nextInt();
+
+			System.out.print("Enter column");
+			int column = input.nextInt();
+
+			if (!game.makeMove(row, column){
+				System.out.println("Invalid Move!")
+				continue;
+			}
+		
+		}
 
 
 
