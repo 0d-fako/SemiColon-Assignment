@@ -77,9 +77,10 @@ public class TicTacToe{
 				if (column < 2) System.out.print("|");
 			}
 			System.out.println();
-			if (row < 2) System.out.print("---------------");
+			if (row < 2) System.out.print("-----------");
+			System.out.println();
 		}
-	
+			
 	}
 
 	public Cell getCurrentTurn(){
@@ -97,7 +98,7 @@ public class TicTacToe{
 		System.out.println("Enter Player 1 name (X): ");
 		String player1 = input.nextLine();
 		
-		System.out.println("Enter Player 2 name (0): ");
+		System.out.println("Enter Player 2 name (O): ");
 		String player2 = input.nextLine();
 
 		TicTacToe game = new TicTacToe(player1,player2);
@@ -108,12 +109,12 @@ public class TicTacToe{
 
 			String currentPlayer = game.getCurrentPlayer();
 
-			System.out.println(currentPlayer + "turn" + game.getCurrentTurn());
+			System.out.println(currentPlayer + "'s turn (" + game.getCurrentTurn()+ ")");
 
-			System.out.print("Enter row");
+			System.out.print("Enter row>> ");
 			int row = input.nextInt();
 
-			System.out.print("Enter column");
+			System.out.print("Enter column>> ");
 			int column = input.nextInt();
 
 			if (!game.makeMove(row, column)){
@@ -123,8 +124,26 @@ public class TicTacToe{
 		
 		}
 
+		game.printBoard();
+		GameStatus status = game.getGameStatus();
 
+		
+		switch (status){
+			case XWINS:
+				System.out.println(player1 + " (X) wins");
+				break;
 
+			case OWINS:
+				System.out.println(player2 + " (O) wins");
+				break;
+		
+			case DRAW:
+				System.out.println("Game ends in a draw");
+				break;
+			
+	
+		}
+		
 	}
 
 
