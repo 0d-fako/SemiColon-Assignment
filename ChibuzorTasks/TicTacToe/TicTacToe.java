@@ -107,7 +107,7 @@ public class TicTacToe{
 
 			String currentPlayer = game.getCurrentPlayer();
 
-			System.out.println("Its" + currentPlayer + "'s turn (" + game.getCurrentTurn() +")");
+			System.out.println("Its " + currentPlayer + "'s turn (" + game.getCurrentTurn() +")");
 			
 			System.out.println("Enter a row number betwwen 1 - 3");
 			System.out.print("Enter row>> ");
