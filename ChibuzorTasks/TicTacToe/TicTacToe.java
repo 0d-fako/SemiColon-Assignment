@@ -20,13 +20,9 @@ public class TicTacToe{
 
 		for (int row = 0; row < 3; row++){
 			for (int column = 0; column < 3; column++){
-
 				board[row][column] = Cell.EMPTY;
 			}
-
-
 		}
-
 	}
 
 	public boolean makeMove (int row, int column){
@@ -94,7 +90,9 @@ public class TicTacToe{
 
 	public static void main (String... args){
 		Scanner input = new Scanner(System.in);
-		
+
+
+		System.out.println("Hello, Welcome to the TICTACTOE Game, Please provide your names");	
 		System.out.println("Enter Player 1 name (X): ");
 		String player1 = input.nextLine();
 		
@@ -109,13 +107,15 @@ public class TicTacToe{
 
 			String currentPlayer = game.getCurrentPlayer();
 
-			System.out.println(currentPlayer + "'s turn (" + game.getCurrentTurn()+ ")");
-
+			System.out.println("Its" + currentPlayer + "'s turn (" + game.getCurrentTurn() +")");
+			
+			System.out.println("Enter a row number betwwen 1 - 3");
 			System.out.print("Enter row>> ");
-			int row = input.nextInt();
+			int row = input.nextInt() - 1;
 
+			System.out.println("Enter a row number betwwen 1 - 3");
 			System.out.print("Enter column>> ");
-			int column = input.nextInt();
+			int column = input.nextInt() - 1;
 
 			if (!game.makeMove(row, column)){
 				System.out.println("Invalid Move!");
