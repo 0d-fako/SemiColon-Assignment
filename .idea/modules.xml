@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/PhaseGate/ATMMachine/ATMMachine.iml" filepath="$PROJECT_DIR$/PhaseGate/ATMMachine/ATMMachine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PhaseGate/CCValidator/CCValidator.iml" filepath="$PROJECT_DIR$/PhaseGate/CCValidator/CCValidator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PhaseGate/CheckOut/CheckOut.iml" filepath="$PROJECT_DIR$/PhaseGate/CheckOut/CheckOut.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DSA/DSA.iml" filepath="$PROJECT_DIR$/DSA/DSA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PhaseGate/MenstrualApp/MenstrualApp.iml" filepath="$PROJECT_DIR$/PhaseGate/MenstrualApp/MenstrualApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PhaseGate/PizzaOrder/PizzaOrder.iml" filepath="$PROJECT_DIR$/PhaseGate/PizzaOrder/PizzaOrder.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SemiColon-Assignment.iml" filepath="$PROJECT_DIR$/SemiColon-Assignment.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PhaseGate/StudentGrade/StudentGrade.iml" filepath="$PROJECT_DIR$/PhaseGate/StudentGrade/StudentGrade.iml" />
+    </modules>
+  </component>
+</project>
