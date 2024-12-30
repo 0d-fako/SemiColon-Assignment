@@ -20,7 +20,7 @@ public class StudentGradeSentinel {
 		case 9 :
 		case 10 :
 			System.out.println("You have an A");
-			System.out.println("Well Done")
+			System.out.println("Well Done");
 			break;
 
 		case 7 :
