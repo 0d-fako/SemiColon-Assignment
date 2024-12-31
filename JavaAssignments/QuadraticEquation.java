@@ -42,7 +42,7 @@ public class QuadraticEquation {
         } else {
            
             double realPart = -b / (2 * a);
-            double imaginaryPart =  1/(2 * a);
+            double imaginaryPart = Math.sqrt(-discriminant) / (2 * a);
             System.out.printf("Root 1 = %.2f + %.2fi\n", realPart, imaginaryPart);
             System.out.printf("Root 2 = %.2f - %.2fi\n", realPart, imaginaryPart);
         }
