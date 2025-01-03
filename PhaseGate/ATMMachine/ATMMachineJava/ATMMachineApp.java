@@ -33,7 +33,6 @@ public class ATMMachineApp {
                 if (loggedInAccount != null) {
                     handleLoggedInMenu(loggedInAccount, bank);
                 }
-                break;
             case 3: 
                 System.out.println("Thank you for using our ATM");
                 System.exit(0);

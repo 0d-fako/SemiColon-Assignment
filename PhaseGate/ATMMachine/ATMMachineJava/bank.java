@@ -3,11 +3,11 @@ import java.util.Arrays;
 
 public class Bank{
 	private Account[] accounts;
-    	private int maxAccounts;
-    	private int currentAccountCount;
-    	private Scanner input;
+	private int maxAccounts;
+	private int currentAccountCount;
+	private Scanner input;
 
-    	public Bank(int maxAccounts) {
+	public Bank(int maxAccounts) {
         	this.maxAccounts = maxAccounts;
         	this.accounts = new Account[maxAccounts];
         	this.currentAccountCount = 0;

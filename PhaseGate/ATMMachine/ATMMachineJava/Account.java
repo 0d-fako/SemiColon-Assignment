@@ -10,9 +10,9 @@ public class Account {
         	this.accountNumber = accountNumber;
         	this.pin = pin;
         	this.balance = 0.0;
-		this.firstName = firstName;
-		this.lastName = lastName;
-    	}
+			this.firstName = firstName;
+			this.lastName = lastName;
+	}
 
 
 	public String getAccountNumber(){
