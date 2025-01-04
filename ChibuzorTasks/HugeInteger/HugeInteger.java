@@ -61,6 +61,15 @@ public class HugeInteger{
 		}
 		return false;
 	}
+
+	public boolean isZero() {
+		for (int digit : this.numbers) {
+			if (digit != 0) {
+				return false;
+			}
+		}
+		return true;
+	}
 	public static void main(String... args){
 		
 		HugeInteger hugeInteger = new HugeInteger("10");
