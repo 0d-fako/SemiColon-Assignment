@@ -41,14 +41,26 @@ public class HugeInteger{
 
 	}
 
-	public Boolean isEqualTo(HugeInteger other){
+	public boolean isEqualTo(HugeInteger other){
 		return this.toString().equals(other.toString());
 	}
 
-	public Boolean isNotEqualTo(HugeInteger other){
+	public boolean isNotEqualTo(HugeInteger other){
 		return !(this.toString().equals(other.toString()));
 	}
 
+	public boolean isGreaterThan(HugeInteger other) {
+		if (this.numbers.size() != other.numbers.size()) {
+			return this.numbers.size() > other.numbers.size();
+		}
+
+		for (int i = 0; i < this.numbers.size(); i++) {
+			if (!this.numbers.get(i).equals(other.numbers.get(i))) {
+				return this.numbers.get(i) > other.numbers.get(i);
+			}
+		}
+		return false;
+	}
 	public static void main(String... args){
 		
 		HugeInteger hugeInteger = new HugeInteger("10");
