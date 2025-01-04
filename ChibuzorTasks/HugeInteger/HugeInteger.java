@@ -13,22 +13,25 @@ public class HugeInteger{
 	}
 
 
-
-	public void parse(String numbers){
+	public void parse(String numbers) {
 		if (numbers.length() > 40) {
 			throw new IllegalArgumentException("HugeInteger: Number is too long");
 		} else {
-			for(Integer number : numbers.toCharArray()){
-
+			this.numbers.clear();
+			for (char digit : numbers.toCharArray()) {
+				if (!Character.isDigit(digit)) {
+					throw new IllegalArgumentException("Invalid character: " + digit);
+				}
+				this.numbers.add(Character.getNumericValue(digit));
 			}
 		}
-
 	}
 
 	private BigInteger getValue(){
-		return new BigInteger(ToString());
+		return new BigInteger(toString());
 	}
-	public String ToString(){
+	@Override
+	public String toString(){
 		StringBuilder numberToString = new StringBuilder();
 
 		for (Integer number : this.numbers ){
@@ -36,15 +39,14 @@ public class HugeInteger{
 		}
 		return numberToString.toString();
 
-
 	}
 
 	public Boolean isEqualTo(HugeInteger other){
-		return this.ToString().equals(other.ToString());
+		return this.toString().equals(other.toString());
 	}
 
 	public Boolean isNotEqualTo(HugeInteger other){
-		return !(this.ToString().equals(other.ToString()));
+		return !(this.toString().equals(other.toString()));
 	}
 
 	public static void main(String... args){
