@@ -1,5 +1,6 @@
 package HugeInteger;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 
 
@@ -22,6 +23,10 @@ public class HugeInteger{
 			}
 		}
 
+	}
+
+	private BigInteger getValue(){
+		return new BigInteger(ToString());
 	}
 	public String ToString(){
 		StringBuilder numberToString = new StringBuilder();
