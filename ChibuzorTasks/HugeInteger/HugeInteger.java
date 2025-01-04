@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class HugeInteger{
 
-	private ArrayList<Integer> numbers = new ArrayList<>;
+	private final ArrayList<Integer> numbers = new ArrayList<>();
 
 	public HugeInteger(String numbers){
 		parse(numbers);
@@ -23,7 +23,6 @@ public class HugeInteger{
 		}
 
 	}
-	private
 	public String ToString(){
 		StringBuilder numberToString = new StringBuilder();
 
@@ -49,11 +48,7 @@ public class HugeInteger{
 
 
 
-		System.out.println(hugeInteger.toString(number));
-
-		for (int i = 0; i < newHuge.length; i++){
-			System.out.print(newHuge[i]);
-		}
+		System.out.println(hugeInteger.toString());
 	
 
 	}
