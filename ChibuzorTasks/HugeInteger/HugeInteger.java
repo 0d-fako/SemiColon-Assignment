@@ -9,6 +9,9 @@ public class HugeInteger{
 	private final ArrayList<Integer> numbers = new ArrayList<>();
 
 	public HugeInteger(String numbers){
+		if (numbers == null) {
+			throw new IllegalArgumentException("Input cannot be null");
+		}
 		parse(numbers);
 	}
 
