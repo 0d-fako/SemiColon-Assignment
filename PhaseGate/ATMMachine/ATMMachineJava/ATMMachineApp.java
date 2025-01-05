@@ -28,11 +28,27 @@ public class ATMMachineApp {
             case 1:
                 bank.createAccount();
                 break;
-            case 2: 
-                Account loggedInAccount = bank.login();
-                if (loggedInAccount != null) {
-                    handleLoggedInMenu(loggedInAccount, bank);
+            case 2:
+                int loginAttempts = 3;
+                while (loginAttempts > 0) {
+                    Account loggedInAccount = bank.login();
+                    if (loggedInAccount != null) {
+                        handleLoggedInMenu(loggedInAccount, bank);
+                        break;
+                    }
+                    loginAttempts--;
+                    if (loginAttempts > 0) {
+                        System.out.println("\nLogin failed. You have " + loginAttempts + " attempts remaining.");
+                        System.out.println("Press Enter to try again or type 'exit' to return to main menu: ");
+                        String loginResponse = scanner.nextLine();
+                        if (loginResponse.toLowerCase().equals("exit")) {
+                            break;
+                        }
+                    } else {
+                        System.out.println("\nToo many failed login attempts. Please try again later.");
+                    }
                 }
+                break;
             case 3: 
                 System.out.println("Thank you for using our ATM");
                 System.exit(0);

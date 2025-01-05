@@ -1,7 +1,7 @@
 public class Account {
 	private String firstName;
 	private String lastName;
-	private String accountNumber;
+	private final String accountNumber;
 	private double balance;
 	private String pin;
 	private boolean isActive;
