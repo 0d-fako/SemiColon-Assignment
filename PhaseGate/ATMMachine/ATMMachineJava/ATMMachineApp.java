@@ -41,7 +41,7 @@ public class ATMMachineApp {
                         System.out.println("\nLogin failed. You have " + loginAttempts + " attempts remaining.");
                         System.out.println("Press Enter to try again or type 'exit' to return to main menu: ");
                         String loginResponse = scanner.nextLine();
-                        if (loginResponse.toLowerCase().equals("exit")) {
+                        if (loginResponse.equalsIgnoreCase("exit")) {
                             break;
                         }
                     } else {

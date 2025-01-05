@@ -42,7 +42,7 @@ public class Account {
 	public void deposit(double amount){
 		if (amount > 0){
 			balance += amount;
-			System.out.printf("Deposited N%.2f. New Balance: N%.2f, amount, balance");
+			System.out.printf("Deposited N%.2f. New Balance: N%.2f", amount, balance);
 		} else {
 			System.out.println("Invalid deposit amount");
 		}
@@ -52,7 +52,7 @@ public class Account {
 	public boolean withdraw(double amount){
 		if (amount > 0 && amount <= balance){
 			balance -= amount;
-			System.out.printf("Withdrawn N%.2f, New balance: N%.2f, amount, balance");
+			System.out.printf("Withdrawn N%.2f, New balance: N%.2f", amount, balance);
 			return true;
 	
 		} else {
