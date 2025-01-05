@@ -64,6 +64,17 @@ public class HugeInteger{
 		}
 		return false;
 	}
+	public boolean isLessThan(HugeInteger other) {
+		return !isGreaterThan(other) && !isEqualTo(other);
+	}
+
+	public boolean isGreaterThanOrEqualTo(HugeInteger other) {
+		return isGreaterThan(other) || isEqualTo(other);
+	}
+
+	public boolean isLessThanOrEqualTo(HugeInteger other) {
+		return isLessThan(other) || isEqualTo(other);
+	}
 
 	public boolean isZero() {
 		for (int digit : this.numbers) {
