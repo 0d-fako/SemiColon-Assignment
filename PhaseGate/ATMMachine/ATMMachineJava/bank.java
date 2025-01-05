@@ -20,10 +20,10 @@ public class Bank{
 			return;	
 		}
 	
-		System.out.print("Please enter your first name");
+		System.out.print("Please enter your first name: ");
 		String firstName = input.nextLine();
 
-		System.out.print("Please enter your last name");
+		System.out.print("Please enter your last name: ");
 		String lastName = input.nextLine();
 
 		String accountNumber;
@@ -93,7 +93,7 @@ public class Bank{
 	}
 
 	public Account login(){
-		System.out.print("Please enter your account number");
+		System.out.print("Please enter your account number: ");
 		String accountNumber = input.nextLine();
 			
 		Account account = findAccount(accountNumber);
