@@ -22,8 +22,7 @@ public class CompoundInterestCalculator {
         for (int month = 0; month < totalMonths; month++) {
             principal += monthlyContribution;
 
-
-            if (month % (12 / numCompoundings) == 0) {
+            if (numCompoundings > 0 && (month % (12 / Math.max(1, Math.min(numCompoundings, 12))) == 0)) {
                 principal *= (1 + (rate / numCompoundings));
             }
         }
@@ -32,6 +31,9 @@ public class CompoundInterestCalculator {
     }
 
     private int getCompoundingFrequency() {
+        if (compoundFrequency == null || compoundFrequency.isEmpty()) {
+            throw new IllegalArgumentException("Compound frequency cannot be null or empty");
+        }
         switch (compoundFrequency.toLowerCase()) {
             case "daily":
                 return 365;
@@ -44,7 +46,7 @@ public class CompoundInterestCalculator {
             case "annually":
                 return 1;
             default:
-                return 12;
+                throw new IllegalArgumentException("Invalid compound frequency: " + compoundFrequency);
         }
     }
 

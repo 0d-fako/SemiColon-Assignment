@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class DigitSeparator {
+class DigitSeparatorNew {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
      
