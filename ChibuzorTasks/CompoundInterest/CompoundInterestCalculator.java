@@ -70,9 +70,9 @@ public class CompoundInterestCalculator {
 
         interestRate = tempRate;
 
-        System.out.printf("Results with %.2f%% interest rate:%n", interestRate);
+        System.out.printf("Here is your final amount with %.2f%% interest rate:%n", interestRate);
         System.out.printf("Final Amount: $%.2f%n", baseResult);
-        System.out.printf("Range with ±%.2f%% variance:%n", interestVariance);
+        System.out.printf("Range with %.2f%% variance:%n", interestVariance);
         System.out.printf("Lower bound (%.2f%%): $%.2f%n", lowerRate, lowerResult);
         System.out.printf("Upper bound (%.2f%%): $%.2f%n", upperRate, upperResult);
     }
