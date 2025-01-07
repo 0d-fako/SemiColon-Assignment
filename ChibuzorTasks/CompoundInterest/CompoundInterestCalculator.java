@@ -20,15 +20,18 @@ public class CompoundInterestCalculator {
 
         int totalCompoundings = numCompoundings * lengthInYears;
 
-        for (int compounding = 1; compounding <= totalCompoundings; compounding++) {
-            if (compounding % (numCompoundings / 12) == 0) {
+        int periodsPerMonth = Math.max(1, numCompoundings / 12);
+
+        for (int i = 0; i < totalCompoundings; i++) {
+            if (i % periodsPerMonth == 0) {
                 principal += monthlyContribution;
             }
+
             principal *= (1 + rate / numCompoundings);
         }
+
         return principal;
     }
-
     private int getCompoundingFrequency() {
         if (compoundFrequency == null || compoundFrequency.isEmpty()) {
             throw new IllegalArgumentException("Compound frequency cannot be null or empty");
