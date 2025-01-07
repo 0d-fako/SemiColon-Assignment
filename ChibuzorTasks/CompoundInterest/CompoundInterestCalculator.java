@@ -10,25 +10,22 @@ public class CompoundInterestCalculator {
     private double interestVariance;
     private String compoundFrequency;
 
-    public CompoundInterestCalculator() {
-    }
+    //public CompoundInterestCalculator() {
+    //}
 
     public double calculateCompoundInterest() {
         double principal = initialInvestment;
         int numCompoundings = getCompoundingFrequency();
         double rate = interestRate / 100.0;
-        int totalMonths = lengthInYears * 12;
 
-        for (int month = 0; month < totalMonths; month++) {
-            principal += monthlyContribution;
+        int totalCompoundings = numCompoundings * lengthInYears;
 
-            if (month % Math.max(1, (12 / numCompoundings)) == 0) {
-                principal *= (1 + (rate / numCompoundings));
-            } else {
-                principal *= (1 + rate);
+        for (int compounding = 1; compounding <= totalCompoundings; compounding++) {
+            if (compounding % (numCompoundings / 12) == 0) {
+                principal += monthlyContribution;
             }
+            principal *= (1 + rate / numCompoundings);
         }
-
         return principal;
     }
 
