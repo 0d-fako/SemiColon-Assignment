@@ -22,8 +22,10 @@ public class CompoundInterestCalculator {
         for (int month = 0; month < totalMonths; month++) {
             principal += monthlyContribution;
 
-            if (numCompoundings > 0 && (month % (12 / Math.max(1, Math.min(numCompoundings, 12))) == 0)) {
+            if (month % Math.max(1, (12 / numCompoundings)) == 0) {
                 principal *= (1 + (rate / numCompoundings));
+            } else {
+                principal *= (1 + rate);
             }
         }
 
