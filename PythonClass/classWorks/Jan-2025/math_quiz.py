@@ -23,7 +23,7 @@ def math_quiz():
     score = 0
     total_questions = 0
 
-    while True:
+    for i in range(10):
 
         question, correct_answer = generate_question()
         print(f"Question: {question}")
@@ -49,7 +49,7 @@ def math_quiz():
         if play_again != 'yes':
             break
 
-    print(f"Quiz Finished! You got {score}/{total_questions} questions right.)
+    print(f"Quiz Finished! You got {score}/{total_questions} questions right.")
 
 
 
