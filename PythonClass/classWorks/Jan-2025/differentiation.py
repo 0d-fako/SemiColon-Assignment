@@ -1,5 +1,5 @@
 def differentiate(equation):
-    diff_array = equation.split(" ")
+    diff_array = equation.split("+" or "-")
 
 
     differentiated_coefficients = [

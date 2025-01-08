@@ -24,7 +24,7 @@ def sum_of_pos_and_neg(numbers):
 def print_sums(numbers):
     sums = sum_of_pos_and_neg(numbers)
     print(
-        f"Positive numbers sum: {sums['positive_sum']}, Negative numbers sum: {sums['negative_sum']}, Zeroes sum: {sums['zero_sum']}")
+        f"Positive numbers: {sums['positive_sum']}, Negative numbers: {sums['negative_sum']}, Zeroes: {sums['zero_sum']}")
 
 
 def main():
