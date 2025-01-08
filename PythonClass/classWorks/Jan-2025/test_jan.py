@@ -1,8 +1,7 @@
-from email.charset import add_codec
-from unittest import TestCase, expectedFailure
+from unittest import TestCase
 import array_search
 import differentiation
-import sum_of_pos_and_neg
+import digit_value_counter
 
 
 
@@ -32,8 +31,10 @@ class TestJan(Testcase):
         expected = "Please enter a valid number"
         self.assertEquals[actual, expected]
 
-    def test_that_sum_of_pos_and_neg_function_exist(self):
-        sum_of_pos_and_neg.sum_of_pos_and_neg([1, 2, 3, 4, 5])
+    def test_that_digit_value_counter_function_exist(self):
+        digit_value_counter.sum_of_pos_and_neg([1, 2, 3, 4, 5])
 
-    def test_that_sum_of_pos_and_neg_function_return_correct_value(self):
-        add_c
+    def test_that_digit_value_counter_function_return_correct_value(self):
+        actual = digit_value_counter.sum_of_pos_and_neg([1, 2, 3, 4, -5])
+        expected = [4, 1, 0]
+        self.assertEquals[actual, expected]
