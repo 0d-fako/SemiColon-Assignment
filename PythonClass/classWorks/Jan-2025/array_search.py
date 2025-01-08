@@ -7,19 +7,23 @@ def array_search(my_list, target):
 
 def main():
     my_list = []
-    response = ""
+    response = None
 
-    while response != "q":
 
-        list_item = int(input("Enter a list item: "))
-        if list_item == str:
+    while response != -1:
+
+        try :
+            list_item = int(input("Enter a list item or -1 to quit: "))
+        except ValueError:
             print("Invalid input")
             continue
 
-        if list_item == "q":
+        if list_item == -1:
             response = list_item
         my_list.append(list_item)
-
+    num_to_search = int(input("Enter a number to search: "))
+    result = array_search(my_list, num_to_search)
+    print(f"The number {num_to_search} is at position {result}")
 
 
 

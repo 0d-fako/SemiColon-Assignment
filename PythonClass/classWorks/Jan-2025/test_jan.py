@@ -6,7 +6,7 @@ import digit_value_counter
 
 
 
-class TestJan(Testcase):
+class TestJan(TestCase):
     def test_that_array_search_function_exist(self):
         array_search.array_search([1, 2, 3],8)
 
