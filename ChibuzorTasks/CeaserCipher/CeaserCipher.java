@@ -33,6 +33,7 @@ public class CeaserCipher {
                 decryptedText.append(alphabet);
             }
         }
+        return decryptedText.toString();
     }
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
