@@ -26,13 +26,13 @@ public class ArraySearchTest {
         //Given
         ArraySearch arraySearch = new ArraySearch();
         int[] myList = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        int number = 11;
+        int number = 3;
 
         //Action
         int result = arraySearch.array_search(myList, number);
 
         //Check
-        assertEquals(-1, result);
+        assertEquals(2, result);
 
     }
 }
