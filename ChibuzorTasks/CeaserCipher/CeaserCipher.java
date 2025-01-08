@@ -21,6 +21,7 @@ public class CeaserCipher {
                 encryptedText.append(alphabet);
             }
         }
+        return encryptedText.toString();
     }
     public static String decrypt(String text, int shift){
         StringBuilder decryptedText = new StringBuilder();
