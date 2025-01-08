@@ -1,4 +1,7 @@
-def differentiate(coefficients, exponents):
+def differentiate(equation):
+    diff_array = equation.split(" ")
+
+
     differentiated_coefficients = [
         coefficients[i] * i for i in range(1, len(coefficients))
     ]
@@ -6,6 +9,8 @@ def differentiate(coefficients, exponents):
 
 
 
-coefficients = [4, 1, 2, 3]
-result = differentiate(coefficients)
+def main():
+    equation =  input("Enter the equation: ")
+
+    result = differentiate(equation)
 print(result)
