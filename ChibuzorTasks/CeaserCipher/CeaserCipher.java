@@ -23,7 +23,16 @@ public class CeaserCipher {
         }
     }
     public static String decrypt(String text, int shift){
-
+        StringBuilder decryptedText = new StringBuilder();
+        for (char alphabet : text.toCharArray()) {
+            if (Character.isUpperCase(alphabet)) {
+                decryptedText.append((char) ((alphabet - 'A' - shift) % ALPHABET_LENGTH + 'A'));
+            } else if (Character.isLowerCase(alphabet)) {
+                decryptedText.append((char) ((alphabet - 'a' - shift) % ALPHABET_LENGTH + 'a'));
+            } else {
+                decryptedText.append(alphabet);
+            }
+        }
     }
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
