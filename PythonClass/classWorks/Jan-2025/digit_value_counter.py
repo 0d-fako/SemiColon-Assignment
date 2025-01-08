@@ -1,34 +1,42 @@
+QUIT_COMMAND = "q"
+
+
 def sum_of_pos_and_neg(numbers):
-    pos_count = 0
-    neg_count = 0
-    zero_count = 0
-    for i in numbers:
-        if i > 0:
-            pos_count += i
-        elif i < 0:
-            neg_count += i
+    positive_sum = 0
+    negative_sum = 0
+    zero_sum = 0
+
+    for number in numbers:
+        if number > 0:
+            positive_sum += 1
+        elif number < 0:
+            negative_sum += 1
         else:
-            zero_count += i
-    return pos_count, neg_count, zero_count
+            zero_sum += 1
+
+    return {
+        "positive_sum": positive_sum,
+        "negative_sum": negative_sum,
+        "zero_sum": zero_sum,
+    }
+
 
 def print_sums(numbers):
-    pos_count,neg_count,zero_count = sum_of_pos_and_neg(numbers)
-    print(f"Positive numbers: {pos_count}, Negative numbers: {neg_count}, Zeroes: {zero_count}")
+    sums = sum_of_pos_and_neg(numbers)
+    print(
+        f"Positive numbers sum: {sums['positive_sum']}, Negative numbers sum: {sums['negative_sum']}, Zeroes sum: {sums['zero_sum']}")
 
 
 def main():
-    QUIT_COMMAND = "q"
     my_list = []
-    list_item = int(input("Enter a number: "))
-
-    while response != QUIT_COMMAND:
+    while True:  # Infinite loop, break using QUIT_COMMAND
         try:
-            my_list.append()
+            input_value = input("Enter a number (or 'q' to quit): ").strip()
+            if input_value.lower() == QUIT_COMMAND:
+                break
+            my_list.append(int(input_value))
+            print_sums(my_list)
         except ValueError:
-            print("Please enter a valid number!")
-            continue
-        response = input(f"Enter '{QUIT_COMMAND}' to quit: ").strip()  # Strip unwanted whitespace
-        print_sums(my_list)
-
+            print("Invalid input! Please enter a valid integer.")
 
 main()
