@@ -11,7 +11,16 @@ public class CeaserCipher {
     }
 
     public static String encrypt(String text, int shift) {
-
+        StringBuilder encryptedText = new StringBuilder();
+        for (char alphabet : text.toCharArray()) {
+            if (Character.isUpperCase(alphabet)) {
+                encryptedText.append((char) ((alphabet - 'A' + shift) % ALPHABET_LENGTH + 'A'));
+            } else if (Character.isLowerCase(alphabet)) {
+                encryptedText.append((char) ((alphabet - 'a' + shift) % ALPHABET_LENGTH + 'a'));
+            } else {
+                encryptedText.append(alphabet);
+            }
+        }
     }
     public static String decrypt(String text, int shift){
 
@@ -27,7 +36,8 @@ public class CeaserCipher {
         System.out.print("Please enter the shift value: ");
         cipher.shift = input.nextInt();
 
+        String encryptedText = cipher.encrypt(cipher.text, cipher.shift);
 
-
+        System.out.println("Encrypted Text: " + encryptedText);
     }
 }
