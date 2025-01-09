@@ -40,14 +40,14 @@ public class CeaserCipher {
         input.nextLine();
         if(response == 1) {
             System.out.print("Please enter the text you want to encrypt: ");
-            cipher.text = input.nextLine();
+            cipher.text = input.nextLine().toLowerCase();
             System.out.print("Please enter the key: ");
             cipher.shift = input.nextInt();
             String encryptedText = cipher.encrypt(cipher.text, cipher.shift);
             System.out.println("Encrypted Text: " + encryptedText);
         } else if(response == 2) {
             System.out.print("Please enter the text you want to decrypt: ");
-            cipher.text = input.nextLine();
+            cipher.text = input.nextLine().toLowerCase();
             System.out.print("Please enter the key: ");
             cipher.shift = input.nextInt();
             String decryptedText = cipher.decrypt(cipher.text, cipher.shift);
