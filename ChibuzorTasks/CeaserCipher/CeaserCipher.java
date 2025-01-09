@@ -11,30 +11,22 @@ public class CeaserCipher {
     }
 
     public String encrypt(String text, int shift) {
-        StringBuilder encryptedText = new StringBuilder();
-        for (char alphabet : text.toCharArray()) {
-            if (Character.isUpperCase(alphabet)) {
-                encryptedText.append((char) ((alphabet - 'A' + shift) % ALPHABET_LENGTH + 'A'));
-            } else if (Character.isLowerCase(alphabet)) {
-                encryptedText.append((char) ((alphabet - 'a' + shift) % ALPHABET_LENGTH + 'a'));
+        StringBuilder result = new StringBuilder();
+        for (char character : text.toCharArray()) {
+            if (character != ' ') {
+                int originalAlphabetPosition = character - 'a';
+                int newAlphabetPosition = (originalAlphabetPosition + shift) % ALPHABET_LENGTH;
+                char newCharacter = (char) ('a' + newAlphabetPosition);
+                result.append(newCharacter);
             } else {
-                encryptedText.append(alphabet);
+                result.append(character);
             }
         }
-        return encryptedText.toString();
+        return result.toString();
     }
+
     public String decrypt(String text, int shift){
-        StringBuilder decryptedText = new StringBuilder();
-        for (char alphabet : text.toCharArray()) {
-            if (Character.isUpperCase(alphabet)) {
-                decryptedText.append((char) ((alphabet - 'A' - shift) % ALPHABET_LENGTH + 'A'));
-            } else if (Character.isLowerCase(alphabet)) {
-                decryptedText.append((char) ((alphabet - 'a' - shift) % ALPHABET_LENGTH + 'a'));
-            } else {
-                decryptedText.append(alphabet);
-            }
-        }
-        return decryptedText.toString();
+        return encrypt(text, ALPHABET_LENGTH - (shift % ALPHABET_LENGTH));
     }
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -60,17 +52,19 @@ public class CeaserCipher {
             System.out.println("Decrypted Text: " + decryptedText);
         } else {
             System.out.println("Invalid response");
+            main(new String[0]);
         }
 
 
         System.out.println("Would you like to perform another action (Y/N)? : ");
         String continueResponse = input.next().toLowerCase();
         if(continueResponse.equals("y")){
-            main(args);
+            main(new String[0]);
         } else if(continueResponse.equals("n")){
             System.exit(0);
         } else{
             System.out.println("Invalid response");
+            main(new String[0]);
         }
 
 
