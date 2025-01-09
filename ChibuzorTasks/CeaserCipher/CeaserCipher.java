@@ -1,4 +1,5 @@
 package CeaserCipher;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class CeaserCipher {
@@ -33,6 +34,7 @@ public class CeaserCipher {
         CeaserCipher cipher = new CeaserCipher();
         System.out.println("Welcome to the Ceaser Cipher App");
 
+        try {
         System.out.println("Would you like to encrypt or decrypt a text?\n1. Encrypt\n2. Decrypt: ");
         int response = input.nextInt();
         input.nextLine();
@@ -66,7 +68,8 @@ public class CeaserCipher {
             System.out.println("Invalid response");
             main(new String[0]);
         }
-
-
+    } catch (Exception e) {
+            throw new InputMismatchException();
+        }
     }
 }
