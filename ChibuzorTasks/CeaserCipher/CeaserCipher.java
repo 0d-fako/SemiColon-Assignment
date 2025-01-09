@@ -10,7 +10,7 @@ public class CeaserCipher {
 
     }
 
-    public static String encrypt(String text, int shift) {
+    public String encrypt(String text, int shift) {
         StringBuilder encryptedText = new StringBuilder();
         for (char alphabet : text.toCharArray()) {
             if (Character.isUpperCase(alphabet)) {
@@ -23,7 +23,7 @@ public class CeaserCipher {
         }
         return encryptedText.toString();
     }
-    public static String decrypt(String text, int shift){
+    public String decrypt(String text, int shift){
         StringBuilder decryptedText = new StringBuilder();
         for (char alphabet : text.toCharArray()) {
             if (Character.isUpperCase(alphabet)) {
@@ -47,9 +47,15 @@ public class CeaserCipher {
         if(response == 1) {
             System.out.print("Please enter the text you want to encrypt: ");
             cipher.text = input.nextLine();
+            System.out.print("Please enter the key: ");
+            cipher.shift = input.nextInt();
+            String encryptedText = cipher.encrypt(cipher.text, cipher.shift);
         } else if(response == 2) {
             System.out.print("Please enter the text you want to decrypt: ");
             cipher.text = input.nextLine();
+            System.out.print("Please enter the key: ");
+            cipher.shift = input.nextInt();
+            String decryptedText = cipher.decrypt(cipher.text, cipher.shift);
         } else {
             System.out.println("Invalid response");
         }
