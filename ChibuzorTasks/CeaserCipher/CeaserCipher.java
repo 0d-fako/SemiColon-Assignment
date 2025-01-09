@@ -41,9 +41,18 @@ public class CeaserCipher {
         CeaserCipher cipher = new CeaserCipher();
         System.out.println("Welcome to the Ceaser Cipher App");
 
-        System.out.println("Would you like to encrypt to decrypt a text:Please enter the text you want to encrypt: ");
-        
-        cipher.text = input.nextLine();
+        System.out.println("Would you like to encrypt to decrypt a text?\n 1. Encrypt\n2. Decrypt ");
+        int response = input.nextInt();
+
+        if(response == 1) {
+            System.out.print("Please enter the text you want to encrypt: ");
+            cipher.text = input.nextLine();
+        } else if(response == 2) {
+            System.out.print("Please enter the text you want to decrypt: ");
+            cipher.text = input.nextLine();
+        } else {
+            System.out.println("Invalid response");
+        }
 
         System.out.print("Please enter the shift value: ");
         cipher.shift = input.nextInt();
