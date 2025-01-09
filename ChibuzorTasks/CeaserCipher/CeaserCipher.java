@@ -33,7 +33,7 @@ public class CeaserCipher {
         CeaserCipher cipher = new CeaserCipher();
         System.out.println("Welcome to the Ceaser Cipher App");
 
-        System.out.println("Would you like to encrypt or decrypt a text?\n1. Encrypt\n2. Decrypt ");
+        System.out.println("Would you like to encrypt or decrypt a text?\n1. Encrypt\n2. Decrypt: ");
         int response = input.nextInt();
         input.nextLine();
         if(response == 1) {
