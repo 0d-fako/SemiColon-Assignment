@@ -41,7 +41,7 @@ public class CeaserCipher {
         CeaserCipher cipher = new CeaserCipher();
         System.out.println("Welcome to the Ceaser Cipher App");
 
-        System.out.println("Would you like to encrypt to decrypt a text?\n 1. Encrypt\n2. Decrypt ");
+        System.out.println("Would you like to encrypt or decrypt a text?\n1. Encrypt\n2. Decrypt ");
         int response = input.nextInt();
         input.nextLine();
         if(response == 1) {
@@ -63,6 +63,15 @@ public class CeaserCipher {
         }
 
 
+        System.out.println("Would you like to perform another action (Y/N)? : ");
+        String continueResponse = input.next().toLowerCase();
+        if(continueResponse.equals("y")){
+            main(args);
+        } else if(continueResponse.equals("n")){
+            System.exit(0);
+        } else{
+            System.out.println("Invalid response");
+        }
 
 
     }
