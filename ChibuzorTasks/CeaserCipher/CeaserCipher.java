@@ -43,28 +43,27 @@ public class CeaserCipher {
 
         System.out.println("Would you like to encrypt to decrypt a text?\n 1. Encrypt\n2. Decrypt ");
         int response = input.nextInt();
-
+        input.nextLine();
         if(response == 1) {
             System.out.print("Please enter the text you want to encrypt: ");
             cipher.text = input.nextLine();
             System.out.print("Please enter the key: ");
             cipher.shift = input.nextInt();
             String encryptedText = cipher.encrypt(cipher.text, cipher.shift);
+            System.out.println("Encrypted Text: " + encryptedText);
         } else if(response == 2) {
             System.out.print("Please enter the text you want to decrypt: ");
             cipher.text = input.nextLine();
             System.out.print("Please enter the key: ");
             cipher.shift = input.nextInt();
             String decryptedText = cipher.decrypt(cipher.text, cipher.shift);
+            System.out.println("Decrypted Text: " + decryptedText);
         } else {
             System.out.println("Invalid response");
         }
 
-        System.out.print("Please enter the shift value: ");
-        cipher.shift = input.nextInt();
 
-        String encryptedText = cipher.encrypt(cipher.text, cipher.shift);
 
-        System.out.println("Encrypted Text: " + encryptedText);
+
     }
 }
