@@ -67,9 +67,11 @@ public class CeaserCipher {
         } else{
             System.out.println("Invalid response");
             main(new String[0]);
+            }
         }
-    } catch (Exception e) {
+        catch (Exception e) {
             throw new InputMismatchException();
         }
+
     }
 }
