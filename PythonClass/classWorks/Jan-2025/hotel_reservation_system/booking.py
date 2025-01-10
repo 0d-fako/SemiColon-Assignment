@@ -12,8 +12,9 @@ class Booking:
 
 
 
-    def calculate_payment(days, festivePeriod):
-        payment =  days * room.price_per_night[1]
+    def calculate_payment(days, festive_period):
+        if festive_period.equals("Yes"):
+            payment =  (days * room.price_per_night[1]) *.20
 
-    def cancel_booking():
+    def cancel_booking(self):
         room.is_available = True
