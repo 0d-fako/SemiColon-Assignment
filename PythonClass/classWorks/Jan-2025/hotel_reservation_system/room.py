@@ -17,5 +17,8 @@ class Room:
         self.is_available = False
         return self.is_available
 
-    def mark_as_available():
-    markAsUnderMaintenance():
+    def mark_as_available(self):
+        self.is_available = True
+
+    def mark_under_maintenance(self):
+        self.needs_maintenance = True
