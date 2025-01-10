@@ -6,11 +6,14 @@ from datetime import date
 class Booking:
     guest
     room
-    checkInDate
-    checkOutDate
-    totalPayment
+    checkInDate = date.today()
+    checkOutDate = date.today()
+    totalPayment = 0
 
 
-Methods:
-calculatePayment(days, festivePeriod)
-cancelBooking()
+
+    def calculate_payment(days, festivePeriod):
+        payment =  days * room.price_per_night[1]
+
+    def cancel_booking():
+        room.is_available = True
