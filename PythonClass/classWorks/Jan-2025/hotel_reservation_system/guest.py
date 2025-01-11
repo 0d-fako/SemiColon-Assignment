@@ -7,5 +7,15 @@ class Guest:
         self.booking_reference = booking_reference
 
 
+
+    def get_booking_reference(self):
+        self.booking_reference = "RES" + str(random.randint(1000, 9999))
+        return self.booking_reference
+
     def get_details(self):
+        self.name = input("Name: ")
+        self.phone_number = input("Phone Number: ")
+        self.email = input("Email: ")
+        self.booking_reference = self.get_booking_reference()
+
         return self.name, self.phone_number, self.email, self.booking_reference

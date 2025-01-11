@@ -22,10 +22,12 @@ def main_menu():
         print("Please enter a number.")
 
 
+
     while choice != 8:
-        If user selects 1:
-            Prompt for guest details, room type, number of nights, festive period status
-            Call bookRoom()
+        match(choice):
+            case 1:
+                guest.get_details()
+                Call bookRoom()
         Else if user selects 2:
             Call viewAvailableRooms()
         Else if user selects 3:
@@ -46,4 +48,4 @@ def main_menu():
         Else:
             Display "Invalid Option"
 
-End
+main_menu()
