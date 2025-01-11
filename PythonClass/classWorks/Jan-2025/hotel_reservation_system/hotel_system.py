@@ -1,104 +1,106 @@
-import room
-import booking
+from datetime import datetime
+from typing import Optional, List
 
+import room as Room
+import booking as Booking
 
-class HotelReservationSystem:
+class HotelSystem:
     def __init__(self):
-        self.rooms = []
-        self.bookings = []
-        self.admins =
-        self.festivePeriodMultiplier = .20  # Pricing adjustment for festive periods
+        self.rooms: List[Room] = []
+        self.bookings: List[Booking] = []
+        self.festive_period_multiplier = 1.2
+        self.initialize_rooms()
 
-    def initializeRooms(self):
-        """
-        Initializes room data for the hotel.
-        Example: Adding specific rooms and their properties.
-        """
-        pass
+    def initialize_rooms(self):
+        room_configs = [
+            (101, Room.RoomType.STANDARD, 10000),
+            (102, Room.RoomType.STANDARD, 10000),
+            (201, Room.RoomType.DELUXE, 20000),
+            (202, Room.RoomType.DELUXE, 20000),
+            (301, Room.RoomType.SUITE, 35000),
+            (302, Room.RoomType.SUITE, 35000),
+        ]
+        for room_number, room_type, price in room_configs:
+            self.rooms.append(Room(room_number, room_type, price))
 
-    def bookRoom(self, guestDetails, roomType, nights, festivePeriod=False):
-        """
-        Books a room for a guest based on type and number of nights.
+    def book_room(self, guest_details: dict, room_type: RoomType, nights: int,
+                  check_in_date: datetime, festive_period: bool = False) -> Optional[Booking]:
+        available_room = next(
+            (room for room in self.rooms
+             if room.room_type == room_type and room.is_available),
+            None
+        )
 
-        Parameters:
-        - guestDetails: Information about the guest.
-        - roomType: Type of room being booked.
-        - nights: Number of nights the room is booked for.
-        - festivePeriod: Boolean indicating if the festive multiplier applies.
-        """
-        pass
+        if not available_room:
+            raise ValueError(f"No available rooms of type {room_type.value}")
 
-    def cancelBooking(self, booking_reference):
-        """
-        Cancel a booking by its reference number.
+        # Create guest and booking
+        guest = Guest(
+            guest_details["name"],
+            guest_details["phone_number"],
+            guest_details["email"]
+        )
 
-        Parameters:
-        - bookingReference: A unique identifier for the booking.
-        """
+        booking = Booking(guest, available_room, check_in_date, nights)
+        booking.calculate_payment(festive_period)
 
-        find_booking_reference(booking_reference)
-        pass
+        # Update room status
+        available_room.mark_as_occupied()
 
-    def viewAvailableRooms(self):
-        """
-        Displays all available rooms.
-        """
-        pass
+        self.bookings.append(booking)
+        return booking
 
-    def manageGuestDetails(self, roomNumber):
-        """
-        Allows management of guest details (e.g., updating guest info).
+    def cancel_booking(self, booking_reference: str) -> bool:
+        booking = next(
+            (b for b in self.bookings
+             if b.booking_reference == booking_reference and b.is_active),
+            None
+        )
 
-        Parameters:
-        - roomNumber: The room number to be updated.
-        """
-        pass
+        if not booking:
+            raise ValueError("Booking not found or already cancelled")
 
-    def assignRole(self, userType, password):
-        """
-        Assign a role (e.g., admin/guest) to a user.
+        booking.cancel_booking()
+        return True
 
-        Parameters:
-        - userType: Type of user (e.g., "admin").
-        - password: Password for the user.
-        """
-        pass
+    def view_available_rooms(self, room_type: Optional[RoomType] = None) -> List[Room]:
+        available_rooms = [
+            room for room in self.rooms
+            if room.is_available and not room.needs_maintenance
+        ]
 
-    def generateReport(self, timePeriod):
-        """
-        Generate and return a report for a specific time period.
+        if room_type:
+            available_rooms = [
+                room for room in available_rooms
+                if room.room_type == room_type
+            ]
 
-        Parameters:
-        - timePeriod: The time period for the report.
-        """
-        pass
+        return available_rooms
 
-    def sendNotification(self, bookingReference):
-        """
-        Sends a notification about the booking.
+    def generate_report(self, start_date: datetime, end_date: datetime) -> dict:
+        relevant_bookings = [
+            booking for booking in self.bookings
+            if booking.check_in_date >= start_date
+               and booking.check_in_date <= end_date
+        ]
 
-        Parameters:
-        - bookingReference: A unique identifier for the booking.
-        """
-        pass
+        total_revenue = sum(booking.total_payment for booking in relevant_bookings)
+        occupancy_rate = len(relevant_bookings) / len(self.rooms) * 100
 
-    def simulateMaintenance(self, roomNumber):
-        """
-        Simulate a maintenance scenario for testing/information.
+        return {
+            "total_bookings": len(relevant_bookings),
+            "total_revenue": total_revenue,
+            "occupancy_rate": occupancy_rate,
+            "bookings": relevant_bookings
+        }
 
-        Parameters:
-        - roomNumber: The room to place in maintenance mode.
-        """
-        pass
+    def simulate_maintenance(self, room_number: int):
+        room = next(
+            (room for room in self.rooms if room.room_number == room_number),
+            None
+        )
 
-    def updatePricing(self, festivePeriod):
-        """
-        Update room pricing based on the festive period.
+        if not room:
+            raise ValueError("Room not found")
 
-        Parameters:
-        - festivePeriod: Boolean; if true, apply festive multiplier.
-        """
-        if festivePeriod:
-            self.festivePeriodMultiplier = 1.5  # Adjust the multiplier for festive pricing
-        else:
-            self.festivePeriodMultiplier = 1.0  # Reset to standard pricing
+        room.mark_as_under_maintenance()

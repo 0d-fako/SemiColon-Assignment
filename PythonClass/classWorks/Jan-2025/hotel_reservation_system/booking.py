@@ -1,25 +1,30 @@
-import room
-import guest
-from datetime import date
+import room as Room
+import guest as Guest
+from datetime import date, timedelta, datetime
+
 
 class Booking:
-    def __init__(self, guest, room, check_in_date, check_out_date, total_payment):
+    def __init__(self, guest: Guest, room: Room, check_in_date: datetime, nights: int):
         self.guest = guest
         self.room = room
-        self.checkInDate = check_in_date
-        self.checkOutDate = check_out_date
-        self.totalPayment = total_payment
+        self.check_in_date = check_in_date
+        self.check_out_date = check_in_date + timedelta(days=nights)
+        self.total_payment = 0
+        self.is_active = True
+        guest.booking_reference = self.booking_reference
 
-    def calculate_payment(self, days, festive_period):
-        if festive_period.equals("Yes"):
-            payment =  days *.20
-
-    def book_room(self, guest, room):
-
-
+    def calculate_payment(self, festive_period: bool = False) -> float:
+        days = (self.check_out_date - self.check_in_date).days
+        base_payment = self.room.price_per_night * days
+        self.total_payment = base_payment * (1.2 if festive_period else 1)
+        return self.total_payment
 
     def cancel_booking(self):
-        room.is_available = True
+        if not self.is_active:
+            raise ValueError("Booking already cancelled")
+        self.is_active = False
+        self.room.mark_as_available()
+        self.guest.booking_reference = None
 
-    def check_in_booking(self):
-        room.is_available = False
+    def __str__(self):
+        return f"Booking {self.booking_reference} - {self.guest.name} - Room {self.room.room_number}"
