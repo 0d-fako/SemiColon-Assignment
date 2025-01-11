@@ -5,8 +5,8 @@ import booking
 class HotelReservationSystem:
     def __init__(self):
         self.rooms = []
-        self.bookings = []  # List of bookings
-        self.admins = []  # List of administrator users
+        self.bookings = []
+        self.admins =
         self.festivePeriodMultiplier = .20  # Pricing adjustment for festive periods
 
     def initializeRooms(self):
@@ -28,13 +28,15 @@ class HotelReservationSystem:
         """
         pass
 
-    def cancelBooking(self, bookingReference):
+    def cancelBooking(self, booking_reference):
         """
         Cancel a booking by its reference number.
 
         Parameters:
         - bookingReference: A unique identifier for the booking.
         """
+
+        find_booking_reference(booking_reference)
         pass
 
     def viewAvailableRooms(self):
