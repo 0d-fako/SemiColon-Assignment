@@ -1,5 +1,15 @@
-Main Menu
-    Display options:
+import room
+import guest
+import time
+import random
+import booking
+
+
+
+
+def main_menu
+    try:
+        choice = int(input("
         1. Book Room
         2. View Available Rooms
         3. Cancel Booking
@@ -8,6 +18,7 @@ Main Menu
         6. Simulate Maintenance
         7. Assign Role
         8. Exit
+        ")
 
     While user does not select Exit:
         If user selects 1:
