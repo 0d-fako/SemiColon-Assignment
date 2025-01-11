@@ -6,21 +6,23 @@ import booking
 
 
 
-
-def main_menu
+def main_menu():
     try:
-        choice = int(input("
-        1. Book Room
-        2. View Available Rooms
-        3. Cancel Booking
-        4. Manage Guest Details
-        5. Generate Reports
-        6. Simulate Maintenance
-        7. Assign Role
-        8. Exit
-        ")
+        choice = int(input("\n"
+                           "        1. Book Room\n"
+                           "        2. View Available Rooms\n"
+                           "        3. Cancel Booking\n"
+                           "        4. Manage Guest Details\n"
+                           "        5. Generate Reports\n"
+                           "        6. Simulate Maintenance\n"
+                           "        7. Assign Role\n"
+                           "        8. Exit\n"
+                           "        "))
+    except ValueError:
+        print("Please enter a number.")
 
-    While user does not select Exit:
+
+    while choice != 8:
         If user selects 1:
             Prompt for guest details, room type, number of nights, festive period status
             Call bookRoom()
