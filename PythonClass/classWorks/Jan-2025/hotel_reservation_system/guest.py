@@ -1,10 +1,5 @@
 import random
 class Guest:
-    name = ""
-    phone_number = ""
-    email = ""
-    booking_reference = random.randint(100000, 999999)
-
     def __init__(self, name, phone_number, email, booking_reference):
         self.name = name
         self.phone_number = phone_number

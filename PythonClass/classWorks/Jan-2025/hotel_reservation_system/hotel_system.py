@@ -3,7 +3,7 @@ import booking
 
 class HotelReservationSystem:
     def __init__(self):
-        rooms[]
+        rooms = []
         bookings[]
         admins[]
         festivePeriodMultiplier

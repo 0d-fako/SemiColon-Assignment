@@ -1,10 +1,4 @@
 class Room:
-    room_number = [[101, 102], [201, 202], [301, 302]]
-    room_type = ["Single", "Double", "Suite"]
-    price_per_night = [10000, 20000, 40000]
-    is_available = True
-    needs_maintenance = False
-
     def __init__(self, room_number, room_type, price_per_night, is_available, needs_maintenance):
         self.room_number = room_number
         self.room_type = room_type
