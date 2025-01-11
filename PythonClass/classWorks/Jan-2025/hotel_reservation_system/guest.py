@@ -7,6 +7,5 @@ class Guest:
         self.booking_reference = booking_reference
 
 
-
     def get_details(self):
         return self.name, self.phone_number, self.email, self.booking_reference

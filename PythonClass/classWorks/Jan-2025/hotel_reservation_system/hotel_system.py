@@ -3,7 +3,7 @@ import booking
 
 class HotelReservationSystem:
     def __init__(self):
-        rooms = []
+        self.rooms = room()
         bookings[]
         admins[]
         festivePeriodMultiplier
@@ -12,4 +12,10 @@ class HotelReservationSystem:
         initializeRooms()
         bookRoom(guestDetails, roomType, nights, festivePeriod)
         cancelBooking(bookingReference)
-        viewA
+        viewAvailableRooms()
+        manageGuestDetails(roomNumber)
+        assignRole(userType, password)
+        generateReport(timePeriod)
+        sendNotification(bookingReference)
+        simulateMaintenance(roomNumber)
+        updatePricing(festivePeriod)

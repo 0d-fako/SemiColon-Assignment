@@ -2,15 +2,13 @@ import room
 import guest
 from datetime import date
 
-
 class Booking:
-    def __init__(self, guest, room, checkInDate, checkOutDate, totalPayment):
+    def __init__(self, guest, room, check_in_date, check_out_date, total_payment):
         self.guest = guest
         self.room = room
-        self.checkInDate = checkInDate
-        self.checkOutDate = checkOutDate
-        self.totalPayment = totalPayment
-
+        self.checkInDate = check_in_date
+        self.checkOutDate = check_out_date
+        self.totalPayment = total_payment
 
     def calculate_payment(self, days, festive_period):
         if festive_period.equals("Yes"):
