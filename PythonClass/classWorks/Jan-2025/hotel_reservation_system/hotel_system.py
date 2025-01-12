@@ -62,7 +62,6 @@ class HotelSystem:
             raise ValueError("Booking not found or already cancelled")
 
         booking.cancel_booking()
-        booking.room.mark_as_available()
         return True
 
     def view_available_rooms(self, room_type: Optional[RoomType] = None) -> List[Room]:

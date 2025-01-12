@@ -16,12 +16,13 @@ def book_room():
     for room_type in RoomType:
         print(f"- {room_type.value}")
     try:
-        room_type = RoomType[input("Enter room type: ").upper()]
-    except KeyError:
+        room_type_str = input("Enter room type: ").upper()
+        room_type = getattr(RoomType, room_type_str)
+    except AttributeError:
         raise ValueError("Invalid room type selected")
 
     nights = int(input("Enter number of nights: "))
-    check_in_date = datetime.datetime.now()  # Add check_in_date
+    check_in_date = datetime.datetime.now()
     festive_period = input("Is it a festive period? (y/n): ").lower() == FESTIVE_YES_RESPONSE
 
     new_booking = hotel_system.book_room(guest_details, room_type, nights, check_in_date, festive_period)
