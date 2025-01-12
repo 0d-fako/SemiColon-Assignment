@@ -45,7 +45,7 @@ class HotelSystem:
         )
 
         booking = Booking(guest, available_room, check_in_date, nights)
-        booking.calculate_payment(self.festive_period_multiplier if festive_period else 1.0)
+        booking.calculate_payment(festive_period)
 
         available_room.mark_as_occupied()
         self.bookings.append(booking)
