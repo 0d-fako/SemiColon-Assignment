@@ -1,9 +1,9 @@
 from datetime import datetime
 from typing import Optional, List
 
-import room as Room
-import booking as Booking
-import guest as Guest
+from room import Room, RoomType
+from booking import Booking
+from guest import Guest
 
 class HotelSystem:
     def __init__(self):
@@ -14,18 +14,21 @@ class HotelSystem:
 
     def initialize_rooms(self):
         room_configs = [
-            (101, Room.RoomType.STANDARD, 10000),
-            (102, Room.RoomType.STANDARD, 10000),
-            (201, Room.RoomType.DELUXE, 20000),
-            (202, Room.RoomType.DELUXE, 20000),
-            (301, Room.RoomType.SUITE, 35000),
-            (302, Room.RoomType.SUITE, 35000),
+            (101, RoomType.STANDARD, 10000),
+            (102, RoomType.STANDARD, 10000),
+            (201, RoomType.DELUXE, 20000),
+            (202, RoomType.DELUXE, 20000),
+            (301, RoomType.SUITE, 35000),
+            (302, RoomType.SUITE, 35000),
         ]
         for room_number, room_type, price in room_configs:
             self.rooms.append(Room(room_number, room_type, price))
 
-    def book_room(self, guest_details: dict, room_type: Room.RoomType, nights: int,
+    def book_room(self, guest_details: dict, room_type: RoomType, nights: int,
                   check_in_date: datetime, festive_period: bool = False) -> Optional[Booking]:
+        if nights <= 0:
+            raise ValueError("Number of nights must be positive")
+
         available_room = next(
             (room for room in self.rooms
              if room.room_type == room_type and room.is_available),
@@ -35,7 +38,6 @@ class HotelSystem:
         if not available_room:
             raise ValueError(f"No available rooms of type {room_type.value}")
 
-
         guest = Guest(
             guest_details["name"],
             guest_details["phone_number"],
@@ -43,10 +45,9 @@ class HotelSystem:
         )
 
         booking = Booking(guest, available_room, check_in_date, nights)
-        booking.calculate_payment(festive_period)
+        booking.calculate_payment(self.festive_period_multiplier if festive_period else 1.0)
 
         available_room.mark_as_occupied()
-
         self.bookings.append(booking)
         return booking
 
@@ -61,9 +62,10 @@ class HotelSystem:
             raise ValueError("Booking not found or already cancelled")
 
         booking.cancel_booking()
+        booking.room.mark_as_available()
         return True
 
-    def view_available_rooms(self, room_type: Optional[Room.RoomType] = None) -> List[Room]:
+    def view_available_rooms(self, room_type: Optional[RoomType] = None) -> List[Room]:
         available_rooms = [
             room for room in self.rooms
             if room.is_available and not room.needs_maintenance
@@ -84,7 +86,7 @@ class HotelSystem:
         ]
 
         total_revenue = sum(booking.total_payment for booking in relevant_bookings)
-        occupancy_rate = len(relevant_bookings) / len(self.rooms) * 100
+        occupancy_rate = len(relevant_bookings) / len(self.rooms) * 100 if self.rooms else 0
 
         return {
             "total_bookings": len(relevant_bookings),
@@ -100,6 +102,9 @@ class HotelSystem:
         )
 
         if not room:
-            raise ValueError("Room not found")
+            raise ValueError(f"Room {room_number} not found")
+
+        if not room.is_available:
+            raise ValueError(f"Room {room_number} is currently occupied")
 
         room.mark_as_under_maintenance()
