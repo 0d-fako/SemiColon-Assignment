@@ -1,10 +1,10 @@
 import datetime
 from room import RoomType
-import hotel_system
+from hotel_system import HotelSystem
 
 FESTIVE_YES_RESPONSE = 'y'
 
-
+hotel_system = HotelSystem()
 
 def book_room():
     guest_details = {
@@ -21,42 +21,42 @@ def book_room():
         raise ValueError("Invalid room type selected")
 
     nights = int(input("Enter number of nights: "))
+    check_in_date = datetime.datetime.now()  # Add check_in_date
     festive_period = input("Is it a festive period? (y/n): ").lower() == FESTIVE_YES_RESPONSE
 
-    new_booking = hotel_system.book_room(guest_details, room_type, nights, festive_period)
-    print(f"\nBooking confirmed! Reference: {new_booking['reference']}")
-    print(f"Total payment: ${new_booking['total_payment']}")
-
+    new_booking = hotel_system.book_room(guest_details, room_type, nights, check_in_date, festive_period)
+    print(f"\nBooking confirmed! Reference: {new_booking.booking_reference}")
+    print(f"Total payment: ${new_booking.total_payment:,.2f}")
 
 def view_available_rooms():
-    available_rooms = hotel_system.viewAvailableRooms()
+    available_rooms = hotel_system.view_available_rooms()
     print("\nAvailable Rooms:")
     for room in available_rooms:
-        print(f"Room {room['number']}: {room['type']} (Price: ${room['price']})")
-
+        print(f"Room {room.room_number}: {room.room_type.value} (Price: ${room.price_per_night:,.2f})")
 
 def cancel_booking():
     reference = input("Enter booking reference: ")
-    if hotel_system.cancelBooking(reference):
-        print("Booking cancelled successfully")
-    else:
-        print("Booking reference not found.")
-
+    try:
+        if hotel_system.cancel_booking(reference):
+            print("Booking cancelled successfully")
+    except ValueError as e:
+        print(f"Error: {e}")
 
 def generate_reports():
     start_date = datetime.datetime.now() - datetime.timedelta(days=30)
-    report = hotel_system.generateReport(start_date, datetime.datetime.now())
+    report = hotel_system.generate_report(start_date, datetime.datetime.now())
     print("\nReport:")
     print(f"Total Bookings: {report['total_bookings']}")
-    print(f"Total Revenue: ${report['total_revenue']}")
-    print(f"Occupancy Rate: {report['occupancy_rate']}%")
-
+    print(f"Total Revenue: ${report['total_revenue']:,.2f}")
+    print(f"Occupancy Rate: {report['occupancy_rate']:.1f}%")
 
 def simulate_maintenance():
     room_number = int(input("Enter room number: "))
-    hotel_system.simulateMaintenance(room_number)
-    print("Room marked for maintenance.")
-
+    try:
+        hotel_system.simulate_maintenance(room_number)
+        print("Room marked for maintenance.")
+    except ValueError as e:
+        print(f"Error: {e}")
 
 def main_menu():
     while True:
@@ -90,6 +90,5 @@ def main_menu():
         except Exception as e:
             print(f"Unexpected Error: {str(e)}")
 
-
-
-main_menu()
+if __name__ == "__main__":
+    main_menu()

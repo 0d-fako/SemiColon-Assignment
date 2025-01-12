@@ -6,12 +6,12 @@ class Guest:
         self.name = name
         self.phone_number = phone_number
         self.email = email
-        self.booking_reference = self.get_booking_reference()
+        self.booking_reference = self.get_booking_reference(self)
 
     @staticmethod
-    def get_booking_reference() -> str:
-        booking_reference = "REF" + str(random.randint(100000, 999999))
-        return booking_reference
+    def get_booking_reference(self) -> str:
+        self.booking_reference = "REF" + str(random.randint(100000, 999999))
+        return self.booking_reference
 
 
     def get_details(self) -> dict:
