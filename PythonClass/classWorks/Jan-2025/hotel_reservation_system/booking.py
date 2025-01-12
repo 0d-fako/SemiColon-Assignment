@@ -1,3 +1,4 @@
+import random
 import room as Room
 import guest as Guest
 from datetime import timedelta, datetime
@@ -12,7 +13,12 @@ class Booking:
         self.check_out_date = check_in_date + timedelta(days=nights)
         self.total_payment = 0
         self.is_active = True
-        guest.booking_reference = self.booking_reference
+        self.booking_reference = self.get_booking_reference(self)
+
+    @staticmethod
+    def get_booking_reference(self) -> str:
+        self.booking_reference = "REF" + str(random.randint(100000, 999999))
+        return self.booking_reference
 
     def calculate_payment(self, festive_period: bool = False) -> float:
         days = (self.check_out_date - self.check_in_date).days
