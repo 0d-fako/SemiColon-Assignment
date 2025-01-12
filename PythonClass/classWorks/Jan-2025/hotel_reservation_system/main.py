@@ -23,7 +23,7 @@ def book_room():
     nights = int(input("Enter number of nights: "))
     festive_period = input("Is it a festive period? (y/n): ").lower() == FESTIVE_YES_RESPONSE
 
-    new_booking = hotel_system.bookRoom(guest_details, room_type, nights, festive_period)
+    new_booking = hotel_system.book_room(guest_details, room_type, nights, festive_period)
     print(f"\nBooking confirmed! Reference: {new_booking['reference']}")
     print(f"Total payment: ${new_booking['total_payment']}")
 
