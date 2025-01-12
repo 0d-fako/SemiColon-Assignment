@@ -3,6 +3,7 @@ from typing import Optional, List
 
 import room as Room
 import booking as Booking
+import guest as Guest
 
 class HotelSystem:
     def __init__(self):
@@ -23,7 +24,7 @@ class HotelSystem:
         for room_number, room_type, price in room_configs:
             self.rooms.append(Room(room_number, room_type, price))
 
-    def book_room(self, guest_details: dict, room_type: RoomType, nights: int,
+    def book_room(self, guest_details: dict, room_type: Room.RoomType, nights: int,
                   check_in_date: datetime, festive_period: bool = False) -> Optional[Booking]:
         available_room = next(
             (room for room in self.rooms
@@ -34,7 +35,7 @@ class HotelSystem:
         if not available_room:
             raise ValueError(f"No available rooms of type {room_type.value}")
 
-        # Create guest and booking
+
         guest = Guest(
             guest_details["name"],
             guest_details["phone_number"],
@@ -44,7 +45,6 @@ class HotelSystem:
         booking = Booking(guest, available_room, check_in_date, nights)
         booking.calculate_payment(festive_period)
 
-        # Update room status
         available_room.mark_as_occupied()
 
         self.bookings.append(booking)
@@ -63,7 +63,7 @@ class HotelSystem:
         booking.cancel_booking()
         return True
 
-    def view_available_rooms(self, room_type: Optional[RoomType] = None) -> List[Room]:
+    def view_available_rooms(self, room_type: Optional[Room.RoomType] = None) -> List[Room]:
         available_rooms = [
             room for room in self.rooms
             if room.is_available and not room.needs_maintenance
@@ -80,8 +80,7 @@ class HotelSystem:
     def generate_report(self, start_date: datetime, end_date: datetime) -> dict:
         relevant_bookings = [
             booking for booking in self.bookings
-            if booking.check_in_date >= start_date
-               and booking.check_in_date <= end_date
+            if start_date <= booking.check_in_date <= end_date
         ]
 
         total_revenue = sum(booking.total_payment for booking in relevant_bookings)
