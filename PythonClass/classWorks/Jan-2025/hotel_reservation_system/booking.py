@@ -15,10 +15,13 @@ class Booking:
         self.is_active = True
 
 
-    @staticmethod
     def set_booking_reference(self) -> str:
         self.booking_reference = "REF" + str(random.randint(100000, 999999))
         return self.booking_reference
+
+    def get_booking_reference(self) -> str:
+        return self.booking_reference
+
 
     def calculate_payment(self, festive_period: bool = False) -> float:
         days = (self.check_out_date - self.check_in_date).days
