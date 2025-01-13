@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Optional, List
+from typing import List
 
 from room import Room, RoomType
 from booking import Booking
@@ -25,7 +25,7 @@ class HotelSystem:
             self.rooms.append(Room(room_number, room_type, price))
 
     def book_room(self, guest_details: dict, room_type: RoomType, nights: int,
-                  check_in_date: datetime, festive_period: bool = False) -> Optional[Booking]:
+                  check_in_date: datetime, festive_period: bool = False):
         if nights <= 0:
             raise ValueError("Number of nights must be positive")
 
@@ -64,7 +64,7 @@ class HotelSystem:
         booking.cancel_booking()
         return True
 
-    def view_available_rooms(self, room_type: Optional[RoomType] = None) -> List[Room]:
+    def view_available_rooms(self, room_type: RoomType ) -> List[Room]:
         available_rooms = [
             room for room in self.rooms
             if room.is_available and not room.needs_maintenance
