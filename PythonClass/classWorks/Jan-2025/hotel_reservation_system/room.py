@@ -14,6 +14,24 @@ class Room:
         self.is_available = True
         self.needs_maintenance = False
 
+    def set_room_number(self, room_number: int):
+        self.room_number = room_number
+
+    def set_room_type(self, room_type: RoomType):
+        self.room_type = room_type
+
+    def set_price_per_night(self, price_per_night: float):
+        self.price_per_night = price_per_night
+
+    def get_room_number(self):
+        return self.room_number
+
+    def get_room_type(self):
+        return self.room_type
+
+    def get_price_per_night(self):
+        return self.price_per_night
+
     def mark_as_occupied(self):
         if self.needs_maintenance:
             raise ValueError("Room is under maintenance")
