@@ -45,6 +45,8 @@ class HotelSystem:
         )
 
         booking = Booking(guest, available_room, check_in_date, nights)
+        booking.set_booking_reference()
+
         booking.calculate_payment(festive_period)
 
         available_room.mark_as_occupied()
