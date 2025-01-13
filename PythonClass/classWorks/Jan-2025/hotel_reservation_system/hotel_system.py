@@ -64,18 +64,11 @@ class HotelSystem:
         booking.cancel_booking()
         return True
 
-    def view_available_rooms(self, room_type: RoomType ) -> List[Room]:
+    def view_available_rooms(self) -> List[Room]:
         available_rooms = [
             room for room in self.rooms
             if room.is_available and not room.needs_maintenance
         ]
-
-        if room_type:
-            available_rooms = [
-                room for room in available_rooms
-                if room.room_type == room_type
-            ]
-
         return available_rooms
 
     def generate_report(self, start_date: datetime, end_date: datetime) -> dict:
