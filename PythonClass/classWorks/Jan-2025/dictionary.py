@@ -24,10 +24,10 @@ school_records = {
      }
 }
 
-def get_class_average(school_records):
+def get_class_average(records):
     class_averages = {}
 
-    for class_name, class_data in school_records.items():
+    for class_name, class_data in records.items():
         total_scores = {"Math": 0, "English": 0}
         total_students = len(class_data["students"])
 
