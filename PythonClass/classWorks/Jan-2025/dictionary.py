@@ -25,7 +25,7 @@ school_records = {
 }
 
 def  get_class_average(school_records):
-    for class : school_records:
+    for class in school_records:
         for student in school_records[class]:
 
 print(get_dict_details())
