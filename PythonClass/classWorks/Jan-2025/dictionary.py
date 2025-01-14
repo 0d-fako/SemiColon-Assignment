@@ -24,8 +24,24 @@ school_records = {
      }
 }
 
-def  get_class_average(school_records):
-    for class in school_records:
-        for student in school_records[class]:
+def get_class_average(school_records):
+    class_averages = {}
 
+    for class_name, class_data in school_records.items():
+        total_scores = {"Math": 0, "English": 0}
+        total_students = len(class_data["students"])
+
+        for student in class_data["students"]:
+            for subject, score in student["scores"].items():
+                total_scores[subject] += score
+
+        averages = {subject: total / total_students for subject, total in total_scores.items()}
+        class_averages[class_name] = averages
+
+    return class_averages
+
+
+
+averages = get_class_average(school_records)
+print(averages)
 print(get_dict_details())
