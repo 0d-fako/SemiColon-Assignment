@@ -35,8 +35,8 @@ def get_class_average(records):
             for subject, score in student["scores"].items():
                 total_scores[subject] += score
 
-        averages = {subject: total / total_students for subject, total in total_scores.items()}
-        class_averages[class_name] = averages
+        new_averages = {subject: total / total_students for subject, total in total_scores.items()}
+        class_averages[class_name] = new_averages
 
     return class_averages
 
