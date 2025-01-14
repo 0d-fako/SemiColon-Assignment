@@ -29,7 +29,7 @@ def print_sums(numbers):
 
 def main():
     my_list = []
-    while True: 
+    while True:
         try:
             input_value = input("Enter a number (or 'q' to quit): ").strip()
             if input_value.lower() == QUIT_COMMAND:

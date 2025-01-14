@@ -12,5 +12,6 @@ def differentiate(equation):
 def main():
     equation =  input("Enter the equation: ")
 
+
     result = differentiate(equation)
 print(result)
