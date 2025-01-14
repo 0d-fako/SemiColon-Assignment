@@ -4,6 +4,7 @@ def get_dict_details():
         "phone_number" : input("Enter your phone number: "),
         "email" : input("Enter your email: "),
     }
+    return details
 
 
-get_dict_details()
+print(get_dict_details())
