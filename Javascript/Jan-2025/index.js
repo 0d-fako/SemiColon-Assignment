@@ -11,8 +11,8 @@ const server = http.createServer((req, res) => {
         res.end("Welcome to the contact page");
         return;
     }
-    else{ res.end("Hello World! Welcome to WeJapa Internships");}
-    
+    else{ res.end("Hello World! Welcome to Semicolon");}
+    c
 });
 
 
