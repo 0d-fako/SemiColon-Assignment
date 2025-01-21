@@ -39,7 +39,7 @@ public class StudentGrade {
     public int findStudentPosition(int[] studentPositions, int studentIndex) {
     	for (int positionIndex = 0; positionIndex < studentPositions.length; positionIndex++) {
         	if (studentPositions[positionIndex] == studentIndex + 1) {
-            		return positionIndex + 1; // Return 1-based position
+            		return positionIndex + 1;
         	}
     	}
     	return -1;
