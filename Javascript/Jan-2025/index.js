@@ -7,8 +7,12 @@ const server = http.createServer((req, res) => {
     if (req.url === "/about") {
         res.end("Welcome to the about page");
         return;
+    } else if(req.url === "/contact") {
+        res.end("Welcome to the contact page");
+        return;
     }
-    res.end("Hello World! Welcome to WeJapa Internships");
+    else{ res.end("Hello World! Welcome to WeJapa Internships");}
+    
 });
 
 
