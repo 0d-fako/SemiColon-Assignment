@@ -12,7 +12,7 @@ const server = http.createServer((req, res) => {
         return;
     }
     else{ res.end("Hello World! Welcome to Semicolon");}
-    c
+    
 });
 
 
