@@ -10,7 +10,23 @@ public class Stack {
         size = 0;
         top = -1;
     }
-    
+
+    public void push(int element) {
+        if(size == elements.length) {
+            int[] newElements = new int[elements.length * 2];
+            System.arraycopy(elements, 0, newElements, 0, elements.length);
+            elements = newElements;
+        }
+        elements[++top] = element;
+        size++;
+    }
+
+    public int pop() {
+        if(top == -1) {
+            return -1;
+        }
+    }
+
 
 
     public push(): When we insert an element in a stack then the operation is known as a push. If the stack is full then the overflow condition occurs.
