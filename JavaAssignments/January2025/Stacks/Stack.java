@@ -24,36 +24,45 @@ public class Stack {
         System.arraycopy(elements, 0, newElements, 0, elements.length);
         elements = newElements;
     }
+
     public void push(int element) {
-        if(isFull()) extendArray();
+        if (isFull()) extendArray();
         elements[++top] = element;
         size++;
     }
 
     public int pop() {
-        if(top == -1) {
+        if (top == -1) {
             return -1;
         }
         size--;
         return elements[top--];
-        
+
     }
 
     public int peek() {
-        if(top == -1) {
+        if (top == -1) {
             return -1;
         }
         return elements[top];
     }
 
 
+    public int count() {
+        return size;
+    }
 
-    public push(): When we insert an element in a stack then the operation is known as a push. If the stack is full then the overflow condition occurs.
-    pop(): When we delete an element from the stack, the operation is known as a pop. If the stack is empty means that no element exists in the stack, this state is known as an underflow state.
-            isEmpty(): It determines whether the stack is empty or not.
-            isFull(): It determines whether the stack is full or not.'
-    peek(): It returns the element at the given position.
-    count(): It returns the total number of elements available in a stack.
-            change(): It changes the element at the given position.
-    display():
+    public void change(int index, int element) {
+        if (index < 0 || index > size) {
+            return;
+        }
+        elements[index] = element;
+    }
+
+    public void display() {
+        for (int i = top; i >= 0; i--) {
+            System.out.print(elements[i] + " ");
+        }
+        System.out.println();
+    }
 }
