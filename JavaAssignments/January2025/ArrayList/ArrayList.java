@@ -6,15 +6,14 @@ public class ArrayList {
     private String[] elements = new String[4];
     private int size;
 
-    public void add(String element) {
-        elements[size++] = element;
-        if (isFull()) extendArray();
-    }
-
     private void extendArray() {
         String[] newElements = new String[elements.length * 2];
         System.arraycopy(elements, 0, newElements, 0, elements.length);
         elements = newElements;
+    }
+    public void add(String element) {
+        if (isFull()) extendArray();
+        elements[size++] = element;
     }
 
     private boolean isFull() {
