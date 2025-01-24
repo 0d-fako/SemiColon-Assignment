@@ -11,12 +11,21 @@ public class Stack {
         top = -1;
     }
 
+    private boolean isEmpty() {
+        return size == 0;
+    }
+
+    private boolean isFull() {
+        return size == elements.length;
+    }
+
+    private void extendArray() {
+        int[] newElements = new int[elements.length * 2];
+        System.arraycopy(elements, 0, newElements, 0, elements.length);
+        elements = newElements;
+    }
     public void push(int element) {
-        if(size == elements.length) {
-            int[] newElements = new int[elements.length * 2];
-            System.arraycopy(elements, 0, newElements, 0, elements.length);
-            elements = newElements;
-        }
+        if(isFull()) extendArray();
         elements[++top] = element;
         size++;
     }
@@ -25,6 +34,16 @@ public class Stack {
         if(top == -1) {
             return -1;
         }
+        size--;
+        return elements[top--];
+        
+    }
+
+    public int peek() {
+        if(top == -1) {
+            return -1;
+        }
+        return elements[top];
     }
 
 
