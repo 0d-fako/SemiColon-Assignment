@@ -21,9 +21,18 @@ public class ArrayListTest {
 
     @Test
     public void testThatListIsNotEmpty() {
+        list.add("Benz");
         assertFalse(list.isEmpty());
 
     }
+
+    @Test
+    public void testListGetSize(){
+        list.add("Volvo");
+        list.add("Audi");
+        assertEquals(2, list.size());
+    }
+
 
     @Test
     public void testAdd() {

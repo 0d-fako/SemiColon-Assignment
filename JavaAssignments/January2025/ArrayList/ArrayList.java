@@ -12,7 +12,7 @@ public class ArrayList {
         if (isFull()) extendArray();
         elements[size++] = element;
     }
-    
+
     private void extendArray() {
         String[] newElements = new String[elements.length * 2];
         System.arraycopy(elements, 0, newElements, 0, elements.length);
