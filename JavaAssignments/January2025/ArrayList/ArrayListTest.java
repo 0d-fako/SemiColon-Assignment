@@ -24,6 +24,14 @@ public class ArrayListTest {
     }
 
     @Test
+    public void testAdd() {
+        list.add("1");
+        list.add("2");
+        list.add("3");
+        assertEquals(3, list.size());
+    }
+
+    @Test
     public void testListGetSize(){
         list.add("Volvo");
         list.add("Audi");
@@ -48,11 +56,7 @@ public class ArrayListTest {
         assertEquals(6, list.size());
     }
 
-    @Test
-    public void testAdd() {
-        list.add("1");
-        list.add("2");
-        list.add("3");
-        assertEquals(3, list.size());
-    }
+
 }
+
+
