@@ -4,6 +4,12 @@ public class ArrayList {
     private String[] elements = new String[4];
     private int size;
 
+    public boolean isEmpty() {
+        if (size == 0)
+            return true ;
+        return false;
+    }
+
     private void extendArray() {
         String[] newElements = new String[elements.length * 2];
         System.arraycopy(elements, 0, newElements, 0, elements.length);
@@ -50,10 +56,8 @@ public class ArrayList {
         return -1;
     }
 
-    public boolean isEmpty() {
-        return size == 0;
-    }
-    
+
+
 
     public void clear() {
         size = 0;

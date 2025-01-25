@@ -5,11 +5,28 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ArrayListTest {
+    private ArrayList list;
+
+    @BeforeEach
+    public void initialize() {
+        list = new ArrayList();
+    }
 
 
     @Test
+    public void testThatListIsEmpty() {
+       assertTrue(list.isEmpty());
+
+    }
+
+    @Test
+    public void testThatListIsNotEmpty() {
+        assertFalse(list.isEmpty());
+
+    }
+
+    @Test
     public void testAdd() {
-        ArrayList list = new ArrayList();
         list.add("1");
         list.add("2");
         list.add("3");
