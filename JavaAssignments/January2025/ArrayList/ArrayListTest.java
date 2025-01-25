@@ -12,18 +12,15 @@ public class ArrayListTest {
         list = new ArrayList();
     }
 
-
     @Test
     public void testThatListIsEmpty() {
        assertTrue(list.isEmpty());
-
     }
 
     @Test
     public void testThatListIsNotEmpty() {
         list.add("Benz");
         assertFalse(list.isEmpty());
-
     }
 
     @Test
@@ -34,6 +31,13 @@ public class ArrayListTest {
     }
 
 
+    @Test
+    public void testThatListReturnsRightElement() {
+        list.add("Benz");
+        assertEquals("Benz", list.get(0));
+    }
+
+    
     @Test
     public void testAdd() {
         list.add("1");
