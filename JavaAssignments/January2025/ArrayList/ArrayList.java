@@ -1,7 +1,5 @@
 package January2025.ArrayList;
 
-import java.util.Objects;
-
 public class ArrayList {
     private String[] elements = new String[4];
     private int size;
@@ -55,11 +53,7 @@ public class ArrayList {
     public boolean isEmpty() {
         return size == 0;
     }
-
-    public boolean contains(String element) {
-        for (String s : elements) if (Objects.equals(s, element)) return true;
-        return false;
-    }
+    
 
     public void clear() {
         size = 0;
