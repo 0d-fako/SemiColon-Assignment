@@ -37,7 +37,17 @@ public class ArrayListTest {
         assertEquals("Benz", list.get(0));
     }
 
-    
+    @Test
+    public void testThatListExtendsWhenFull(){
+        list.add("Benz");
+        list.add("Audi");
+        list.add("Volvo");
+        list.add("Toyota");
+        list.add("Audi");
+        list.add("Volvo");
+        assertEquals(6, list.size());
+    }
+
     @Test
     public void testAdd() {
         list.add("1");
