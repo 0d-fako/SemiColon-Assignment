@@ -5,19 +5,18 @@ public class ArrayList {
     private int size;
 
     public boolean isEmpty() {
-        if (size == 0)
-            return true ;
-        return false;
+        return size == 0;
     }
 
+    public void add(String element) {
+        if (isFull()) extendArray();
+        elements[size++] = element;
+    }
+    
     private void extendArray() {
         String[] newElements = new String[elements.length * 2];
         System.arraycopy(elements, 0, newElements, 0, elements.length);
         elements = newElements;
-    }
-    public void add(String element) {
-        if (isFull()) extendArray();
-        elements[size++] = element;
     }
 
     private boolean isFull() {
