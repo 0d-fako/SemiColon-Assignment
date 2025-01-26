@@ -19,7 +19,7 @@ public class QueueTest {
     }
 
     @Test
-    public void queueISEmpty_testQueue() {
+    public void queueIsEmpty_testQueue() {
         assertTrue(queue.isEmpty());
     }
 
