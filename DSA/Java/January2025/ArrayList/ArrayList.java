@@ -55,9 +55,6 @@ public class ArrayList {
         return -1;
     }
 
-
-
-
     public void clear() {
         size = 0;
         elements = new String[3];
@@ -65,16 +62,6 @@ public class ArrayList {
 
     public int indexOf(String element) {
         return findElementIndex(element);
-    }
-
-    public void add(int index, String element) {
-        String[] newElements = new String[elements.length];
-        if (index >= 0) System.arraycopy(elements, 0, newElements, 0, index);
-        newElements[index] = element;
-
-        if (size - index >= 0) System.arraycopy(elements, index, newElements, index + 1, size - index);
-        elements = newElements;
-        size++;
     }
 
 }
