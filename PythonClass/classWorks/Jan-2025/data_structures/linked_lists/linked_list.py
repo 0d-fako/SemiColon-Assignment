@@ -18,4 +18,4 @@ class LinkedList:
             self.last_node.next_node = node
             self.last_node = node
 
-    def 
+    def
