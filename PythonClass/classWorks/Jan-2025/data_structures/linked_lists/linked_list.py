@@ -18,4 +18,13 @@ class LinkedList:
             self.last_node.next_node = node
             self.last_node = node
 
-    def
+    def delete(self, value):
+        if self.first_node is None:
+            self.first_node = value
+            self.last_node = value
+            return
+        else:
+            node = self.first_node
+            self.first_node = self.first_node.next_node
+            self.last_node = self.last_node.next_node
+            return
