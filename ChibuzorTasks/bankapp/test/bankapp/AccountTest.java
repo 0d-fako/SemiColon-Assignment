@@ -3,6 +3,7 @@ package bankapp;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class AccountTest {
@@ -16,7 +17,7 @@ public class AccountTest {
     @Test
     public void deposit5K_balance5kTest() {
         lumiAccount.deposit(5_000);
-        assertTrue(5_000,lumiAccount.getBalance());
+        assertEquals(5_000, lumiAccount.getBalance());
     }
 
 }
