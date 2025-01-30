@@ -20,4 +20,10 @@ public class AccountTest {
         assertEquals(5_000, lumiAccount.getBalance());
     }
 
+    @Test
+    public void deposit5KTwice_balance10kTest() {
+        lumiAccount.deposit(5_000);
+        lumiAccount.deposit(5_000);
+        assertEquals(10_000, lumiAccount.getBalance());
+    }
 }
