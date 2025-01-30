@@ -10,7 +10,7 @@ public class AccountTest {
 
     @BeforeEach
     public void setUp() {
-        lumiAccount = new Account();
+        lumiAccount = new Account("firstName", "lastName", 1, "pin");
     }
 
 
@@ -39,7 +39,15 @@ public class AccountTest {
     @Test
     public void deposit5k_withdraw10kThrowsExceptionTest() {
         lumiAccount.deposit(5_000);
-        assertThrows(IllegalArgumentException.class, () -> lumiAccount.withdraw(10_000,"1234"));
+        assertThrows(IllegalArgumentException.class, () -> lumiAccount.withdraw(10_000,"pin"));
+    }
+
+    @Test
+    public void deposit5k_withdraw5kTest() {
+        lumiAccount.deposit(5_000);
+        assertEquals(5_000, lumiAccount.getBalance());
+        lumiAccount.withdraw(5_000,"pin");
+        assertEquals(0, lumiAccount.getBalance());
     }
 }
 

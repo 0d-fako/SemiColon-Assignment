@@ -3,6 +3,19 @@ package bankapp;
 public class Account {
     private double balance;
     private String pin;
+    private int accountNumber;
+    private String firstName;
+    private String lastName;
+
+    public Account(String firstName, String lastName, int accountNumber, String pin) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.accountNumber = accountNumber;
+        this.pin = pin;
+
+
+
+    }
 
     public void deposit(int amount) {
         if (amount <= 0) throw new IllegalArgumentException("Amount must be positive");
