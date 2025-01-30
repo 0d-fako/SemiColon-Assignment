@@ -37,9 +37,9 @@ public class AccountTest {
     }
 
     @Test
-    public void deposit5k_withdraw10kthrowsExceptionTest() {
+    public void deposit5k_withdraw10kThrowsExceptionTest() {
         lumiAccount.deposit(5_000);
-        assertThrows(IllegalArgumentException.class, () -> lumiAccount.withdraw(10_000));
+        assertThrows(IllegalArgumentException.class, () -> lumiAccount.withdraw(10_000,"1234"));
     }
 }
 
