@@ -13,8 +13,10 @@ public class Account {
         this.accountNumber = accountNumber;
         this.pin = pin;
 
+    }
 
-
+    public int getAccountNumber() {
+        return accountNumber;
     }
 
     public void deposit(int amount) {
@@ -38,4 +40,10 @@ public class Account {
         if(!oldPin.equals(this.pin)) throw new IllegalArgumentException("Invalid pin");
         this.pin = newPin;
     }
+
+    @Override
+    public String toString() {
+        return "FullName: " +firstName+" "+lastName+ ", accountNumber=" + accountNumber;
+    }
+
 }

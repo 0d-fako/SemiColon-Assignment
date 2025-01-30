@@ -70,5 +70,10 @@ public class AccountTest {
         assertEquals(0, lumiAccount.getBalance());
 
     }
+
+    @Test
+    public void getAccountNumberTest() {
+        assertNotEquals(0, lumiAccount.getAccountNumber());
+    }
 }
 
