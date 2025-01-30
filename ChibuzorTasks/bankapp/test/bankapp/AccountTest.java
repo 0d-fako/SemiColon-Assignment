@@ -25,6 +25,11 @@ public class AccountTest {
     }
 
     @Test
+    public void deposit0_throwException() {
+        assertThrows(IllegalArgumentException.class, () -> lumiAccount.deposit(0));
+    }
+
+    @Test
     public void deposit5KTwice_balance10kTest() {
         lumiAccount.deposit(5_000);
         lumiAccount.deposit(5_000);
@@ -48,6 +53,22 @@ public class AccountTest {
         assertEquals(5_000, lumiAccount.getBalance());
         lumiAccount.withdraw(5_000,"pin");
         assertEquals(0, lumiAccount.getBalance());
+    }
+
+    @Test
+    public void withdraw5k_withInvalidPinThrowExceptionTest() {
+        assertThrows(IllegalArgumentException.class, () -> lumiAccount.withdraw(5_000,"pni"));
+
+    }
+
+    @Test
+    public void updatePin_checkPinTest() {
+        lumiAccount.updatePin("pin","pmi");
+        lumiAccount.deposit(5_000);
+        assertEquals(5_000, lumiAccount.getBalance());
+        lumiAccount.withdraw(5_000,"pmi");
+        assertEquals(0, lumiAccount.getBalance());
+
     }
 }
 

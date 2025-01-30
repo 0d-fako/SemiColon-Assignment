@@ -33,4 +33,9 @@ public class Account {
         this.balance -= amount;
 
     }
+
+    public void updatePin(String oldPin, String newPin) {
+        if(!oldPin.equals(this.pin)) throw new IllegalArgumentException("Invalid pin");
+        this.pin = newPin;
+    }
 }
