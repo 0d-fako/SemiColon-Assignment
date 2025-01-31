@@ -1,8 +1,9 @@
 package mydairy;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class DairyTest {
     private Dairy dairy;
@@ -43,7 +44,5 @@ public class DairyTest {
         dairy.unlock("pin");
         assertEquals("fullname", dairy.getUsername());
     }
-public class DairyTest {
-
 
 }
