@@ -44,4 +44,20 @@ public class Bank {
         }
         return null;
     }
+
+    public ArrayList<Account> getAccounts() {
+        return accounts;
+    }
+
+    public String getBankName() {
+        return bankName;
+    }
+
+    public void deposit(String accountNumber, double amount) {
+        Account account = findAccount(accountNumber);
+        if (account == null) throw new IllegalArgumentException();
+        if (amount < 0) throw new IllegalArgumentException();
+        account.deposit(amount);
+    }
+    
 }

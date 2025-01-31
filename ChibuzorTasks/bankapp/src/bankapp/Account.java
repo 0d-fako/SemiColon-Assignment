@@ -19,7 +19,7 @@ public class Account {
         return accountNumber;
     }
 
-    public void deposit(int amount) {
+    public void deposit(double amount) {
         if (amount <= 0) throw new IllegalArgumentException("Amount must be positive");
         this.balance += amount;
     }
@@ -28,7 +28,7 @@ public class Account {
         return balance;
     }
 
-    public void withdraw(int amount, String pin) {
+    public void withdraw(double amount, String pin) {
         if (amount <= 0) throw new IllegalArgumentException("Amount must be positive");
         if (balance < amount) throw new IllegalArgumentException("Insufficient balance");
         if(!pin.equals(this.pin)) throw new IllegalArgumentException("Invalid pin");
