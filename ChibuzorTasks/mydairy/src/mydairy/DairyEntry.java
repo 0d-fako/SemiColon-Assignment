@@ -19,6 +19,10 @@ public class DairyEntry {
         return id;
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -31,13 +35,9 @@ public class DairyEntry {
         return body;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     @Override
     public String toString() {
         return String.format("Date: %s\n Title: %s\n Body: %s\n ",date, title, body);
     }
-    
+
 }
