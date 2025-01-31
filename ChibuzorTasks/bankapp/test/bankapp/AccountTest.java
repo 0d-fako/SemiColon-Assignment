@@ -10,12 +10,12 @@ public class AccountTest {
 
     @BeforeEach
     public void setUp() {
-        lumiAccount = new Account("firstName", "lastName", 1, "pin");
+        lumiAccount = new Account("firstName", "lastName", "1", "pin");
     }
 
 
     @Test
-    public void balanceIsEmpty_shouldReturnZero() {
+    public void balanceIsEmpty_shouldReturnZeroTest() {
         assertEquals(0, lumiAccount.getBalance());
     }
     @Test

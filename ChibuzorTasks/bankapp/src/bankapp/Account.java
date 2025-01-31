@@ -3,11 +3,11 @@ package bankapp;
 public class Account {
     private double balance;
     private String pin;
-    private int accountNumber;
+    private String accountNumber;
     private String firstName;
     private String lastName;
 
-    public Account(String firstName, String lastName, int accountNumber, String pin) {
+    public Account(String firstName, String lastName, String accountNumber, String pin) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.accountNumber = accountNumber;
@@ -15,7 +15,7 @@ public class Account {
 
     }
 
-    public int getAccountNumber() {
+    public String getAccountNumber() {
         return accountNumber;
     }
 
