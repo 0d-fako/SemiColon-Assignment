@@ -61,9 +61,11 @@ public class Bank {
     }
 
     public double checkBalance(String accountNumber, String pin) {
-        Account account = findAccount(accountNumber);
-        if (account == null) throw new IllegalArgumentException("Account not found");
+        if (accountNumber == null) throw new IllegalArgumentException("Account cannot be null");
+        if (accounts.isEmpty()) throw new IllegalArgumentException("No account found");
         if (pin == null) throw new IllegalArgumentException("Invalid pin");
+        Account account = findAccount(accountNumber);
+        if (account == null) throw new IllegalArgumentException("No account found");
         return account.getBalance();
     }
 }
