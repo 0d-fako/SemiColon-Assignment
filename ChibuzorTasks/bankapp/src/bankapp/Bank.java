@@ -27,6 +27,15 @@ public class Bank {
 
     }
 
+    public void transfer(String sender, String recipient, int amount, String pin) {
+        Account senderAccount = findAccount(sender);
+        Account recipientAccount = findAccount(recipient);
+        if (senderAccount == null || recipientAccount == null) throw new IllegalArgumentException("Sender or recipient not found");
+        senderAccount.withdraw(amount, pin);
+        recipientAccount.deposit(amount);
+    }
+
+
     private Account findAccount(String accountNumber) {
         if (accountNumber == null || accountNumber.isEmpty()) throw new IllegalArgumentException("Invalid account number");
         if (accounts.isEmpty()) throw new IllegalArgumentException("No account found");
