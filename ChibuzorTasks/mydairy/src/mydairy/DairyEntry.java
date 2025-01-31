@@ -37,11 +37,7 @@ public class DairyEntry {
 
     @Override
     public String toString() {
-        return String.format("ID: %d\n Title: %s\n Body: %s\n Date: %s", id, title, body, date);
+        return String.format("Date: %s\n Title: %s\n Body: %s\n ",date, title, body);
     }
-
-
-
-
-    }
+    
 }
