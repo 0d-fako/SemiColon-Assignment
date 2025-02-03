@@ -55,7 +55,7 @@ public class Dairy {
 
         public DairyEntry findDiaryEntryById(int id) {
             if(dairyEntries.isEmpty()) return null;
-            if (!this.isLocked) throw new RuntimeException("Locked");
+            if (this.isLocked) throw new RuntimeException("Locked");
             for (DairyEntry entry : this.dairyEntries) {
                 if (entry.getId() == id) {
                     return entry;
@@ -65,6 +65,7 @@ public class Dairy {
         }
 
         public void updateEntryById(int i, String title, String body) {
+            if(this.isLocked) throw new RuntimeException("Locked");
             DairyEntry dairyEntry = findDiaryEntryById(id);
             dairyEntry.setTitle(title);
             dairyEntry.setBody(body);
