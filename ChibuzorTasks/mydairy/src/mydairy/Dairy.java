@@ -48,8 +48,9 @@ public class Dairy {
 
         public void deleteDairyEntry(String pin, int id) {
             if(!validatePin(pin)) throw new RuntimeException("Invalid pin");
-            DiaryEntry diaryEntry = findDiaryEntryById(id);
-            this.dairyEntries.remove(diaryEntry);
+            DairyEntry dairyEntry;
+            dairyEntry = findDiaryEntryById(id);
+            this.dairyEntries.remove(dairyEntry);
         }
 
         public DairyEntry findDiaryEntryById(int id) {
