@@ -19,5 +19,18 @@ public class Dairy {
 
         }
 
+        public DairyEntry createDairyEntry() {
+            if(this.isLocked) throw new RuntimeException("Locked");
+            DairyEntry entry = new DairyEntry(this.id, this.name, this.pin);
+            this.dairyEntries.add(entry);
+            this.isLocked = true;
+            return entry;
+        }
+
+        public int getId() {
+            return id;
+        }
+        
+
 
 }
