@@ -28,18 +28,17 @@ public class Dairy {
 
 
         public void unlockDairy(String pin) {
-            validatePin(pin);
-            this.isLocked = false;
+            if(validatePin(pin)) this.isLocked = false;
         }
 
-        public void validatePin(String pin) {
+        public boolean validatePin(String pin) {
             if(pin.isEmpty()) throw new RuntimeException("Pin cannot be empty");
             if(!pin.equals(this.pin)) throw new RuntimeException("Invalid pin");
+            return true;
         }
 
         public void lockDairy(String pin) {
-            validatePin(pin);
-            this.isLocked = true;
+            if (validatePin(pin)) this.isLocked = true;
         }
 
         public boolean isLocked() {
@@ -47,6 +46,22 @@ public class Dairy {
         }
 
 
+        public void deleteDairyEntry(String pin, int id) {
+            if(!validatePin(pin)) throw new RuntimeException("Invalid pin");
+            DiaryEntry diaryEntry = findDiaryEntryById(id);
+            this.dairyEntries.remove(diaryEntry);
+        }
+
+        public DairyEntry findDiaryEntryById(int id) {
+            if(dairyEntries.isEmpty()) return null;
+            if (!this.isLocked) throw new RuntimeException("Locked");
+            for (DairyEntry entry : this.dairyEntries) {
+                if (entry.getId() == id) {
+                    return entry;
+                }
+            }
+            return null;
+        }
         public int getId() {
             return id;
         }
