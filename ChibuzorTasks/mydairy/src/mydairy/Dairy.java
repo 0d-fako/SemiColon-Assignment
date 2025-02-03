@@ -64,7 +64,7 @@ public class Dairy {
             return null;
         }
 
-        public void updateEntryById(int i, String title, String body) {
+        public void updateEntryById(int id, String title, String body) {
             if(this.isLocked) throw new RuntimeException("Locked");
             DairyEntry dairyEntry = findDiaryEntryById(id);
             dairyEntry.setTitle(title);
