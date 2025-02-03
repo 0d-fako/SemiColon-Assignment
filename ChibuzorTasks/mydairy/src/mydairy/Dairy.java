@@ -63,10 +63,12 @@ public class Dairy {
             }
             return null;
         }
-        public int getId() {
-            return id;
-        }
 
+        public void updateEntryById(int i, String title, String body) {
+            DairyEntry dairyEntry = findDiaryEntryById(id);
+            dairyEntry.setTitle(title);
+            dairyEntry.setBody(body);
+        }
 
 
 }
