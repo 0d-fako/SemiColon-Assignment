@@ -19,18 +19,38 @@ public class Dairy {
 
         }
 
-        public DairyEntry createDairyEntry() {
+        public void createDairyEntry() {
             if(this.isLocked) throw new RuntimeException("Locked");
             DairyEntry entry = new DairyEntry(this.id, this.name, this.pin);
             this.dairyEntries.add(entry);
             this.isLocked = true;
-            return entry;
         }
+
+
+        public void unlockDairy(String pin) {
+            validatePin(pin);
+            this.isLocked = false;
+        }
+
+        public void validatePin(String pin) {
+            if(pin.isEmpty()) throw new RuntimeException("Pin cannot be empty");
+            if(!pin.equals(this.pin)) throw new RuntimeException("Invalid pin");
+        }
+
+        public void lockDairy(String pin) {
+            validatePin(pin);
+            this.isLocked = true;
+        }
+
+        public boolean isLocked() {
+            return this.isLocked;
+        }
+
 
         public int getId() {
             return id;
         }
-        
+
 
 
 }
