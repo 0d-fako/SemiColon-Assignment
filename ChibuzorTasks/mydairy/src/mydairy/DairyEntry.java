@@ -10,8 +10,8 @@ public class DairyEntry {
 
     public DairyEntry(int id, String title, String body) {
         this.id = id;
-        this.title = title;
-        this.body = body;
+        setTitle(title);
+        setBody(body);
         this.date = LocalDate.now();
     }
 
@@ -20,6 +20,7 @@ public class DairyEntry {
     }
 
     public void setTitle(String title) {
+        if(title == null || title.isEmpty()) throw new IllegalArgumentException("Title cannot be null or empty");
         this.title = title;
     }
 
@@ -28,9 +29,14 @@ public class DairyEntry {
     }
 
     public void setBody(String body) {
+        if(body == null || body.isEmpty()) throw new IllegalArgumentException("Body cannot be null or empty");
         this.body = body;
     }
 
+    public LocalDate getDate() {
+        return date;
+    }
+    
     public String getBody() {
         return body;
     }
