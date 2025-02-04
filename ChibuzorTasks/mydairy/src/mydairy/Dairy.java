@@ -19,6 +19,7 @@ public class Dairy {
 
         }
 
+        pub
         public void createDairyEntry() {
             if(this.isLocked) throw new RuntimeException("Locked");
             DairyEntry entry = new DairyEntry(this.id, this.name, this.pin);
