@@ -23,6 +23,7 @@ public class Dairies {
     }
 
     public void deleteDairy(String name, String pin) {
+        if(dairies.isEmpty() || !dairies.contains(findDairyByUsername(name))) throw new RuntimeException("Dairy not found");
         dairies.removeIf(dairy -> dairy.getUsername().equals(name));
     }
 }
