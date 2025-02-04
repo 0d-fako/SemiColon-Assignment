@@ -70,7 +70,7 @@ public class Dairy {
             dairyEntry.setTitle(title);
             dairyEntry.setBody(body);
         }
-        
+
         public String getUsername() {
             return this.name;
     }

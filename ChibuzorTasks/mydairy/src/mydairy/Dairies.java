@@ -21,4 +21,8 @@ public class Dairies {
         }
         throw new RuntimeException("Dairy not found");
     }
+
+    public void deleteDairy(String name, String pin) {
+        dairies.removeIf(dairy -> dairy.getUsername().equals(name));
+    }
 }
