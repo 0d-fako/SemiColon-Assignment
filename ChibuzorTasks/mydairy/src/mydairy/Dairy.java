@@ -20,11 +20,12 @@ public class Dairy {
         }
 
 
-        public void createDairyEntry(String title, String body) {
+        public DairyEntry createDairyEntry(String title, String body) {
             if(this.isLocked) throw new RuntimeException("Locked");
             DairyEntry entry = new DairyEntry(id++, title, body);
             this.dairyEntries.add(entry);
             this.isLocked = true;
+            return entry;
         }
 
 
@@ -39,6 +40,7 @@ public class Dairy {
         }
 
         public void lockDairy(String pin) {
+            if(this.isLocked) throw new RuntimeException("Locked");
             if (validatePin(pin)) this.isLocked = true;
         }
 
@@ -50,11 +52,11 @@ public class Dairy {
         public void deleteDairyEntryById(String pin, int id) {
             if(!validatePin(pin)) throw new RuntimeException("Invalid pin");
             DairyEntry dairyEntry;
-            dairyEntry = finddairyEntryById(id);
+            dairyEntry = findDairyEntryById(id);
             this.dairyEntries.remove(dairyEntry);
         }
 
-        public DairyEntry finddairyEntryById(int id) {
+        public DairyEntry findDairyEntryById(int id) {
             if(dairyEntries.isEmpty()) return null;
             if (this.isLocked) throw new RuntimeException("Locked");
             for (DairyEntry entry : this.dairyEntries) {
@@ -67,7 +69,7 @@ public class Dairy {
 
         public void updateEntryById(int id, String title, String body) {
             if(this.isLocked) throw new RuntimeException("Locked");
-            DairyEntry dairyEntry = finddairyEntryById(id);
+            DairyEntry dairyEntry = findDairyEntryById(id);
             dairyEntry.setTitle(title);
             dairyEntry.setBody(body);
         }

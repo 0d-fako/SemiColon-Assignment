@@ -5,23 +5,23 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class dairyTest {
-    private dairy dairy;
+public class DairyTest {
+    private Dairy dairy;
     private static final String USERNAME = "testUser";
     private static final String INITIAL_PIN = "1234";
 
     @BeforeEach
     public void setUp() {
-        dairy = new dairy(USERNAME, INITIAL_PIN);
+        dairy = new Dairy( USERNAME, INITIAL_PIN );
     }
 
     @Test
-    public void newdairy_shouldBeUnlockedInitially() {
+    public void newDairy_shouldBeUnlockedInitially() {
         assertFalse(dairy.isLocked());
     }
 
     @Test
-    public void newdairy_hasCorrectName() {
+    public void newDairy_hasCorrectName() {
         assertEquals(USERNAME, dairy.getName());
     }
 
@@ -46,38 +46,38 @@ public class dairyTest {
 
 
     @Test
-    public void lockdairy_withCorrectPin_shouldLockdairy() {
-        dairy.lockdairy(INITIAL_PIN);
+    public void lockDairy_withCorrectPin_shouldLockDairy() {
+        dairy.lockDairy(INITIAL_PIN);
         assertTrue(dairy.isLocked());
     }
 
     @Test
-    public void lockdairy_withWrongPin_shouldThrowException() {
+    public void lockDairy_withWrongPin_shouldThrowException() {
         assertThrows(IllegalArgumentException.class, () -> {
-            dairy.lockdairy("wrongPin");
+            dairy.lockDairy("wrongPin");
         });
     }
 
     @Test
-    public void unlockdairy_withCorrectPin_shouldUnlockdairy() {
-        dairy.lockdairy(INITIAL_PIN);
-        dairy.unlockdairy(INITIAL_PIN);
+    public void unlockDairy_withCorrectPin_shouldUnlockDairy() {
+        dairy.lockDairy(INITIAL_PIN);
+        dairy.unlockDairy(INITIAL_PIN);
         assertFalse(dairy.isLocked());
     }
 
     @Test
-    public void unlockdairy_withWrongPin_shouldThrowException() {
-        dairy.lockdairy(INITIAL_PIN);
+    public void unlockDairy_withWrongPin_shouldThrowException() {
+        dairy.lockDairy(INITIAL_PIN);
         assertThrows(IllegalArgumentException.class, () -> {
-            dairy.unlockdairy("wrongPin");
+            dairy.unlockDairy("wrongPin");
         });
     }
 
-    // dairy Entry Creation Tests
+
     @Test
     public void createdairyEntry_shouldIncrementEntriesCount() {
-        dairyEntry entry1 = dairy.createdairyEntry("Title 1", "Body 1");
-        dairyEntry entry2 = dairy.createdairyEntry("Title 2", "Body 2");
+        DairyEntry entry1 = dairy.createDairyEntry("Title 1", "Body 1");
+        DairyEntry entry2 = dairy.createDairyEntry("Title 2", "Body 2");
 
         assertEquals(1, entry1.getId());
         assertEquals(2, entry2.getId());
@@ -109,7 +109,7 @@ public class dairyTest {
     @Test
     public void finddairyEntryById_existingEntry_shouldReturnEntry() {
         dairyEntry originalEntry = dairy.createdairyEntry("Title", "Body");
-        dairyEntry foundEntry = dairy.finddairyEntryById(originalEntry.getId()).orElseThrow();
+        dairyEntry foundEntry = dairy.findDairyEntryById(originalEntry.getId()).orElseThrow();
 
         assertEquals(originalEntry.getId(), foundEntry.getId());
         assertEquals(originalEntry.getTitle(), foundEntry.getTitle());
