@@ -38,12 +38,12 @@ class Television:
         if self.__is_on and 0 < channel < 50:
             self.__channel_level = channel
 
-
-    def mute_channel(self):
+    def mute_television(self):
         if self.__is_on:
+            self.__previous_volume = self.__volume_level
             self.__volume_level = 0
-
 
     def unmute_channel(self):
         if self.__is_on:
             self.__volume_level = self.__previous_volume
+            self.__previous_volume = 0
