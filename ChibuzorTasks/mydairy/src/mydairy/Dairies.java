@@ -4,7 +4,7 @@ package mydairy;
 import java.util.ArrayList;
 
 public class Dairies {
-    private ArrayList<Dairy> dairies;
+    private static ArrayList<Dairy> dairies;
 
 
     public Dairies() {
