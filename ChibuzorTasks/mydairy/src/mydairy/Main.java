@@ -73,15 +73,15 @@ public class Main {
         String pin = scanner.nextLine();
 
         try {
-            Dairy dairy = Dairy.findDairyEntryById(id);
+            Dairy dairy = Dairies.findDairyByName(username);
             dairy.unlockDairy(pin);
-            managedairyMenu(dairy);
+            manageDairyMenu(dairy);
         } catch (Exception e) {
             System.out.println("Access denied: " + e.getMessage());
         }
     }
 
-    private static void managedairyMenu(Dairy dairy) {
+    private static void manageDairyMenu(Dairy dairy) {
         boolean managing = true;
         while (managing) {
             System.out.println("\n--- " + dairy.getName() + "'s dairy ---");

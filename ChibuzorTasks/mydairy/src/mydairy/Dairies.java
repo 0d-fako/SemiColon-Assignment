@@ -15,7 +15,7 @@ public class Dairies {
         dairies.add(new Dairy(name, pin));
     }
 
-    public Dairy findDairyByName(String name) {
+    public static Dairy findDairyByName(String name) {
         for (Dairy dairy : dairies) {
             if (dairy.getName().equals(name)) return dairy;
         }
