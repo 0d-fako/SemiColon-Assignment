@@ -2,7 +2,7 @@ package mydairy;
 
 import java.util.Scanner;
 
-public class dairyApp {
+public class Main {
     private static Dairies dairies = new Dairies();
     private static Scanner scanner = new Scanner(System.in);
 
@@ -73,7 +73,7 @@ public class dairyApp {
         String pin = scanner.nextLine();
 
         try {
-            Dairy dairy = dairies.findDairyByUsername(username);
+            Dairy dairy = Dairy.findDairyEntryById(id);
             dairy.unlockDairy(pin);
             managedairyMenu(dairy);
         } catch (Exception e) {
@@ -109,7 +109,7 @@ public class dairyApp {
                     deleteEntry(dairy);
                     break;
                 case 5:
-                    dairy.lockDairy(dairy);
+                    dairy.lockDairy("1234");
                     managing = false;
                     break;
                 case 6:
