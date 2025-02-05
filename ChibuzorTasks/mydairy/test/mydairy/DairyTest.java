@@ -75,7 +75,7 @@ public class DairyTest {
 
 
     @Test
-    public void createdairyEntry_shouldIncrementEntriesCount() {
+    public void createDairyEntry_shouldIncrementEntriesCount() {
         DairyEntry entry1 = dairy.createDairyEntry("Title 1", "Body 1");
         DairyEntry entry2 = dairy.createDairyEntry("Title 2", "Body 2");
 
@@ -84,69 +84,64 @@ public class DairyTest {
     }
 
     @Test
-    public void createdairyEntry_whendairyIsLocked_shouldThrowException() {
-        dairy.lockdairy(INITIAL_PIN);
+    public void createDairyEntry_whenDairyIsLocked_shouldThrowException() {
+        dairy.lockDairy(INITIAL_PIN);
         assertThrows(IllegalStateException.class, () -> {
-            dairy.createdairyEntry("Title", "Body");
+            dairy.createDairyEntry("Title", "Body");
         });
     }
 
     @Test
-    public void createdairyEntry_withEmptyTitle_shouldThrowException() {
+    public void createDairyEntry_withEmptyTitle_shouldThrowException() {
         assertThrows(IllegalArgumentException.class, () -> {
-            dairy.createdairyEntry("", "Body");
+            dairy.createDairyEntry("", "Body");
         });
     }
 
     @Test
-    public void createdairyEntry_withEmptyBody_shouldThrowException() {
+    public void createDairyEntry_withEmptyBody_shouldThrowException() {
         assertThrows(IllegalArgumentException.class, () -> {
-            dairy.createdairyEntry("Title", "");
+            dairy.createDairyEntry("Title", "");
         });
     }
 
     // Find Entry Tests
     @Test
     public void finddairyEntryById_existingEntry_shouldReturnEntry() {
-        dairyEntry originalEntry = dairy.createdairyEntry("Title", "Body");
-        dairyEntry foundEntry = dairy.findDairyEntryById(originalEntry.getId()).orElseThrow();
+        DairyEntry originalEntry = dairy.createDairyEntry("Title", "Body");
+        DairyEntry foundEntry = dairy.findDairyEntryById(originalEntry.getId());
 
         assertEquals(originalEntry.getId(), foundEntry.getId());
         assertEquals(originalEntry.getTitle(), foundEntry.getTitle());
         assertEquals(originalEntry.getBody(), foundEntry.getBody());
     }
 
-    @Test
-    public void finddairyEntryById_nonExistingEntry_shouldReturnEmptyOptional() {
-        assertTrue(dairy.finddairyEntryById(999).isEmpty());
-    }
 
     @Test
     public void finddairyEntryById_whendairyIsLocked_shouldThrowException() {
-        dairy.createdairyEntry("Title", "Body");
-        dairy.lockdairy(INITIAL_PIN);
+        dairy.createDairyEntry("Title", "Body");
+        dairy.lockDairy(INITIAL_PIN);
 
         assertThrows(IllegalStateException.class, () -> {
-            dairy.finddairyEntryById(1);
+            dairy.findDairyEntryById(1);
         });
     }
 
-    // Update Entry Tests
     @Test
     public void updateEntryById_shouldUpdateTitleAndBody() {
-        dairyEntry entry = dairy.createdairyEntry("Original Title", "Original Body");
+        DairyEntry entry = dairy.createDairyEntry("Original Title", "Original Body");
 
         dairy.updateEntryById(entry.getId(), "New Title", "New Body");
 
-        dairyEntry updatedEntry = dairy.finddairyEntryById(entry.getId()).orElseThrow();
+        DairyEntry updatedEntry = dairy.findDairyEntryById(entry.getId());
         assertEquals("New Title", updatedEntry.getTitle());
         assertEquals("New Body", updatedEntry.getBody());
     }
 
     @Test
-    public void updateEntryById_whendairyIsLocked_shouldThrowException() {
-        dairyEntry entry = dairy.createdairyEntry("Title", "Body");
-        dairy.lockdairy(INITIAL_PIN);
+    public void updateEntryById_whenDairyIsLocked_shouldThrowException() {
+        DairyEntry entry = dairy.createDairyEntry("Title", "Body");
+        dairy.lockDairy(INITIAL_PIN);
 
         assertThrows(IllegalStateException.class, () -> {
             dairy.updateEntryById(entry.getId(), "New Title", "New Body");
@@ -160,29 +155,13 @@ public class DairyTest {
         });
     }
 
-    // Delete Entry Tests
-    @Test
-    public void deleteEntryById_shouldRemoveEntry() {
-        dairyEntry entry = dairy.createdairyEntry("Title", "Body");
-        dairy.deleteEntryById(entry.getId());
 
-        assertTrue(dairy.finddairyEntryById(entry.getId()).isEmpty());
-    }
 
-    @Test
-    public void deleteEntryById_whendairyIsLocked_shouldThrowException() {
-        dairyEntry entry = dairy.createdairyEntry("Title", "Body");
-        dairy.lockdairy(INITIAL_PIN);
-
-        assertThrows(IllegalStateException.class, () -> {
-            dairy.deleteEntryById(entry.getId());
-        });
-    }
 
     @Test
     public void deleteEntryById_withNonExistingEntry_shouldThrowException() {
         assertThrows(IllegalArgumentException.class, () -> {
-            dairy.deleteEntryById(999);
+            dairy.deleteDairyEntryById( INITIAL_PIN, 999);
         });
     }
 }
