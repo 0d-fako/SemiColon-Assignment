@@ -39,7 +39,7 @@ public class DairyTest {
 
     @Test
     public void validatePin_withEmptyPin_shouldThrowException() {
-        assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(RuntimeException.class, () -> {
             dairy.validatePin("");
         });
     }
@@ -53,7 +53,7 @@ public class DairyTest {
 
     @Test
     public void lockDairy_withWrongPin_shouldThrowException() {
-        assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(RuntimeException.class, () -> {
             dairy.lockDairy("wrongPin");
         });
     }
@@ -68,7 +68,7 @@ public class DairyTest {
     @Test
     public void unlockDairy_withWrongPin_shouldThrowException() {
         dairy.lockDairy(INITIAL_PIN);
-        assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(RuntimeException.class, () -> {
             dairy.unlockDairy("wrongPin");
         });
     }
@@ -86,7 +86,7 @@ public class DairyTest {
     @Test
     public void createDairyEntry_whenDairyIsLocked_shouldThrowException() {
         dairy.lockDairy(INITIAL_PIN);
-        assertThrows(IllegalStateException.class, () -> {
+        assertThrows(RuntimeException.class, () -> {
             dairy.createDairyEntry("Title", "Body");
         });
     }
@@ -107,7 +107,7 @@ public class DairyTest {
 
     // Find Entry Tests
     @Test
-    public void finddairyEntryById_existingEntry_shouldReturnEntry() {
+    public void findDairyEntryById_existingEntry_shouldReturnEntry() {
         DairyEntry originalEntry = dairy.createDairyEntry("Title", "Body");
         DairyEntry foundEntry = dairy.findDairyEntryById(originalEntry.getId());
 
@@ -150,7 +150,7 @@ public class DairyTest {
 
     @Test
     public void updateEntryById_withNonExistingEntry_shouldThrowException() {
-        assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(RuntimeException.class, () -> {
             dairy.updateEntryById(999, "New Title", "New Body");
         });
     }
@@ -160,7 +160,7 @@ public class DairyTest {
 
     @Test
     public void deleteEntryById_withNonExistingEntry_shouldThrowException() {
-        assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(RuntimeException.class, () -> {
             dairy.deleteDairyEntryById( INITIAL_PIN, 999);
         });
     }

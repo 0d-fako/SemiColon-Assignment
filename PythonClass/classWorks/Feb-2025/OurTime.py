@@ -10,7 +10,7 @@ class OurTime:
     def hours(self):
         return self_hour
 
-    
+
     @hours.setter
     def hours(self, hour):
         if hour < 0 or hour > 23:
