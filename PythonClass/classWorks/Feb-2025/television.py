@@ -43,7 +43,11 @@ class Television:
             self.__previous_volume = self.__volume_level
             self.__volume_level = 0
 
-    def unmute_channel(self):
+    def unmute_television(self):
         if self.__is_on:
             self.__volume_level = self.__previous_volume
             self.__previous_volume = 0
+
+
+    def get_status(self):
+        return self.__is_on
