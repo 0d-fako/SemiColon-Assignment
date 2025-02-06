@@ -46,6 +46,8 @@ public class PersonTest {
     public void findProblemByStatusTest(){
         person.addProblem("Name", "Type");
         person.addProblem("Name", "DifferentType");
+        person.findProblemByType("Type");
+
 
     }
 

@@ -32,4 +32,11 @@ public class Person {
     }
 
 
+    public Problem findProblemByType(String type) {
+        if (problems.isEmpty()) throw new IllegalArgumentException("No problems found");
+        for (Problem problem : problems) {
+            if (problem.getType().equals(type)) return problem;
+
+        }
+    }
 }
