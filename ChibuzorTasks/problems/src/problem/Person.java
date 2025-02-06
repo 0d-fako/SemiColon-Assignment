@@ -25,4 +25,9 @@ public class Person {
     public int getNoOfProblems() {
         return noOfProblems;
     }
+
+    public void addProblem(String name, String type) {
+        problems.add(new Problem(name, type));
+        noOfProblems++;
+    }
 }

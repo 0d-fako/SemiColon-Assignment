@@ -22,4 +22,15 @@ public class PersonTest {
     public void personCreatedSuccessfullyTest() {
         assertEquals("Ayo", person.getName());
     }
+
+    @Test
+    public void newlyCreatedPersonHasZeroProblemsTest() {
+        assertEquals(0, person.getProblems().size());
+    }
+
+    @Test
+    public void newlyCreatedPersonCanAddProblemsTest() {
+        person.addProblem("Name", "Type");
+        assertEquals(1, person.getProblems().size());
+    }
 }
