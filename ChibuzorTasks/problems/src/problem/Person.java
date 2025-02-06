@@ -13,4 +13,16 @@ public class Person {
         this.problems = new ArrayList<>();
         this.noOfProblems = 0;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public ArrayList<Problem> getProblems() {
+        return problems;
+    }
+
+    public int getNoOfProblems() {
+        return noOfProblems;
+    }
 }
