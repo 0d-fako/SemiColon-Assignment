@@ -33,4 +33,20 @@ public class PersonTest {
         person.addProblem("Name", "Type");
         assertEquals(1, person.getProblems().size());
     }
+
+
+    @Test
+    public void PersonCanAddMultipleProblemsTest() {
+        person.addProblem("Name", "Type");
+        person.addProblem("Name", "DifferentType");
+        assertEquals(2, person.getProblems().size());
+    }
+
+    @Test
+    public void findProblemByStatusTest(){
+        person.addProblem("Name", "Type");
+        person.addProblem("Name", "DifferentType");
+
+    }
+
 }

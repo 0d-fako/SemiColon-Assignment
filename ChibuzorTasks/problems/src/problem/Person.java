@@ -30,4 +30,6 @@ public class Person {
         problems.add(new Problem(name, type));
         noOfProblems++;
     }
+
+
 }
