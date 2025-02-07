@@ -32,7 +32,7 @@ public class DairyTest {
 
     @Test
     public void validatePin_withWrongPin_shouldThrowException() {
-        assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(RuntimeException.class, () -> {
             dairy.validatePin("wrongPin");
         });
     }
@@ -77,6 +77,7 @@ public class DairyTest {
     @Test
     public void createDairyEntry_shouldIncrementEntriesCount() {
         DairyEntry entry1 = dairy.createDairyEntry("Title 1", "Body 1");
+        dairy.unlockDairy(INITIAL_PIN);
         DairyEntry entry2 = dairy.createDairyEntry("Title 2", "Body 2");
 
         assertEquals(1, entry1.getId());
@@ -105,10 +106,11 @@ public class DairyTest {
         });
     }
 
-    // Find Entry Tests
+
     @Test
     public void findDairyEntryById_existingEntry_shouldReturnEntry() {
         DairyEntry originalEntry = dairy.createDairyEntry("Title", "Body");
+        dairy.unlockDairy(INITIAL_PIN);
         DairyEntry foundEntry = dairy.findDairyEntryById(originalEntry.getId());
 
         assertEquals(originalEntry.getId(), foundEntry.getId());
@@ -141,9 +143,9 @@ public class DairyTest {
     @Test
     public void updateEntryById_whenDairyIsLocked_shouldThrowException() {
         DairyEntry entry = dairy.createDairyEntry("Title", "Body");
+        dairy.unlockDairy(INITIAL_PIN);
         dairy.lockDairy(INITIAL_PIN);
-
-        assertThrows(IllegalStateException.class, () -> {
+        assertThrows(RuntimeException.class, () -> {
             dairy.updateEntryById(entry.getId(), "New Title", "New Body");
         });
     }

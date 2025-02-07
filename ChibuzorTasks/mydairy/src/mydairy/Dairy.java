@@ -22,7 +22,7 @@ public class Dairy {
 
         public DairyEntry createDairyEntry(String title, String body) {
             if(this.isLocked) throw new RuntimeException("Locked");
-            DairyEntry entry = new DairyEntry(id++, title, body);
+            DairyEntry entry = new DairyEntry(++id, title, body);
             this.dairyEntries.add(entry);
             this.isLocked = true;
             return entry;
@@ -51,6 +51,7 @@ public class Dairy {
 
         public void deleteDairyEntryById(String pin, int id) {
             if(!validatePin(pin)) throw new RuntimeException("Invalid pin");
+            if(findDairyEntryById(id)==null) throw new RuntimeException("Dairy entry not found");
             DairyEntry dairyEntry;
             dairyEntry = findDairyEntryById(id);
             this.dairyEntries.remove(dairyEntry);
