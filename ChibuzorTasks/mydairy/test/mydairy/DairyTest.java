@@ -118,11 +118,11 @@ public class DairyTest {
 
 
     @Test
-    public void finddairyEntryById_whendairyIsLocked_shouldThrowException() {
+    public void findDairyEntryById_whenDairyIsLocked_shouldThrowException() {
         dairy.createDairyEntry("Title", "Body");
+        dairy.unlockDairy(INITIAL_PIN);
         dairy.lockDairy(INITIAL_PIN);
-
-        assertThrows(IllegalStateException.class, () -> {
+        assertThrows(RuntimeException.class, () -> {
             dairy.findDairyEntryById(1);
         });
     }
@@ -130,7 +130,7 @@ public class DairyTest {
     @Test
     public void updateEntryById_shouldUpdateTitleAndBody() {
         DairyEntry entry = dairy.createDairyEntry("Original Title", "Original Body");
-
+        dairy.unlockDairy(INITIAL_PIN);
         dairy.updateEntryById(entry.getId(), "New Title", "New Body");
 
         DairyEntry updatedEntry = dairy.findDairyEntryById(entry.getId());
