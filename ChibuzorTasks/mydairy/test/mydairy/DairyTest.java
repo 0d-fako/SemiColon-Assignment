@@ -79,7 +79,6 @@ public class DairyTest {
         DairyEntry entry1 = dairy.createDairyEntry("Title 1", "Body 1");
         dairy.unlockDairy(INITIAL_PIN);
         DairyEntry entry2 = dairy.createDairyEntry("Title 2", "Body 2");
-
         assertEquals(1, entry1.getId());
         assertEquals(2, entry2.getId());
     }

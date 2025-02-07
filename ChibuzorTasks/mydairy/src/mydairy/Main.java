@@ -137,7 +137,7 @@ public class Main {
     }
 
     private static void viewEntries(Dairy dairy) {
-        // This would require modifying the dairy class to provide a method to list entries
+        
         System.out.println("Viewing entries functionality to be implemented");
     }
 
