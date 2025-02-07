@@ -27,4 +27,12 @@ public class Problem {
     public void solveProblem() {
         isSolved = true;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof Problem problem) {
+            return this.name.equals(problem.name) && this.type.equals(problem.type);
+        }
+        return false;
+    }
 }

@@ -38,5 +38,10 @@ public class Person {
             if (problem.getType().equals(type)) return problem;
 
         }
+        return null;
     }
+
+
+
+
 }
