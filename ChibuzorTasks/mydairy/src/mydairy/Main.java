@@ -141,7 +141,7 @@ public class Main {
         String pin = scanner.nextLine();
 
         try {
-            dairy.viewDairyEntry(pin);
+            System.out.print(dairy.viewDairyEntry(pin));
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
