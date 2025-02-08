@@ -137,11 +137,11 @@ public class Main {
     }
 
     private static void viewEntries(Dairy dairy) {
-        System.out.print("Enter your pin");
+        System.out.print("Enter your pin: ");
         String pin = scanner.nextLine();
 
         try {
-            System.out.print(dairy.viewDairyEntry(pin));
+            System.out.println(dairy.viewDairyEntry(pin));
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
