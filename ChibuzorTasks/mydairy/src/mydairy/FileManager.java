@@ -20,7 +20,7 @@ public class FileManager {
     public static Dairies LoadDairies() {
         File file = new File(FILE_PATH);
         if (!file.exists()) {
-            return null;
+            return new Dairies();
         }
         try (ObjectInputStream objectInputStream = new ObjectInputStream(
                 Files.newInputStream(Paths.get(FILE_PATH)))){

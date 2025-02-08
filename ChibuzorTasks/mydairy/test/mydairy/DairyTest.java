@@ -84,11 +84,12 @@ public class DairyTest {
     }
 
     @Test
-    public void createDairyEntry_whenDairyIsLocked_shouldThrowException() {
+    public void createMultipleDairyEntryTest() {
         dairy.lockDairy(INITIAL_PIN);
-        assertThrows(RuntimeException.class, () -> {
-            dairy.createDairyEntry("Title", "Body");
-        });
+        dairy.createDairyEntry("Title", "Body");
+        dairy.createDairyEntry("Title@", "Body@");
+        assertEquals(2, dairy.getDairyEntryCount());
+
     }
 
     @Test

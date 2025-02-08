@@ -66,6 +66,10 @@ public class Dairy implements Serializable {
         return null;
     }
 
+    public int getDairyEntryCount() {
+        return this.dairyEntries.size();
+    }
+
     public String viewDairyEntry(String pin) {
         if (!validatePin(pin)) throw new RuntimeException("Invalid pin");
         this.unlockDairy(pin);
