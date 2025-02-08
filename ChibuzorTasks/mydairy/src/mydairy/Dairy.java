@@ -64,6 +64,16 @@ public class Dairy {
         return null;
     }
 
+    public String viewDairyEntry(String pin){
+        if(!validatePin(pin)) throw new RuntimeException("Invalid pin");
+        this.unlockDairy(pin);
+        for (DairyEntry entry : this.dairyEntries) {
+            return entry.toString();
+
+    }
+
+
+
     public void updateEntryById(int id, String title, String body) {
         if(this.isLocked) throw new RuntimeException("Locked");
         DairyEntry dairyEntry = findDairyEntryById(id);
@@ -76,9 +86,5 @@ public class Dairy {
     }
 
 
-        public String toString(){
-
-
-    }
 
 }
