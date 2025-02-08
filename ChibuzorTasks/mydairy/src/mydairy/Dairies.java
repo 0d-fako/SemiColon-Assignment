@@ -2,8 +2,10 @@ package mydairy;
 
 
 import java.util.ArrayList;
+import java.io.Serializable;
 
-public class Dairies {
+public class Dairies implements Serializable {
+    private static final long serialVersionUID = 1L;
     private static ArrayList<Dairy> dairies;
 
 

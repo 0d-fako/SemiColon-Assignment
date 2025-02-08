@@ -1,8 +1,10 @@
 package mydairy;
 
 import java.time.LocalDate;
+import java.io.Serializable;
 
-public class DairyEntry {
+public class DairyEntry implements Serializable {
+    private static final long serialVersionUID = 1L;
     private int id;
     private String title;
     private String body;
