@@ -36,14 +36,14 @@ public class DairyEntry {
     public LocalDate getDate() {
         return date;
     }
-    
+
     public String getBody() {
         return body;
     }
 
     @Override
     public String toString() {
-        return String.format("Date: %s\n Title: %s\n Body: %s\n ",date, title, body);
+        return String.format("Date: %s\nTitle: %s\nBody: %s\n ",date, title, body);
     }
 
 }
