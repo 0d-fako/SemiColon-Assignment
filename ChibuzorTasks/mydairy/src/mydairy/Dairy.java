@@ -17,70 +17,67 @@ public class Dairy {
         this.isLocked = false;
         this.id = 0;
 
-        }
+    }
+    public DairyEntry createDairyEntry(String title, String body) {
+        if(this.isLocked) throw new RuntimeException("Locked");
+        DairyEntry entry = new DairyEntry(++id, title, body);
+        this.dairyEntries.add(entry);
+        this.isLocked = true;
+        return entry;
+    }
 
 
-        public DairyEntry createDairyEntry(String title, String body) {
-            if(this.isLocked) throw new RuntimeException("Locked");
-            DairyEntry entry = new DairyEntry(++id, title, body);
-            this.dairyEntries.add(entry);
-            this.isLocked = true;
-            return entry;
-        }
+    public void unlockDairy(String pin) {
+        if(validatePin(pin)) this.isLocked = false;
+    }
+    public boolean validatePin(String pin) {
+        if(pin.isEmpty()) throw new RuntimeException("Pin cannot be empty");
+        if(!pin.equals(this.pin)) throw new RuntimeException("Invalid pin");
+        return true;
+    }
 
+    public void lockDairy(String pin) {
+        if(this.isLocked) throw new RuntimeException("Locked");
+        if (validatePin(pin)) this.isLocked = true;
+    }
 
-        public void unlockDairy(String pin) {
-            if(validatePin(pin)) this.isLocked = false;
-        }
+    public boolean isLocked() {
+        return this.isLocked;
+    }
 
-        public boolean validatePin(String pin) {
-            if(pin.isEmpty()) throw new RuntimeException("Pin cannot be empty");
-            if(!pin.equals(this.pin)) throw new RuntimeException("Invalid pin");
-            return true;
-        }
+    public void deleteDairyEntryById(String pin, int id) {
+        if(!validatePin(pin)) throw new RuntimeException("Invalid pin");
+        if(findDairyEntryById(id)==null) throw new RuntimeException("Dairy entry not found");
+        DairyEntry dairyEntry;
+        dairyEntry = findDairyEntryById(id);
+        this.dairyEntries.remove(dairyEntry);
+    }
 
-        public void lockDairy(String pin) {
-            if(this.isLocked) throw new RuntimeException("Locked");
-            if (validatePin(pin)) this.isLocked = true;
-        }
-
-        public boolean isLocked() {
-            return this.isLocked;
-        }
-
-
-        public void deleteDairyEntryById(String pin, int id) {
-            if(!validatePin(pin)) throw new RuntimeException("Invalid pin");
-            if(findDairyEntryById(id)==null) throw new RuntimeException("Dairy entry not found");
-            DairyEntry dairyEntry;
-            dairyEntry = findDairyEntryById(id);
-            this.dairyEntries.remove(dairyEntry);
-        }
-
-        public DairyEntry findDairyEntryById(int id) {
-            if(dairyEntries.isEmpty()) return null;
-            if (this.isLocked) throw new RuntimeException("Locked");
-            for (DairyEntry entry : this.dairyEntries) {
-                if (entry.getId() == id) {
-                    return entry;
-                }
+    public DairyEntry findDairyEntryById(int id) {
+        if(dairyEntries.isEmpty()) return null;
+        if (this.isLocked) throw new RuntimeException("Locked");
+        for (DairyEntry entry : this.dairyEntries) {
+            if (entry.getId() == id) {
+                return entry;
             }
-            return null;
         }
+        return null;
+    }
 
-        public void updateEntryById(int id, String title, String body) {
-            if(this.isLocked) throw new RuntimeException("Locked");
-            DairyEntry dairyEntry = findDairyEntryById(id);
-            dairyEntry.setTitle(title);
-            dairyEntry.setBody(body);
-        }
+    public void updateEntryById(int id, String title, String body) {
+        if(this.isLocked) throw new RuntimeException("Locked");
+        DairyEntry dairyEntry = findDairyEntryById(id);
+        dairyEntry.setTitle(title);
+        dairyEntry.setBody(body);
+    }
 
-        public String getName() {
-            return this.name;
-        }
+    public String getName() {
+        return this.name;
+    }
 
 
-        public String toString{
+        public String toString(){
+
 
     }
 
