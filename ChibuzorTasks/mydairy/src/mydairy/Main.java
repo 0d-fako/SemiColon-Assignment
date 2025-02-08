@@ -137,8 +137,8 @@ public class Main {
     }
 
     private static void viewEntries(Dairy dairy) {
-        
-        System.out.println("Viewing entries functionality to be implemented");
+
+
     }
 
     private static void updateEntry(Dairy dairy) {
