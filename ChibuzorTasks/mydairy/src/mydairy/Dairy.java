@@ -19,7 +19,7 @@ public class Dairy {
 
     }
     public DairyEntry createDairyEntry(String title, String body) {
-        if(this.isLocked) throw new RuntimeException("Locked");
+        if(this.isLocked) unlockDairy(pin);
         DairyEntry entry = new DairyEntry(++id, title, body);
         this.dairyEntries.add(entry);
         this.isLocked = true;
@@ -67,8 +67,10 @@ public class Dairy {
     public String viewDairyEntry(String pin) {
         if (!validatePin(pin)) throw new RuntimeException("Invalid pin");
         this.unlockDairy(pin);
+        String entries = "";
         for (DairyEntry entry : this.dairyEntries) {
-            return entry.toString();
+            entries += entry.toString();
+            return entries;
         }
         return "No entry found";
     }
