@@ -64,12 +64,13 @@ public class Dairy {
         return null;
     }
 
-    public String viewDairyEntry(String pin){
-        if(!validatePin(pin)) throw new RuntimeException("Invalid pin");
+    public String viewDairyEntry(String pin) {
+        if (!validatePin(pin)) throw new RuntimeException("Invalid pin");
         this.unlockDairy(pin);
         for (DairyEntry entry : this.dairyEntries) {
             return entry.toString();
-
+        }
+        return "No entry found";
     }
 
 

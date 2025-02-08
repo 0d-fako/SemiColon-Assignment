@@ -14,13 +14,13 @@ public class Main {
 
             switch (choice) {
                 case 1:
-                    createNewdairy();
+                    createNewDairy();
                     break;
                 case 2:
-                    accessdairy();
+                    accessDairy();
                     break;
                 case 3:
-                    deletedairy();
+                    deleteDairy();
                     break;
                 case 4:
                     running = false;
@@ -50,7 +50,7 @@ public class Main {
         }
     }
 
-    private static void createNewdairy() {
+    private static void createNewDairy() {
         System.out.print("Enter dairy username: ");
         String username = scanner.nextLine();
 
@@ -65,7 +65,7 @@ public class Main {
         }
     }
 
-    private static void accessdairy() {
+    private static void accessDairy() {
         System.out.print("Enter dairy username: ");
         String username = scanner.nextLine();
 
@@ -137,7 +137,14 @@ public class Main {
     }
 
     private static void viewEntries(Dairy dairy) {
+        System.out.print("Enter your pin");
+        String pin = scanner.nextLine();
 
+        try {
+            dairy.viewDairyEntry(pin);
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
 
     }
 
@@ -174,7 +181,7 @@ public class Main {
         }
     }
 
-    private static void deletedairy() {
+    private static void deleteDairy() {
         System.out.print("Enter dairy username to delete: ");
         String username = scanner.nextLine();
 
