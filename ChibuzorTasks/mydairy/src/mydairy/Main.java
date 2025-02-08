@@ -7,6 +7,8 @@ public class Main {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+        dairies = FileManager.LoadDairies();
+
         boolean running = true;
         while (running) {
             displayMainMenu();
@@ -23,8 +25,9 @@ public class Main {
                     deleteDairy();
                     break;
                 case 4:
+                    FileManager.saveDairies(dairies);
                     running = false;
-                    System.out.println("Exiting the dairy App. Goodbye!");
+                    System.out.println("Saving Dairies and exiting and the dairy App");
                     break;
                 default:
                     System.out.println("Invalid choice. Please try again.");
@@ -59,6 +62,7 @@ public class Main {
 
         try {
             dairies.addDairy(username, pin);
+            FileManager.saveDairies(dairies);
             System.out.println("dairy created successfully!");
         } catch (Exception e) {
             System.out.println("Error creating dairy: " + e.getMessage());
@@ -98,12 +102,14 @@ public class Main {
             switch (choice) {
                 case 1:
                     createEntry(dairy);
+                    FileManager.saveDairies(dairies);
                     break;
                 case 2:
                     viewEntries(dairy);
                     break;
                 case 3:
                     updateEntry(dairy);
+                    FileManager.saveDairies(dairies);
                     break;
                 case 4:
                     deleteEntry(dairy);

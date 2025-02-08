@@ -7,7 +7,7 @@ import java.nio.file.Paths;
 public class FileManager {
     private static final String FILE_PATH = "dairies.dat";
 
-    public static void SaveDairies(Dairies dairies) {
+    public static void saveDairies(Dairies dairies) {
         try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(
                 Files.newOutputStream(Paths.get(FILE_PATH)))) {
                     objectOutputStream.writeObject(dairies);
