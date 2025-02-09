@@ -7,7 +7,7 @@ public class Main {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        dairies = FileManager.LoadDairies();
+        dairies = FileManager.loadDairies();
 
         boolean running = true;
         while (running) {
@@ -113,6 +113,7 @@ public class Main {
                     break;
                 case 4:
                     deleteEntry(dairy);
+                    FileManager.saveDairies(dairies);
                     break;
                 case 5:
                     dairy.lockDairy("1234");
@@ -136,6 +137,7 @@ public class Main {
 
         try {
             dairy.createDairyEntry(title, body);
+            FileManager.saveDairies(dairies);
             System.out.println("Entry created successfully!");
         } catch (Exception e) {
             System.out.println("Error creating entry: " + e.getMessage());
