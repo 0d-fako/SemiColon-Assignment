@@ -27,7 +27,7 @@ public class Main {
                 case 4:
                     FileManager.saveDairies(dairies);
                     running = false;
-                    System.out.println("Saving Dairies and exiting and the dairy App");
+                    System.out.println("Saving Dairies and exiting the Dairy App.");
                     break;
                 default:
                     System.out.println("Invalid choice. Please try again.");
@@ -37,10 +37,10 @@ public class Main {
     }
 
     private static void displayMainMenu() {
-        System.out.println("\n--- dairy Management System ---");
-        System.out.println("1. Create New dairy");
-        System.out.println("2. Access dairy");
-        System.out.println("3. Delete dairy");
+        System.out.println("\n--- Dairy Management System ---");
+        System.out.println("1. Create New Dairy");
+        System.out.println("2. Access Dairy");
+        System.out.println("3. Delete Dairy");
         System.out.println("4. Exit");
         System.out.print("Enter your choice: ");
     }
@@ -63,7 +63,7 @@ public class Main {
         try {
             dairies.addDairy(username, pin);
             FileManager.saveDairies(dairies);
-            System.out.println("dairy created successfully!");
+            System.out.println("Dairy created successfully!");
         } catch (Exception e) {
             System.out.println("Error creating dairy: " + e.getMessage());
         }
@@ -88,12 +88,12 @@ public class Main {
     private static void manageDairyMenu(Dairy dairy) {
         boolean managing = true;
         while (managing) {
-            System.out.println("\n--- " + dairy.getName() + "'s dairy ---");
+            System.out.println("\n--- " + dairy.getName() + "'s Dairy ---");
             System.out.println("1. Create Entry");
             System.out.println("2. View Entries");
             System.out.println("3. Update Entry");
             System.out.println("4. Delete Entry");
-            System.out.println("5. Lock dairy");
+            System.out.println("5. Lock Dairy");
             System.out.println("6. Return to Main Menu");
             System.out.print("Enter your choice: ");
 
@@ -153,7 +153,6 @@ public class Main {
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
-
     }
 
     private static void updateEntry(Dairy dairy) {
@@ -178,7 +177,7 @@ public class Main {
         System.out.print("Enter entry ID to delete: ");
         int id = Integer.parseInt(scanner.nextLine());
 
-        System.out.print("Please enter your pin");
+        System.out.print("Please enter your pin: ");
         String pin = scanner.nextLine();
 
         try {
@@ -198,7 +197,7 @@ public class Main {
 
         try {
             dairies.deleteDairy(username, pin);
-            System.out.println("dairy deleted successfully!");
+            System.out.println("Dairy deleted successfully!");
         } catch (Exception e) {
             System.out.println("Error deleting dairy: " + e.getMessage());
         }
