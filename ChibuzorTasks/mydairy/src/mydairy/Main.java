@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     private static Dairies dairies = new Dairies();
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Scanner SCANNER = new Scanner(System.in);
 
     public static void main(String[] args) {
         dairies = FileManager.loadDairies();
@@ -33,7 +33,7 @@ public class Main {
                     System.out.println("Invalid choice. Please try again.");
             }
         }
-        scanner.close();
+        SCANNER.close();
     }
 
     private static void displayMainMenu() {
@@ -47,7 +47,7 @@ public class Main {
 
     private static int getUserChoice() {
         try {
-            return Integer.parseInt(scanner.nextLine());
+            return Integer.parseInt(SCANNER.nextLine());
         } catch (NumberFormatException e) {
             return -1;
         }
@@ -55,10 +55,10 @@ public class Main {
 
     private static void createNewDairy() {
         System.out.print("Enter dairy username: ");
-        String username = scanner.nextLine();
+        String username = SCANNER.nextLine();
 
         System.out.print("Create a PIN for your dairy: ");
-        String pin = scanner.nextLine();
+        String pin = SCANNER.nextLine();
 
         try {
             dairies.addDairy(username, pin);
@@ -71,10 +71,10 @@ public class Main {
 
     private static void accessDairy() {
         System.out.print("Enter dairy username: ");
-        String username = scanner.nextLine();
+        String username = SCANNER.nextLine();
 
         System.out.print("Enter PIN: ");
-        String pin = scanner.nextLine();
+        String pin = SCANNER.nextLine();
 
         try {
             Dairy dairy = Dairies.findDairyByName(username);
@@ -130,10 +130,10 @@ public class Main {
 
     private static void createEntry(Dairy dairy) {
         System.out.print("Enter entry title: ");
-        String title = scanner.nextLine();
+        String title = SCANNER.nextLine();
 
         System.out.print("Enter entry body: ");
-        String body = scanner.nextLine();
+        String body = SCANNER.nextLine();
 
         try {
             dairy.createDairyEntry(title, body);
@@ -146,7 +146,7 @@ public class Main {
 
     private static void viewEntries(Dairy dairy) {
         System.out.print("Enter your pin: ");
-        String pin = scanner.nextLine();
+        String pin = SCANNER.nextLine();
 
         try {
             System.out.println(dairy.viewDairyEntry(pin));
@@ -157,13 +157,13 @@ public class Main {
 
     private static void updateEntry(Dairy dairy) {
         System.out.print("Enter entry ID to update: ");
-        int id = Integer.parseInt(scanner.nextLine());
+        int id = Integer.parseInt(SCANNER.nextLine());
 
         System.out.print("Enter new title: ");
-        String title = scanner.nextLine();
+        String title = SCANNER.nextLine();
 
         System.out.print("Enter new body: ");
-        String body = scanner.nextLine();
+        String body = SCANNER.nextLine();
 
         try {
             dairy.updateEntryById(id, title, body);
@@ -175,10 +175,10 @@ public class Main {
 
     private static void deleteEntry(Dairy dairy) {
         System.out.print("Enter entry ID to delete: ");
-        int id = Integer.parseInt(scanner.nextLine());
+        int id = Integer.parseInt(SCANNER.nextLine());
 
         System.out.print("Please enter your pin: ");
-        String pin = scanner.nextLine();
+        String pin = SCANNER.nextLine();
 
         try {
             dairy.deleteDairyEntryById(pin, id);
@@ -190,10 +190,10 @@ public class Main {
 
     private static void deleteDairy() {
         System.out.print("Enter dairy username to delete: ");
-        String username = scanner.nextLine();
+        String username = SCANNER.nextLine();
 
         System.out.print("Enter PIN to confirm deletion: ");
-        String pin = scanner.nextLine();
+        String pin = SCANNER.nextLine();
 
         try {
             dairies.deleteDairy(username, pin);
