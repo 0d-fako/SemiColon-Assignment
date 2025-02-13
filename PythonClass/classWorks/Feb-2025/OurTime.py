@@ -8,7 +8,7 @@ class OurTime:
 
     @property
     def hours(self):
-        return self_hour
+        return self._hour
 
 
     @hours.setter
