@@ -20,9 +20,14 @@ class Array:
         else:
             raise IndexError("Array index out of bounds")
 
+    def delete(self, index):
+        if 0 <= index < len(self.array):
+            self.array[index] = None
+        else:
+            raise IndexError("Array index out of bounds")
+
     def size(self):
         return len(self.array)
 
     def to_string(self):
         return str(self.array)
-
