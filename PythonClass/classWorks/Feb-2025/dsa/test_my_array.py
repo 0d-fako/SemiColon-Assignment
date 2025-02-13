@@ -28,6 +28,15 @@ class TestArray(unittest.TestCase):
         self.array.set_item(0, 10)
         self.assertFalse(self.array.is_empty())
 
+    def test_delete(self):
+        self.array.set_item(0, 10)
+        self.array.set_item(1, 20)
+        self.array.delete(1)
+        self.assertEqual(self.array.get_item(1), None)
+        self.assertEqual(self.array.to_string(), '[10, None, None, None, None]')
+        with self.assertRaises(IndexError):
+            self.array.delete(5)
+            
     def test_to_string(self):
         self.array.set_item(0, 10)
         self.array.set_item(1, 20)
