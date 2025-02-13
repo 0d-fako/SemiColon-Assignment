@@ -86,8 +86,6 @@ class TestTelevision(TestCase):
         my_television.search_channel(15)
         self.assertEqual(15, my_television.get_channel())
 
-    def test_turn_on_and_get_channel(self):
-        my_television = Television()
 
     def test_increase_volume_beyond_max(self):
         my_television = Television()
@@ -95,3 +93,12 @@ class TestTelevision(TestCase):
         for i in range(12):
             my_television.increase_volume()
         self.assertEqual(10, my_television.get_volume())
+
+
+    def test_decrease_volume_beyond_min(self):
+        my_television = Television()
+        my_television.turn_on()
+        my_television.increase_volume()
+        my_television.decrease_volume()
+        my_television.decrease_volume()  # Attempt to decrease below 0
+        self.assertEqual(0, my_television.get_volume())
