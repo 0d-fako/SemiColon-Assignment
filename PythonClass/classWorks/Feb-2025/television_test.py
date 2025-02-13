@@ -61,3 +61,37 @@ class TestTelevision(TestCase):
         self.assertEqual(0, my_television.get_volume())
         my_television.unmute_television()
         self.assertEqual(2, my_television.get_volume())
+
+    def test_decrease_volume_when_off(self):
+        my_television = Television()
+        my_television.decrease_volume()
+        self.assertEqual(0, my_television.get_volume())
+
+    def test_increase_channel_level(self):
+        my_television = Television()
+        my_television.turn_on()
+        my_television.increase_channel_level()
+        self.assertEqual(2, my_television.get_channel())
+
+    def test_decrease_channel_level(self):
+        my_television = Television()
+        my_television.turn_on()
+        my_television.increase_channel_level()
+        my_television.decrease_channel_level()
+        self.assertEqual(1, my_television.get_channel())
+
+    def test_search_specific_channel(self):
+        my_television = Television()
+        my_television.turn_on()
+        my_television.search_channel(15)
+        self.assertEqual(15, my_television.get_channel())
+
+    def test_turn_on_and_get_channel(self):
+        my_television = Television()
+
+    def test_increase_volume_beyond_max(self):
+        my_television = Television()
+        my_television.turn_on()
+        for i in range(12):
+            my_television.increase_volume()
+        self.assertEqual(10, my_television.get_volume())

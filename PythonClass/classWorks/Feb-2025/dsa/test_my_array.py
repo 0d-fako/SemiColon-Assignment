@@ -36,7 +36,7 @@ class TestArray(unittest.TestCase):
         self.assertEqual(self.array.to_string(), '[10, None, None, None, None]')
         with self.assertRaises(IndexError):
             self.array.delete(5)
-            
+
     def test_to_string(self):
         self.array.set_item(0, 10)
         self.array.set_item(1, 20)
