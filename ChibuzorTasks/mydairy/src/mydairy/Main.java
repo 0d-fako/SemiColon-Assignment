@@ -1,4 +1,4 @@
-package mydairy;
+package mydairy.src.mydairy;
 
 import java.util.Scanner;
 

@@ -1,5 +1,6 @@
-package mydairy;
+package mydairy.test.mydairy;
 
+import mydairy.src.mydairy.Dairy;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
