@@ -1,4 +1,4 @@
-package bankapp;
+package bankapp.src.bankapp;
 
 public class Account {
     private double balance;

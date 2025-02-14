@@ -12,6 +12,7 @@ public class Problem {
         this.isSolved = false;
     }
 
+
     public String getName() {
         return name;
     }

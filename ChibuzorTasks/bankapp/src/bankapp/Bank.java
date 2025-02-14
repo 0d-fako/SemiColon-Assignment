@@ -1,4 +1,4 @@
-package bankapp;
+package bankapp.src.bankapp;
 
 
 import java.util.ArrayList;
