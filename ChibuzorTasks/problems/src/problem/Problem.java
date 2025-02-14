@@ -1,4 +1,4 @@
-package problem;
+package problems.src.problem;
 
 public class Problem {
     private String name;
