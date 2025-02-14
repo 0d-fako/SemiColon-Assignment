@@ -1,4 +1,4 @@
-package mydairy;
+package mydairy.src.mydairy;
 
 import java.time.LocalDate;
 import java.io.Serializable;
