@@ -1,5 +1,6 @@
-package bankapp;
+package bankapp.src.bankapp;
 
+import bankapp.src.bankapp.Bank;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

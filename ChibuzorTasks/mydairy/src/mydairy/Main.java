@@ -73,7 +73,7 @@ public class Main {
         }
     }
 
-    private static void accessDairy() {
+    public static void accessDairy() {
         System.out.print("Enter dairy username: ");
         String username = SCANNER.nextLine();
 
@@ -81,7 +81,7 @@ public class Main {
         String pin = SCANNER.nextLine();
 
         try {
-            Dairy dairy = Dairies.findDairyByName(username);
+            Dairy dairy = dairies.findDairyByName(username);
             dairy.unlockDairy(pin);
             manageDairyMenu(dairy);
         } catch (Exception e) {
