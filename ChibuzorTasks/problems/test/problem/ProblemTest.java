@@ -4,6 +4,8 @@ package problem;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import problems.src.problem.Problem;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 

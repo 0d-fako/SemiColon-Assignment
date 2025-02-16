@@ -1,4 +1,4 @@
-package mydairy.test.mydairy;
+package mydairy.src.mydairy;
 
 import mydairy.src.mydairy.Dairy;
 import org.junit.jupiter.api.BeforeEach;
