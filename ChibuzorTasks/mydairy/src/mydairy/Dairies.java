@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 public class Dairies implements Serializable {
     private static final long serialVersionUID = 1L;
-    private static ArrayList<Dairy> dairies;
+    private ArrayList<Dairy> dairies;
 
     public Dairies() {
         dairies = new ArrayList<>();
@@ -15,11 +15,11 @@ public class Dairies implements Serializable {
         dairies.add(new Dairy(name, pin));
     }
 
-    public static Dairy findDairyByName(String name) {
+    public Dairy findDairyByName(String name) {
         for (Dairy dairy : dairies) {
             if (dairy.getName().equals(name)) return dairy;
         }
-        throw new RuntimeException("Dairy not found");
+        throw new RuntimeException("Dairy not found: " + name);
     }
 
     public void deleteDairy(String name, String pin) {

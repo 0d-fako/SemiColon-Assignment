@@ -38,8 +38,8 @@ public class Dairy implements Serializable {
     }
 
     public void lockDairy(String pin) {
-        if(this.isLocked) throw new RuntimeException("Locked");
-        if(validatePin(pin)) this.isLocked = true;
+        validatePin(pin);
+        this.isLocked = true;
     }
 
     public boolean isLocked() {

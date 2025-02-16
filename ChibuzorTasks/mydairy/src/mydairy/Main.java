@@ -9,6 +9,10 @@ public class Main {
     public static void main(String[] args) {
         dairies = FileManager.loadDairies();
 
+        if(dairies == null) {
+            dairies = new Dairies();
+        }
+
         boolean running = true;
         while (running) {
             displayMainMenu();
