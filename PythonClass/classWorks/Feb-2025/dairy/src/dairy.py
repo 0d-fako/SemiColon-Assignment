@@ -5,8 +5,8 @@ class Dairy:
         self.name = name
         self.pin = pin
         self.dairy_entries = []
-        self.locked = True  # Diary is locked by default
-        self.next_entry_id = 1  # Start entry IDs from 1
+        self.locked = True
+        self.next_entry_id = 1
 
     def create_dairy_entry(self, title, body):
         if self.locked:
@@ -47,7 +47,7 @@ class Dairy:
         if self.locked:
             raise RuntimeError("Dairy is locked. Unlock it first.")
         for entry in self.dairy_entries:
-            if entry.get_id() == entry_id:
+            if entry.get_entry_id() == entry_id:
                 return entry
         return None
 
@@ -59,7 +59,7 @@ class Dairy:
             raise ValueError("Invalid PIN")
         if self.locked:
             raise RuntimeError("Dairy is locked. Unlock it first.")
-        return self.dairy_entries  # Return the list of entries
+        return self.dairy_entries
 
     def update_entry_by_id(self, entry_id, title, body):
         if self.locked:
