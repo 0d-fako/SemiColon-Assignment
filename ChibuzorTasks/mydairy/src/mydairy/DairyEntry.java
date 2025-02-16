@@ -1,9 +1,11 @@
 package mydairy.src.mydairy;
 
+import java.io.Serial;
 import java.time.LocalDate;
 import java.io.Serializable;
 
 public class DairyEntry implements Serializable {
+    @Serial
     private static final long serialVersionUID = 1L;
     private int id;
     private String title;
