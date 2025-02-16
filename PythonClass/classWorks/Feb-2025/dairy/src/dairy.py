@@ -1,4 +1,6 @@
 from dairy.src.dairy import *
+from dairy.src.dairy.dairy_entry import DairyEntry
+
 
 class Dairy:
     def __init__(self, name, pin):

@@ -1,4 +1,4 @@
-from dairy.src.dairy import *
+from dairy.src.dairy.dairies import Dairies
 
 
 def display_main_menu():

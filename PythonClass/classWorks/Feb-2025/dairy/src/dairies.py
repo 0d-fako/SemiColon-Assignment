@@ -1,4 +1,4 @@
-from dairy.src.dairy import *
+
 
 
 class Dairies:
