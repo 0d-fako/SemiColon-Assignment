@@ -1,14 +1,16 @@
 import datetime
 
 class DairyEntry:
-    def __init__(self, id, title, body):
-        self.id = id
+    def __init__(self, entry_id, title, body):
+        self.entry_id = entry_id
+        self.title = None
+        self.body = None
         self.set_title(title)
         self.set_body(body)
         self.date = datetime.date.today()
 
-    def get_id(self):
-        return self.id
+    def get_entry_id(self):
+        return self.entry_id
 
     def set_title(self, title):
         if not title:
