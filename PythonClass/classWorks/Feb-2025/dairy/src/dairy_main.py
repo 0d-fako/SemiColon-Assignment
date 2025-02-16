@@ -1,4 +1,5 @@
-file)
+from dairy.src.dairies import Dairies
+from dairy.src.dairy import Dairy
 
 def display_main_menu():
     print("\n--- Dairy Management System ---")
@@ -57,8 +58,7 @@ def manage_dairy_menu(dairy):
         elif choice == 4:
             delete_entry(dairy)
         elif choice == 5:
-            pin = input("Enter PIN to lock the dairy: ")
-            dairy.lock_dairy(pin)
+            lock_dairy(dairy)
             break
         elif choice == 6:
             break
@@ -68,6 +68,10 @@ def manage_dairy_menu(dairy):
 def create_entry(dairy):
     title = input("Enter entry title: ")
     body = input("Enter entry body: ")
+
+    if not title or not body:
+        print("Title and body cannot be empty.")
+        return
 
     try:
         dairy.create_dairy_entry(title, body)
@@ -81,43 +85,55 @@ def view_entries(dairy):
     try:
         entries = dairy.view_dairy_entry(pin)
         for i, entry in enumerate(entries):
-            print(f"Entry {i}: {entry['title']} - {entry['body']}")
+            print(f"Entry {i + 1}: {entry.get_title()} - {entry.get_body()}")
     except Exception as e:
-        print("Error:", e)
+        print("Error viewing entries:", e)
 
 def update_entry(dairy):
     try:
-        id = int(input("Enter entry ID to update: "))
+        entry_id = int(input("Enter entry ID to update: "))
         title = input("Enter new title: ")
         body = input("Enter new body: ")
 
-        dairy.update_entry_by_id(id, title, body)
+        if not title or not body:
+            print("Title and body cannot be empty.")
+            return
+
+        dairy.update_entry_by_id(entry_id, title, body)
         print("Entry updated successfully!")
     except Exception as e:
         print("Error updating entry:", e)
 
 def delete_entry(dairy):
     try:
-        id = int(input("Enter entry ID to delete: "))
+        entry_id = int(input("Enter entry ID to delete: "))
         pin = input("Enter your pin: ")
 
-        dairy.delete_dairy_entry_by_id(pin, id)
-
+        dairy.delete_dairy_entry_by_id(pin, entry_id)
         print("Entry deleted successfully!")
     except Exception as e:
         print("Error deleting entry:", e)
+
+def lock_dairy(dairy):
+    pin = input("Enter PIN to lock the dairy: ")
+    try:
+        dairy.lock_dairy(pin)
+        print("Dairy locked successfully!")
+    except Exception as e:
+        print("Error locking dairy:", e)
 
 def delete_dairy(dairies):
     username = input("Enter dairy username to delete: ")
     pin = input("Enter PIN to confirm deletion: ")
 
     try:
-        dairies.delete_dairy(username)
+        dairies.delete_dairy(username, pin)
         print("Dairy deleted successfully!")
     except Exception as e:
         print("Error deleting dairy:", e)
 
 if __name__ == "__main__":
+    dairies = Dairies()
     while True:
         display_main_menu()
         choice = get_user_choice()
@@ -129,7 +145,7 @@ if __name__ == "__main__":
         elif choice == 3:
             delete_dairy(dairies)
         elif choice == 4:
-            print("Saving Dairies and exiting the Dairy App.")
+            print("Exiting the Dairy App. Goodbye!")
             break
         else:
             print("Invalid choice. Please try again.")
