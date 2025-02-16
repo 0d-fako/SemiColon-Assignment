@@ -1,6 +1,6 @@
 import unittest
-from dairy.src.dairies import Dairies
-from dairy.src.dairy import Dairy,DairyEntry
+from dairy.src.dairy import Dairy
+
 
 class TestDairy(unittest.TestCase):
     def setUp(self):
@@ -44,8 +44,8 @@ class TestDairy(unittest.TestCase):
         self.dairy.unlock_dairy("1234")
         entry1 = self.dairy.create_dairy_entry("Title 1", "Body 1")
         entry2 = self.dairy.create_dairy_entry("Title 2", "Body 2")
-        self.assertEqual(1, entry1.get_id())
-        self.assertEqual(2, entry2.get_id())
+        self.assertEqual(1, entry1.get_entry_id())
+        self.assertEqual(2, entry2.get_entry_id())
 
     def test_create_multiple_dairy_entry(self):
         self.dairy.unlock_dairy("1234")
@@ -66,8 +66,8 @@ class TestDairy(unittest.TestCase):
     def test_find_dairy_entry_by_id_existing_entry_should_return_entry(self):
         self.dairy.unlock_dairy("1234")
         original_entry = self.dairy.create_dairy_entry("Title", "Body")
-        found_entry = self.dairy.find_dairy_entry_by_id(original_entry.get_id())
-        self.assertEqual(original_entry.get_id(), found_entry.get_id())
+        found_entry = self.dairy.find_dairy_entry_by_id(original_entry.get_entry_id())
+        self.assertEqual(original_entry.get_entry_id(), found_entry.get_entry_id())
         self.assertEqual(original_entry.get_title(), found_entry.get_title())
         self.assertEqual(original_entry.get_body(), found_entry.get_body())
 
@@ -81,8 +81,8 @@ class TestDairy(unittest.TestCase):
     def test_update_entry_by_id_should_update_title_and_body(self):
         self.dairy.unlock_dairy("1234")
         entry = self.dairy.create_dairy_entry("Original Title", "Original Body")
-        self.dairy.update_entry_by_id(entry.get_id(), "New Title", "New Body")
-        updated_entry = self.dairy.find_dairy_entry_by_id(entry.get_id())
+        self.dairy.update_entry_by_id(entry.get_entry_id(), "New Title", "New Body")
+        updated_entry = self.dairy.find_dairy_entry_by_id(entry.get_entry_id())
         self.assertEqual("New Title", updated_entry.get_title())
         self.assertEqual("New Body", updated_entry.get_body())
 
@@ -91,14 +91,14 @@ class TestDairy(unittest.TestCase):
         entry = self.dairy.create_dairy_entry("Title", "Body")
         self.dairy.lock_dairy("1234")
         with self.assertRaises(RuntimeError):
-            self.dairy.update_entry_by_id(entry.get_id(), "New Title", "New Body")
+            self.dairy.update_entry_by_id(entry.get_entry_id(), "New Title", "New Body")
 
     def test_update_entry_by_id_with_non_existing_entry_should_throw_exception(self):
         self.dairy.unlock_dairy("1234")
-        with self.assertRaises(RuntimeError):
+        with self.assertRaises(ValueError):
             self.dairy.update_entry_by_id(999, "New Title", "New Body")
 
     def test_delete_entry_by_id_with_non_existing_entry_should_throw_exception(self):
         self.dairy.unlock_dairy("1234")
-        with self.assertRaises(RuntimeError):
+        with self.assertRaises(ValueError):
             self.dairy.delete_dairy_entry_by_id("1234", 999)

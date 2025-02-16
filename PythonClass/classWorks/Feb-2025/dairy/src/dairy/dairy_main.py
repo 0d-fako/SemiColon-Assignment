@@ -1,5 +1,5 @@
-from dairy.src.dairies import Dairies
-from dairy.src.dairy import Dairy
+from dairy.src.dairy import *
+
 
 def display_main_menu():
     print("\n--- Dairy Management System ---")

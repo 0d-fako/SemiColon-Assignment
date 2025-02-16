@@ -1,4 +1,4 @@
-from dairy.src.dairy_entry import DairyEntry
+from dairy.src.dairy import *
 
 class Dairy:
     def __init__(self, name, pin):
@@ -27,8 +27,11 @@ class Dairy:
             raise ValueError("Invalid PIN")
         return True
 
-    def lock_dairy(self):
-        self.locked = True
+    def lock_dairy(self, pin):
+        if self.validate_pin(pin):
+            self.locked = True
+        else:
+            raise ValueError("Invalid PIN")
 
     def is_locked(self):
         return self.locked
