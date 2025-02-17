@@ -21,14 +21,20 @@ public class SevenSegmentDisplayTest {
     @Test
     public void inputStringMustLongerThanEightLettersShouldThrowExceptionTest() {
         String binaryLetters = "111111111";
-        assertThrows(IllegalArgumentException.class,()-> sevenSegmentDisplay.validateInputLength(binaryLetters));
+        assertThrows(IllegalArgumentException.class,()-> sevenSegmentDisplay.validateInput(binaryLetters));
 
     }
 
     @Test
     public void inputStringMustLesserThanEightLettersShouldThrowExceptionTest(){
         String binaryLetters = "111111";
-        assertThrows(IllegalArgumentException.class,()-> sevenSegmentDisplay.validateInputLength(binaryLetters));
+        assertThrows(IllegalArgumentException.class,()-> sevenSegmentDisplay.validateInput(binaryLetters));
+    }
+
+    @Test
+    public void inputStringMustContainOnlyBinaryElseThrowExceptionTest(){
+        String binaryLetters = "11111Q91";
+        assertThrows(IllegalArgumentException.class,()-> sevenSegmentDisplay.validateInput(binaryLetters));
     }
 
 

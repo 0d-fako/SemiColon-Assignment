@@ -2,8 +2,13 @@ package turtle;
 
 public class SevenSegmentDisplay {
 
-    public void validateInputLength(String binaryLetters) {
+    public void validateInput(String binaryLetters) {
         if (binaryLetters.length() != 8) throw new IllegalArgumentException();
+        for (char c : binaryLetters.toCharArray()) {
+            if (c != '0' && c != '1') {
+                throw new IllegalArgumentException("Input must contain only binary characters ('0' or '1').");
+            }
+        }
     }
 
 
