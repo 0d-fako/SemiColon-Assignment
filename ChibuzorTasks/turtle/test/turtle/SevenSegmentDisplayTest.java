@@ -69,11 +69,11 @@ public class SevenSegmentDisplayTest {
         char[][] display = sevenSegmentDisplay.createDisplayArray(covertedArray);
 
         char[][] expectedDisplay = {
-                {' ', '#', '#', ' '},
+                {'#', '#', '#', '#'},
                 {'#', ' ', ' ', '#'},
+                {'#', '#', '#', '#'},
                 {'#', ' ', ' ', '#'},
-                {'#', ' ', ' ', '#'},
-                {' ', '#', '#', ' '}
+                {'#', '#', '#', '#'}
         };
 
         assertArrayEquals(expectedDisplay, display);
