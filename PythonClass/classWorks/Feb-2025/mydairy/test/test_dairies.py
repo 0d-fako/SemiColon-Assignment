@@ -1,6 +1,6 @@
 import unittest
 
-from dairy.src.dairy import Dairy
+from mydairy.src.dairy import Dairy
 
 
 class TestDairy(unittest.TestCase):

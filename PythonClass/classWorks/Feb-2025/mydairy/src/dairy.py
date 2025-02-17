@@ -1,4 +1,4 @@
-from dairy.src.dairy_entry import DairyEntry
+from dairy_entry import DairyEntry
 
 
 class Dairy:

@@ -1,4 +1,5 @@
-from dairy.src.dairies import Dairies
+from dairies import Dairies
+from mydairy import *
 
 
 def display_main_menu():
@@ -83,9 +84,9 @@ def view_entries(dairy):
     pin = input("Enter your pin: ")
 
     try:
-        entries = dairy.view_dairy_entry(pin)
+        entries = dairy.view_dairy_entries(pin)
         for i, entry in enumerate(entries):
-            print(f"Entry {i + 1}: {entry.get_title()} - {entry.get_body()}")
+            print(f"EntryID {i + 1}: {entry.get_date}\n {entry.get_title()} - {entry.get_body()}")
     except Exception as e:
         print("Error viewing entries:", e)
 
