@@ -27,44 +27,44 @@ public class SevenSegmentDisplay {
     public char[][] createDisplayArray(int[] convertArray) {
         char[][] display = new char[5][4];
 
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 4; j++) {
-                display[i][j] = ' ';
+        for (int row = 0; row < 5; row++) {
+            for (int column = 0; column < 4; column++) {
+                display[row][column] = ' ';
             }
         }
 
         if (convertArray[0] == 1) {
-            for (int j = 1; j < 3; j++) {
-                display[0][j] = '#';
+            for (int index = 0; index < 4; index++) {
+                display[0][index] = '#';
             }
         }
-        if (convertArray[1] == 1) { // Upper-right segment (b)
-            for (int i = 1; i < 3; i++) {
-                display[i][3] = '#';
+        if (convertArray[1] == 1) {
+            for (int index = 0; index < 3; index++) {
+                display[index][3] = '#';
             }
         }
-        if (convertArray[2] == 1) { // Lower-right segment (c)
-            for (int i = 3; i < 5; i++) {
-                display[i][3] = '#';
+        if (convertArray[2] == 1) {
+            for (int index = 2; index < 5; index++) {
+                display[index][3] = '#';
             }
         }
-        if (convertArray[3] == 1) { // Bottom segment (d)
-            for (int j = 1; j < 3; j++) {
-                display[4][j] = '#';
+        if (convertArray[3] == 1) {
+            for (int index = 0; index < 4; index++) {
+                display[4][index] = '#';
             }
         }
-        if (convertArray[4] == 1) { // Lower-left segment (e)
-            for (int i = 3; i < 5; i++) {
-                display[i][0] = '#';
+        if (convertArray[4] == 1) {
+            for (int index = 2; index < 5; index++) {
+                display[index][0] = '#';
             }
         }
-        if (convertArray[5] == 1) { // Upper-left segment (f)
-            for (int i = 1; i < 3; i++) {
-                display[i][0] = '#';
+        if (convertArray[5] == 1) {
+            for (int index = 0; index < 3; index++) {
+                display[index][0] = '#';
             }
         }
-        if (convertArray[6] == 1) { // Middle segment (g)
-            for (int j = 1; j < 3; j++) {
+        if (convertArray[6] == 1) {
+            for (int j = 0; j < 4; j++) {
                 display[2][j] = '#';
             }
         }
