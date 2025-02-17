@@ -33,12 +33,19 @@ public class SevenSegmentDisplayTest {
 
 
     @Test
-    public void LastDigitToTurnOnOrOffDisplayTest(){
+    public void lastDigitToTurnOnOrOffDisplayTest(){
         String binaryLetters = "11111111";
         assertTrue(sevenSegmentDisplay.isOn(binaryLetters));
         binaryLetters = "11111110";
         assertFalse(sevenSegmentDisplay.isOn(binaryLetters));
     }
 
+    @Test
+    public void convertStringToArrayOfIntegersTest() {
+        String binaryLetters = "11111111";
+        int[] convertedArray = sevenSegmentDisplay.convertStringToArrayOfIntegers(binaryLetters);
+        int[] result = {1,1,1,1,1,1,1};
+        assertArrayEquals(result, convertedArray );
+    }
 
 }
