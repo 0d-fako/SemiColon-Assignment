@@ -54,4 +54,29 @@ public class SevenSegmentDisplayTest {
         assertArrayEquals(result, convertedArray );
     }
 
+    @Test
+    public void convertStringToArrayOfIntegersWithMixedBinaryTest() {
+        String binaryLetters = "10101010";
+        int[] convertedArray = sevenSegmentDisplay.convertStringToArrayOfIntegers(binaryLetters);
+        int[] expectedArray = {1, 0, 1, 0, 1, 0, 1};
+        assertArrayEquals(expectedArray, convertedArray);
+    }
+
+    @Test
+    public void displaySevenSegmentWhenDisplayIsOnTest() {
+        String binaryLetters = "11111111";
+        int[] covertedArray = sevenSegmentDisplay.convertStringToArrayOfIntegers(binaryLetters);
+        char[][] display = sevenSegmentDisplay.createDisplayArray(covertedArray);
+
+        char[][] expectedDisplay = {
+                {' ', '#', '#', ' '},
+                {'#', ' ', ' ', '#'},
+                {'#', ' ', ' ', '#'},
+                {'#', ' ', ' ', '#'},
+                {' ', '#', '#', ' '}
+        };
+
+        assertArrayEquals(expectedDisplay, display);
+    }
+
 }
