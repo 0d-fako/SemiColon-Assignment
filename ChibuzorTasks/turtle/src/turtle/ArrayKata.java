@@ -5,18 +5,18 @@ public class ArrayKata{
     public static void main(String... args){
         char[][] input = {{'x', 'o', 'x'}, {'x','x','o'}, {'x','o','o'}};
         int[][] output = new int[input.length][input[0].length];
-        for(int i = 0; i < input.length; i++){
-            for(int j = 0; j < input[i].length; j++){
-                if(input[i][j] == 'x'){
-                    output[i][j] = 1;
+        for(int row = 0; row < input.length; row++){
+            for(int column = 0; column < input[i].length; column++){
+                if(input[row][column] == 'x'){
+                    output[row][column] = 1;
                 }else{
-                    output[i][j] = 0;
+                    output[row][column] = 0;
                 }
             }
         }
-        for(int i = 0; i < output.length; i++){
-            for(int j = 0; j < output[i].length; j++){
-                System.out.print(output[i][j] + " ");
+        for(int row = 0; row < output.length; row++){
+            for(int column = 0; column < output[row].length; column++){
+                System.out.print(output[row][column] + " ");
             }
             System.out.println();
         }
