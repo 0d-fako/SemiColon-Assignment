@@ -1,17 +1,17 @@
 package sevensegmentdisplay;
 
 public class SevenSegmentDisplay {
-        public void validateInput(String binaryLetters) {
-            if (binaryLetters.length() != 8) throw new IllegalArgumentException();
-            for (char c : binaryLetters.toCharArray()) {
-                if (c != '0' && c != '1') {
-                    throw new IllegalArgumentException("Input must contain only binary characters ('0' or '1').");
-                }
+    public void validateInput(String binaryLetters) {
+        if (binaryLetters.length() != 8) throw new IllegalArgumentException();
+        for (char c : binaryLetters.toCharArray()) {
+            if (c != '0' && c != '1') {
+                throw new IllegalArgumentException("Input must contain only binary characters ('0' or '1').");
             }
         }
+    }
 
 
-        public boolean isOn(String binaryLetters) {
+    public boolean isOn(String binaryLetters) {
             return binaryLetters.charAt(7) == '1';
         }
 
