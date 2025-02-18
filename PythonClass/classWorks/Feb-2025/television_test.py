@@ -8,8 +8,7 @@ class TestTelevision(TestCase):
 
 
     def test_that_television_come_on(self):
-        my_television = Television()
-        my_television.turn_on()
+        my_television = Television()        my_television.turn_on()
         self.assertTrue(my_television.get_status())
 
 
