@@ -77,6 +77,7 @@ public class SevenSegmentDisplay {
                 for (int column = 0; column < display[row].length; column++) {
                     System.out.print(display[row][column]);
                 }
+                System.out.println();
 
             }
         }

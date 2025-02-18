@@ -18,6 +18,13 @@ public class Main {
                     running = false;
                 }
 
+                if(sevenSegmentDisplay.isOn(binaryLetters)) {
+                    sevenSegmentDisplay.display(sevenSegmentDisplay.createDisplayArray(sevenSegmentDisplay.convertStringToArrayOfIntegers(binaryLetters)));
+                }
+                else {
+                    System.out.println("Display is Off");
+                }
+
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
