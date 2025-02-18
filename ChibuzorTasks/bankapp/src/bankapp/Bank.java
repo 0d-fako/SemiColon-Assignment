@@ -16,7 +16,13 @@ public class Bank {
 
     }
 
-    public void createAccount(String firstName, String lastName, String pin ) {
+    public void createAccount(String firstName, String lastName, String pin) {
+        if (firstName == null || lastName == null || pin == null) {
+            throw new IllegalArgumentException("First name, last name, and PIN cannot be null");
+        }
+        if (firstName.isEmpty() || lastName.isEmpty() || pin.isEmpty()) {
+            throw new IllegalArgumentException("First name, last name, and PIN cannot be empty");
+        }
         accounts.add(new Account(firstName, lastName, generateAccountNumber(), pin));
     }
 
@@ -27,10 +33,11 @@ public class Bank {
 
     }
 
-    public void transfer(String sender, String recipient, int amount, String pin) {
+    public void transfer(String sender, String recipient, double amount, String pin) {
         Account senderAccount = findAccount(sender);
         Account recipientAccount = findAccount(recipient);
         if (senderAccount == null || recipientAccount == null) throw new IllegalArgumentException("Sender or recipient not found");
+        if (senderAccount == recipientAccount ) throw new IllegalArgumentException("Sender and recipient can not be same");
         senderAccount.withdraw(amount, pin);
         recipientAccount.deposit(amount);
     }

@@ -71,7 +71,7 @@ public class SevenSegmentDisplay {
 
         return display;
     }
-    
+
     public void display(char[][] display) {
         for (int row = 0; row < display.length; row++) {
             for (int column = 0; column < display[row].length; column++) {
