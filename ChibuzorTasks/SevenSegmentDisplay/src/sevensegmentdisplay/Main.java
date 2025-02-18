@@ -15,16 +15,16 @@ public class Main {
                 String binaryLetters = input.nextLine();
 
                 if(sevenSegmentDisplay.validateInput(binaryLetters)){
-
+                    running = false;
                 }
-
 
             } catch (Exception e) {
                 System.out.println(e.getMessage());
-                running = true;
             }
 
         }
+
+
 
 
     }
