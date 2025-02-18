@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="88ad5a40-d99e-424d-84b4-5077a0acc4e6" name="Changes" comment="" />
+    <list default="true" id="88ad5a40-d99e-424d-84b4-5077a0acc4e6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/encrypt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ChibuzorTasks/SevenSegmentDisplay/src/sevensegmentdisplay/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ChibuzorTasks/SevenSegmentDisplay/src/sevensegmentdisplay/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ChibuzorTasks/SevenSegmentDisplay/src/sevensegmentdisplay/SevenSegmentDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ChibuzorTasks/SevenSegmentDisplay/src/sevensegmentdisplay/SevenSegmentDisplay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/television/television_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/television/television_test.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,36 +19,37 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2tD2JY4yfCFkNYIUF6OBFU9X0Cc" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python tests.Python tests for television_test.TestTelevision.executor": "Run",
-    "Python tests.Python tests for test_account.TestAccount.executor": "Run",
-    "Python tests.Python tests for test_bank.TestBank.executor": "Run",
-    "Python tests.Python tests for test_bank.TestBank.test_check_balance_invalid.executor": "Run",
-    "Python tests.Python tests for test_dairies.TestDairy.executor": "Run",
-    "Python tests.Python tests for test_my_array.TestArray.executor": "Run",
-    "Python tests.Python tests for test_my_queue.TestQueue.executor": "Run",
-    "Python tests.Python tests for test_my_stack.TestStack.executor": "Run",
-    "Python.bank_main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python tests.Python tests for television_test.TestTelevision.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_account.TestAccount.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_bank.TestBank.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_bank.TestBank.test_check_balance_invalid.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_dairies.TestDairy.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_my_array.TestArray.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_my_queue.TestQueue.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_my_stack.TestStack.executor&quot;: &quot;Run&quot;,
+    &quot;Python.bank_main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Python tests.Python tests for television_test.TestTelevision">
     <configuration name="Python tests for television_test.TestTelevision" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="Feb-2025" />
@@ -150,7 +157,10 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1739872258230</updated>
-      <workItem from="1739872260845" duration="1918000" />
+      <workItem from="1739872260845" duration="2517000" />
+      <workItem from="1739888447154" duration="2352000" />
+      <workItem from="1739891424649" duration="64000" />
+      <workItem from="1739891490856" duration="47000" />
     </task>
     <servers />
   </component>

@@ -1,13 +1,14 @@
 package sevensegmentdisplay;
 
 public class SevenSegmentDisplay {
-    public void validateInput(String binaryLetters) {
-        if (binaryLetters.length() != 8) throw new IllegalArgumentException();
+    public boolean validateInput(String binaryLetters) {
+        if (binaryLetters.length() != 8) throw new IllegalArgumentException("Input must be 8 digits");
         for (char c : binaryLetters.toCharArray()) {
             if (c != '0' && c != '1') {
                 throw new IllegalArgumentException("Input must contain only binary characters ('0' or '1').");
             }
         }
+        return true;
     }
 
 
