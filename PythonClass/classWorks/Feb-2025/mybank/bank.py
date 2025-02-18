@@ -9,7 +9,8 @@ class Bank:
     def create_account(self, first_name, last_name, pin):
         if not first_name or not last_name or not pin:
             raise ValueError("First name, last name, and PIN cannot be null or empty")
-        self.accounts.append(Account(first_name, last_name, self.generate_account_number(), pin))
+        account = Account(first_name, last_name, self.generate_account_number(), pin)
+        self.accounts.append(account)
 
     def generate_account_number(self):
         number = str(self.account_counter)
@@ -29,8 +30,6 @@ class Bank:
     def find_account(self, account_number):
         if not account_number:
             raise ValueError("Invalid account number")
-        if not self.accounts:
-            raise ValueError("No account found")
         for account in self.accounts:
             if account.get_account_number() == account_number:
                 return account
@@ -53,11 +52,14 @@ class Bank:
     def check_balance(self, account_number, pin):
         if not account_number:
             raise ValueError("Account number cannot be null")
-        if not self.accounts:
-            raise ValueError("No account found")
         if not pin:
             raise ValueError("Invalid pin")
+
         account = self.find_account(account_number)
         if not account:
             raise ValueError("No account found")
+        if account.get_pin() != pin:
+            raise ValueError("Invalid PIN")
+
         return account.get_balance()
+

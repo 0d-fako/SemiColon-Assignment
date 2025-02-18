@@ -1,11 +1,11 @@
 import unittest
-from mybank.src.mybank import account
-from mybank.src.mybank.account import Account
+
+from mybank.account import Account
 
 
 class TestAccount(unittest.TestCase):
     def setUp(self):
-        self.account = Account("John", "Doe", "123456789", "1234")
+        self.account = Account("Olu", "Mide", "123456789", "1234")
 
     def test_initial_balance(self):
         self.assertEqual(self.account.get_balance(), 0.0)
@@ -41,5 +41,5 @@ class TestAccount(unittest.TestCase):
             self.account.update_pin("wrong_pin", "4321")
 
     def test_to_string(self):
-        self.assertEqual(str(self.account), "FullName: John Doe, accountNumber=123456789")
+        self.assertEqual(str(self.account), "FullName: Olu Mide, accountNumber=123456789")
 

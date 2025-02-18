@@ -19,14 +19,13 @@ public class FileManager {
     }
 
     public static Dairies loadDairies() {
-        Path path = Paths.get(FILE_PATH);
-        if (!Files.exists(path)) {
+        if (!Files.exists(Paths.get(FILE_PATH))) {
             System.out.println("No existing data file. Starting fresh.");
             return new Dairies();
         }
 
         try (ObjectInputStream ois = new ObjectInputStream(
-                Files.newInputStream(path))) {
+                Files.newInputStream(Paths.get(FILE_PATH)))) {
             return (Dairies) ois.readObject();
         } catch (ClassNotFoundException e) {
             System.err.println("Data format mismatch: " + e.getMessage());

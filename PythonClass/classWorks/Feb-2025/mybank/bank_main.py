@@ -1,5 +1,4 @@
-from mybank.src.mybank.bank import Bank
-
+from mybank.bank import Bank
 
 def display_menu():
     print("\nWelcome to the Bank App!")
@@ -80,3 +79,6 @@ def main():
             break
         else:
             print("Invalid choice. Please try again.")
+
+if __name__ == '__main__':
+    main()

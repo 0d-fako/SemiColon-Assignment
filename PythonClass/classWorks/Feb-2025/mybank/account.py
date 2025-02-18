@@ -9,6 +9,9 @@ class Account:
     def get_account_number(self):
         return self.account_number
 
+    def get_pin(self):
+        return self.pin
+
     def deposit(self, amount):
         if amount <= 0:
             raise ValueError("Amount must be positive")
