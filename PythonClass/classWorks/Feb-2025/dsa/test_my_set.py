@@ -43,3 +43,25 @@ class TestSet(unittest.TestCase):
         self.assertFalse(s3.contains(1))
         self.assertFalse(s3.contains(3))
         self.assertEqual(s3.size(), 1)
+
+    def test_contains(self):
+        self.s.add(1)
+        self.s.add(2)
+        self.assertTrue(self.s.contains(1))
+        self.assertTrue(self.s.contains(2))
+        self.assertFalse(self.s.contains(3))
+
+    def test_size(self):
+        self.assertEqual(self.s.size(), 0)
+        self.s.add(1)
+        self.assertEqual(self.s.size(), 1)
+        self.s.add(2)
+        self.assertEqual(self.s.size(), 2)
+        self.s.remove(1)
+        self.assertEqual(self.s.size(), 1)
+
+    def test_add_duplicate(self):
+        self.s.add(1)
+        self.s.add(1)
+        self.assertEqual(self.s.size(), 1)
+        self.assertTrue(self.s.contains(1))
