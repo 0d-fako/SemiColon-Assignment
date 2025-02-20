@@ -1,4 +1,4 @@
-from mybank.bank import Bank
+from bank import Bank
 
 def display_menu():
     print("\nWelcome to the Bank App!")
