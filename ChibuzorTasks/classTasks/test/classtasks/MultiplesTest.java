@@ -46,5 +46,15 @@ public class MultiplesTest {
 
     }
 
+    @Test
+    public void multipleListWorksCorrectlyForNegativeNumbersTest() {
+        int startingNumber = -5;
+        int endingNumber = -50;
+        int multiple = 5;
+
+        int[] result = multiples.multiplesArray(startingNumber, endingNumber, multiple);
+        int[] output = {-5, 10, 15, 20, 25, 30, 35, 40, 45, 50};
+    }
+
 
 }
