@@ -1,6 +1,5 @@
 package classtasks;
 
-import classTasks.src.MissingNumberList;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
