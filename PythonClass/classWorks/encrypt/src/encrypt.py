@@ -22,6 +22,9 @@ def register_user():
         if not validate_email(email_address):
             print("Please enter a valid email address. {example@gmail.com}")
             continue
+        if not validate_user_email_isnt_duplicate(email_address):
+            print("Email Already exists")
+            continue
         break
 
     while True:
@@ -43,6 +46,16 @@ def validate_user(email_address, password):
                 if stored_email == email_address:
                     return bcrypt.checkpw(password.encode("utf-8"), stored_password.encode("utf-8"))
     return False
+
+def validate_user_email_isnt_duplicate(email_address):
+    with open(ENCRYPTED, 'r') as file:
+        data = file.read()
+        for line in data.split("\n"):
+            if line:
+                stored_email, stored_password = line.split(":")
+                if stored_email == email_address:
+                    return False
+    return True
 
 def login_user():
     email_address = input("Enter Email Address: ")
