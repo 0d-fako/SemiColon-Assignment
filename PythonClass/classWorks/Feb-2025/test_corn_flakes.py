@@ -14,6 +14,11 @@ class TestCornFlakes(TestCase):
         output = {'s': 1, 'e': 1, 'm': 1, 'i': 2, 'c': 2, 'o': 2, 'l': 1, 'n': 1, '.': 1, 'a': 2, 'f': 1, 'r': 1}
         self.assertEqual(result, output)
 
-    def test_corn_flakes_throws_exception_for_non_string(self):
-        with self.assertRaises(ValueError):
-            self.dairy.lock_dairy("wrongPin")
+
+    def test_accept_and_replace_string(self):
+        corn_flakes.accept_and_replace_first_character("Hello", "World")
+
+
+    def test_accept_and_replace_string_works(self):
+        result = corn_flakes.accept_and_replace_first_character("Hello", "World")
+        output = "Wello Horld"
