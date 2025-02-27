@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="88ad5a40-d99e-424d-84b4-5077a0acc4e6" name="Changes" comment="" />
+    <list default="true" id="88ad5a40-d99e-424d-84b4-5077a0acc4e6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -180,7 +182,7 @@
       <workItem from="1739888447154" duration="2352000" />
       <workItem from="1739891424649" duration="64000" />
       <workItem from="1739891490856" duration="47000" />
-      <workItem from="1740648848798" duration="10650000" />
+      <workItem from="1740648848798" duration="16311000" />
     </task>
     <servers />
   </component>
@@ -210,7 +212,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Feb_2025$bank_main.coverage" NAME="bank_main Coverage Results" MODIFIED="1739873741780" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mybank" />
-    <SUITE FILE_PATH="coverage/Feb_2025$encrypt.coverage" NAME="encrypt Coverage Results" MODIFIED="1740659856801" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../encrypt/src" />
+    <SUITE FILE_PATH="coverage/Feb_2025$encrypt.coverage" NAME="encrypt Coverage Results" MODIFIED="1740672529431" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../encrypt/src" />
     <SUITE FILE_PATH="coverage/Feb_2025$.coverage" NAME=" Coverage Results" MODIFIED="1740656151517" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Feb_2025$corn_flakes.coverage" NAME="corn_flakes Coverage Results" MODIFIED="1740649706928" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
