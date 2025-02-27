@@ -6,15 +6,20 @@ def hash_password(password):
     hashed_password = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt())
     return hashed_password
 
-def save_to_file(username, password):
+def save_to_file(email_address, password):
     with open(ENCRYPTED, 'a') as file:
-        file.write(f'{username}:{password.decode("utf-8")}\n')
+        file.write(f'{email_address}:{password.decode("utf-8")}\n')
+
+def validate_email(email_address):
+    pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+    return re.match(pattern, email_address)
 
 def register_user():
+
     while True:
-        username = input("Enter Username: ")
-        if not username:
-            print("Username cannot be empty")
+        email_address = input("Enter Email address: ")
+        if not validate_email(email_address):
+            print("Please enter a valid email address. {example@gmail.com}")
             continue
         break
 
