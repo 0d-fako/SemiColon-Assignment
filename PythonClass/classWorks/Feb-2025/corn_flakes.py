@@ -63,4 +63,3 @@ def accept_string_and_remove_special_characters(string:str)->str:
     return new_string
 
 
-print(accept_string_and_remove_special_characters("he,ll.o"))
