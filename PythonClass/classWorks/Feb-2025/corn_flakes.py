@@ -1,5 +1,7 @@
 def convert_string_to_dictionary(string:str)->dict:
     dictionary = {}
+    if string not in [str]:
+        raise ValueError('Must be a valid string')
     for character in string:
         counter = 0
         for second_character in string:
