@@ -61,3 +61,9 @@ class TestCornFlakes(TestCase):
 
     def test_remove_special_characters(self):
         corn_flakes.accept_string_and_remove_special_characters("he,ll.o")
+
+
+    def test_remove_special_characters_works(self):
+        result = corn_flakes.accept_string_and_remove_special_characters("he,ll.o")
+        output = "hello"
+        self.assertEqual(result, output)
