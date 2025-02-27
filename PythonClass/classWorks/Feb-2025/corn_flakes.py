@@ -42,3 +42,25 @@ def accept_mixed_case_string_and_move_upper_case_to_front(mixed_cases_string:str
     return new_string
 
 
+
+
+def accept_string_and_param_return_count_of_param_in_string(string:str, param:str)->tuple:
+    counter = 0
+    output = ('o',)
+    for character in string:
+        if character == param:
+            counter = counter + 1
+    new_output = output + (counter,)
+    return new_output
+
+
+
+def accept_string_and_remove_special_characters(string:str)->str:
+    new_string = ""
+    for character in string:
+        if character.isalpha():
+            new_string += character
+    return new_string
+
+
+print(accept_string_and_remove_special_characters("he,ll.o"))

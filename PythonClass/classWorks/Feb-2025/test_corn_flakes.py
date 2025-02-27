@@ -48,3 +48,16 @@ class TestCornFlakes(TestCase):
         result = corn_flakes.accept_mixed_case_string_and_move_upper_case_to_front("sEmIColOn")
         output = "EICOsmoln"
         self.assertEqual(result, output)
+
+
+    def test_param_counter(self):
+        corn_flakes.accept_string_and_param_return_count_of_param_in_string("semicolon", "o")
+
+
+    def test_param_counter_works(self):
+        result = corn_flakes.accept_string_and_param_return_count_of_param_in_string("semicolon", "o")
+        output = ("o", 2)
+        self.assertEqual(result, output)
+
+    def test_remove_special_characters(self):
+        corn_flakes.accept_string_and_remove_special_characters("he,ll.o")
