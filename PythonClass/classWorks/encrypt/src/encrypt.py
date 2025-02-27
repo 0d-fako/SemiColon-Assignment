@@ -1,4 +1,5 @@
 import bcrypt
+import re
 
 ENCRYPTED = "encrypted.txt"
 
@@ -30,31 +31,31 @@ def register_user():
             continue
         break
 
-    save_to_file(username, hash_password(password))
+    save_to_file(email_address, hash_password(password))
     print("User registered successfully!")
 
-def validate_user(username, password):
+def validate_user(email_address, password):
     with open(ENCRYPTED, 'r') as file:
         data = file.read()
         for line in data.split("\n"):
             if line:
-                stored_username, stored_password = line.split(":")
-                if stored_username == username:
+                stored_email, stored_password = line.split(":")
+                if stored_email == email_address:
                     return bcrypt.checkpw(password.encode("utf-8"), stored_password.encode("utf-8"))
     return False
 
 def login_user():
-    username = input("Enter Username: ")
+    email_address = input("Enter Email Address: ")
     password = input("Enter Password: ")
 
-    if validate_user(username, password):
+    if validate_user(email_address, password):
         print("Login successful!")
     else:
-        print("Invalid username or password.")
+        print("Invalid email address or password.")
 
 def main():
     while True:
-        choice = input("Choose an option: (1) Register (2) Login (3) Exit: ")
+        choice = input("Choose an option: \n(1) Register \n(2) Login \n(3) Exit: \n>>>>")
         if choice == '1':
             register_user()
         elif choice == '2':
