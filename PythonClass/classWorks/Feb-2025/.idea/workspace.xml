@@ -5,6 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88ad5a40-d99e-424d-84b4-5077a0acc4e6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../ChibuzorTasks/TicTacToe/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ChibuzorTasks/TicTacToe/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ChibuzorTasks/TicTacToe/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ChibuzorTasks/TicTacToe/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ChibuzorTasks/TicTacToe/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ChibuzorTasks/TicTacToe/src/tictactoe/Board.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ChibuzorTasks/TicTacToe/src/tictactoe/Game.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ChibuzorTasks/TicTacToe/tictactoe.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,47 +39,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python tests.Python tests for television_test.TestTelevision.executor": "Run",
-    "Python tests.Python tests for test_account.TestAccount.executor": "Run",
-    "Python tests.Python tests for test_bank.TestBank.executor": "Run",
-    "Python tests.Python tests for test_bank.TestBank.test_check_balance_invalid.executor": "Run",
-    "Python tests.Python tests for test_corn_flakes.TestCornFlakes.executor": "Run",
-    "Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_accept_and_replace_string.executor": "Run",
-    "Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_accept_and_replace_string_works.executor": "Run",
-    "Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_accept_string_and_parameter.executor": "Run",
-    "Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_accept_string_and_parameter_works_for_words_with_even_length.executor": "Run",
-    "Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_accept_string_and_parameter_works_for_words_with_uneven_length.executor": "Run",
-    "Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_corn_flakes_throws_exception_for_non_string.executor": "Run",
-    "Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_corn_flakes_works_on_short_string.executor": "Run",
-    "Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_flakes.executor": "Run",
-    "Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_mixed_cased_function.executor": "Run",
-    "Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_mixed_cases_function_works.executor": "Run",
-    "Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_param_counter.executor": "Run",
-    "Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_param_counter_works.executor": "Run",
-    "Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_remove_special_characters.executor": "Run",
-    "Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_remove_special_characters_works.executor": "Run",
-    "Python tests.Python tests for test_dairies.TestDairy.executor": "Run",
-    "Python tests.Python tests for test_my_array.TestArray.executor": "Run",
-    "Python tests.Python tests for test_my_queue.TestQueue.executor": "Run",
-    "Python tests.Python tests for test_my_stack.TestStack.executor": "Run",
-    "Python.bank_main.executor": "Run",
-    "Python.corn_flakes.executor": "Run",
-    "Python.encrypt.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Dell/Desktop/SemiColon-Assignment/PythonClass/classWorks/Feb-2025",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python tests.Python tests for television_test.TestTelevision.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_account.TestAccount.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_bank.TestBank.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_bank.TestBank.test_check_balance_invalid.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_corn_flakes.TestCornFlakes.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_accept_and_replace_string.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_accept_and_replace_string_works.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_accept_string_and_parameter.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_accept_string_and_parameter_works_for_words_with_even_length.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_accept_string_and_parameter_works_for_words_with_uneven_length.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_corn_flakes_throws_exception_for_non_string.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_corn_flakes_works_on_short_string.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_flakes.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_mixed_cased_function.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_mixed_cases_function_works.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_param_counter.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_param_counter_works.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_remove_special_characters.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_remove_special_characters_works.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_dairies.TestDairy.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_my_array.TestArray.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_my_queue.TestQueue.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_my_stack.TestStack.executor&quot;: &quot;Run&quot;,
+    &quot;Python.bank_main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.corn_flakes.executor&quot;: &quot;Run&quot;,
+    &quot;Python.encrypt.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Dell/Desktop/SemiColon-Assignment/PythonClass/classWorks/Feb-2025&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager">
+}</component>
+  <component name="RunManager" selected="Python tests.Python tests for test_corn_flakes.TestCornFlakes">
     <configuration name="Python tests for test_corn_flakes.TestCornFlakes" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="Feb-2025" />
       <option name="ENV_FILES" value="" />
@@ -182,7 +190,7 @@
       <workItem from="1739888447154" duration="2352000" />
       <workItem from="1739891424649" duration="64000" />
       <workItem from="1739891490856" duration="47000" />
-      <workItem from="1740648848798" duration="16311000" />
+      <workItem from="1740648848798" duration="16912000" />
     </task>
     <servers />
   </component>
