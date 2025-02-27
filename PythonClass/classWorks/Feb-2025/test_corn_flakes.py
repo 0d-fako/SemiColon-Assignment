@@ -38,3 +38,13 @@ class TestCornFlakes(TestCase):
         result = corn_flakes.accept_string_and_add_parameter_to_middle_or_end("Hello", "ce")
         output = "Helloce"
         self.assertEqual(result, output)
+
+
+    def test_mixed_cased_function(self):
+        corn_flakes.accept_mixed_case_string_and_move_upper_case_to_front("sEmIColOn")
+
+
+    def test_mixed_cases_function_works(self):
+        result = corn_flakes.accept_mixed_case_string_and_move_upper_case_to_front("sEmIColOn")
+        output = "EICOsmoln"
+        self.assertEqual(result, output)

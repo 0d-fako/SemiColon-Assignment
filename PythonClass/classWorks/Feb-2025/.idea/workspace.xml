@@ -48,6 +48,8 @@
     "Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_corn_flakes_throws_exception_for_non_string.executor": "Run",
     "Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_corn_flakes_works_on_short_string.executor": "Run",
     "Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_flakes.executor": "Run",
+    "Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_mixed_cased_function.executor": "Run",
+    "Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_mixed_cases_function_works.executor": "Run",
     "Python tests.Python tests for test_dairies.TestDairy.executor": "Run",
     "Python tests.Python tests for test_my_array.TestArray.executor": "Run",
     "Python tests.Python tests for test_my_queue.TestQueue.executor": "Run",
@@ -83,38 +85,6 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test_corn_flakes.TestCornFlakes.test_accept_and_replace_string_works" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="Feb-2025" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_corn_flakes.TestCornFlakes.test_accept_and_replace_string_works&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Python tests for test_corn_flakes.TestCornFlakes.test_accept_string_and_parameter" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="Feb-2025" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_corn_flakes.TestCornFlakes.test_accept_string_and_parameter&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
     <configuration name="Python tests for test_corn_flakes.TestCornFlakes.test_accept_string_and_parameter_works_for_words_with_even_length" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="Feb-2025" />
       <option name="ENV_FILES" value="" />
@@ -147,13 +117,45 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="Python tests for test_corn_flakes.TestCornFlakes.test_mixed_cased_function" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Feb-2025" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_corn_flakes.TestCornFlakes.test_mixed_cased_function&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_corn_flakes.TestCornFlakes.test_mixed_cases_function_works" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Feb-2025" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_corn_flakes.TestCornFlakes.test_mixed_cases_function_works&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python tests.Python tests for test_corn_flakes.TestCornFlakes" />
+        <item itemvalue="Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_mixed_cases_function_works" />
+        <item itemvalue="Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_mixed_cased_function" />
         <item itemvalue="Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_accept_string_and_parameter_works_for_words_with_uneven_length" />
         <item itemvalue="Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_accept_string_and_parameter_works_for_words_with_even_length" />
-        <item itemvalue="Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_accept_string_and_parameter" />
-        <item itemvalue="Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_accept_and_replace_string_works" />
       </list>
     </recent_temporary>
   </component>
@@ -177,16 +179,32 @@
       <workItem from="1739888447154" duration="2352000" />
       <workItem from="1739891424649" duration="64000" />
       <workItem from="1739891490856" duration="47000" />
-      <workItem from="1740648848798" duration="3375000" />
+      <workItem from="1740648848798" duration="5239000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_corn_flakes.py</url>
+          <line>6</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_corn_flakes.py</url>
+          <line>46</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Feb_2025$bank_main.coverage" NAME="bank_main Coverage Results" MODIFIED="1739873741780" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mybank" />
-    <SUITE FILE_PATH="coverage/Feb_2025$.coverage" NAME=" Coverage Results" MODIFIED="1740652313284" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Feb_2025$.coverage" NAME=" Coverage Results" MODIFIED="1740653909962" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Feb_2025$corn_flakes.coverage" NAME="corn_flakes Coverage Results" MODIFIED="1740649706928" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
