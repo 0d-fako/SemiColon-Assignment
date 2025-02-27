@@ -16,6 +16,7 @@ class Main:
                     seven_segment.display(display_array)
                 else:
                     print("The display is off")
+
         except ValueError as e:
             print(e)
 
