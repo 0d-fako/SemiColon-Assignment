@@ -19,4 +19,12 @@ def accept_and_replace_first_character(first_string:str, second_string:str)->str
     return new_string
 
 
+def accept_string_and_add_parameter_to_middle_or_end(string:str, parameter:str):
+    if len(string) % 2 == 0:
+        new_string = string[:len(string) // 2] + parameter + string[len(string) // 2:]
+        return new_string
+    else:
+        new_string = string + parameter
+        return new_string
+
 

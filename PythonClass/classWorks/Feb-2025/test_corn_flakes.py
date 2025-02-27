@@ -22,3 +22,19 @@ class TestCornFlakes(TestCase):
     def test_accept_and_replace_string_works(self):
         result = corn_flakes.accept_and_replace_first_character("Hello", "World")
         output = "Wello Horld"
+        self.assertEqual(result, output)
+
+
+    def test_accept_string_and_parameter(self):
+        corn_flakes.accept_string_and_add_parameter_to_middle_or_end("Helloo", "ce")
+
+
+    def test_accept_string_and_parameter_works_for_words_with_even_length(self):
+        result = corn_flakes.accept_string_and_add_parameter_to_middle_or_end("Helloo", "ce")
+        output = "Helceloo"
+        self.assertEqual(result, output)
+
+    def test_accept_string_and_parameter_works_for_words_with_uneven_length(self):
+        result = corn_flakes.accept_string_and_add_parameter_to_middle_or_end("Hello", "ce")
+        output = "Helloce"
+        self.assertEqual(result, output)
