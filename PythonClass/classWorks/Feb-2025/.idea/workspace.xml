@@ -66,7 +66,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_accept_string_and_parameter_works_for_words_with_uneven_length">
+  <component name="RunManager" selected="Python tests.Python tests for test_corn_flakes.TestCornFlakes">
     <configuration name="Python tests for test_corn_flakes.TestCornFlakes" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="Feb-2025" />
       <option name="ENV_FILES" value="" />
@@ -149,11 +149,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests for test_corn_flakes.TestCornFlakes" />
         <item itemvalue="Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_accept_string_and_parameter_works_for_words_with_uneven_length" />
         <item itemvalue="Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_accept_string_and_parameter_works_for_words_with_even_length" />
         <item itemvalue="Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_accept_string_and_parameter" />
         <item itemvalue="Python tests.Python tests for test_corn_flakes.TestCornFlakes.test_accept_and_replace_string_works" />
-        <item itemvalue="Python tests.Python tests for test_corn_flakes.TestCornFlakes" />
       </list>
     </recent_temporary>
   </component>
