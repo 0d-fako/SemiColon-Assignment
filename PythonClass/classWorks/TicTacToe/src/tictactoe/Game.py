@@ -1,5 +1,5 @@
-from src.tictactoe.Board import Board
-from src.tictactoe.Player import Player
+from TicTacToe.src.tictactoe.Board import Board
+from TicTacToe.src.tictactoe.Player import Player
 
 
 class Game:

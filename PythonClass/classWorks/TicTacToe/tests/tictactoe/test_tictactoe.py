@@ -1,8 +1,8 @@
 import unittest
 
-from src.tictactoe.Board import Board
-from src.tictactoe.Game import Game
-from src.tictactoe.Player import Player
+from TicTacToe.src.tictactoe.Board import Board
+from TicTacToe.src.tictactoe.Game import Game
+from TicTacToe.src.tictactoe.Player import Player
 
 
 class TicTacToeTests(unittest.TestCase):
@@ -68,15 +68,10 @@ class TicTacToeTests(unittest.TestCase):
 
     def test_game_draw(self):
         game = Game()
-        # Simulate a draw
-        # X O X
-        # X X O
-        # O X O
         moves = [(0, 0), (0, 1), (0, 2),
                  (1, 0), (1, 1), (1, 2),
                  (2, 0), (2, 1), (2, 2)]
 
-        # This won't create a real draw but it tests the logic
         for row, col in moves:
             if not game.is_game_over():
                 game.make_move(row, col)

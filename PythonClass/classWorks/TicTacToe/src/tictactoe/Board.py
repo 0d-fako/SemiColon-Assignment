@@ -25,7 +25,6 @@ class Board:
                 self.is_game_over = True
                 return
 
-
         for col in range(3):
             if self.grid[0][col] == self.grid[1][col] == self.grid[2][col] == player.symbol:
                 self.winner = player
