@@ -1,6 +1,6 @@
 class Board:
     def __init__(self):
-        self.grid = [[None for _ in range(3)] for _ in range(3)]
+        self.grid = [[None] * 3 for row in range(3)]
         self.current_player = None
         self.winner = None
         self.is_game_over = False
@@ -19,21 +19,19 @@ class Board:
         self.check_game_status(player)
 
     def check_game_status(self, player):
-        # Check rows
         for row in range(3):
             if self.grid[row][0] == self.grid[row][1] == self.grid[row][2] == player.symbol:
                 self.winner = player
                 self.is_game_over = True
                 return
 
-        # Check columns
+
         for col in range(3):
             if self.grid[0][col] == self.grid[1][col] == self.grid[2][col] == player.symbol:
                 self.winner = player
                 self.is_game_over = True
                 return
 
-        # Check diagonals
         if self.grid[0][0] == self.grid[1][1] == self.grid[2][2] == player.symbol:
             self.winner = player
             self.is_game_over = True
@@ -44,13 +42,11 @@ class Board:
             self.is_game_over = True
             return
 
-        # Check if board is full (draw)
         is_full = True
         for row in range(3):
             for col in range(3):
                 if self.grid[row][col] is None:
                     is_full = False
-
         if is_full:
             self.is_game_over = True
 
