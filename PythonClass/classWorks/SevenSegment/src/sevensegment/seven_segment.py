@@ -17,7 +17,7 @@ class SevenSegmentDisplay:
         return converted_array
 
     def create_display_array(self, convert_array):
-        display = [[' ' for _ in range(4)] for _ in range(5)]
+        display = [[' ' for row in range(4)] for column in range(5)]
 
         if convert_array[0] == 1:
             for index in range(4):

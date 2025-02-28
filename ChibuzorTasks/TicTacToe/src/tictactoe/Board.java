@@ -26,7 +26,7 @@ public class Board {
     }
 
     public boolean checkWin(char mark) {
-   
+
         return (checkRows(mark) || checkColumns(mark) || checkDiagonals(mark));
     }
 
