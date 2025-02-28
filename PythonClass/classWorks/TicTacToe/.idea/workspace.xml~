@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c59d09a1-6856-42fc-afb4-d25e570e0c70" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/tictactoe/Board.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tictactoe/Player.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ChibuzorTasks/TicTacToe/src/tictactoe/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ChibuzorTasks/TicTacToe/src/tictactoe/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Feb-2025/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Feb-2025/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/TicTacToe.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TicTacToe.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/tictactoe/test_tictactoe.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tictactoe/Game.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/tictactoe/Game.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +61,7 @@
       <option name="presentableId" value="Default" />
       <updated>1740647762423</updated>
       <workItem from="1740647763402" duration="696000" />
-      <workItem from="1740699692966" duration="630000" />
+      <workItem from="1740699692966" duration="917000" />
     </task>
     <servers />
   </component>
