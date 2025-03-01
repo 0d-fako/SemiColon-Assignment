@@ -1,10 +1,10 @@
-from TicTacToe.src.tictactoe.ComputerPlayer import ComputerPlayer
-from TicTacToe.src.tictactoe.Game import Game
-from TicTacToe.src.tictactoe.Player import Player
+from classWorks.TicTacToe.src.tictactoe.ComputerPlayer import ComputerPlayer
+from classWorks.TicTacToe.src.tictactoe.Game import Game
+from classWorks.TicTacToe.src.tictactoe.Player import Player
 
 
 def play_game():
-    print("Welcome to Tic-tac-toe!")
+    print("Welcome to Lumi Tic-tac-toe!")
 
     choice = input("Do you want to play against the computer? (yes/no): ").strip().lower()
     while choice not in {"yes", "no"}:

@@ -1,6 +1,6 @@
-from TicTacToe.src.tictactoe.Board import Board
-from TicTacToe.src.tictactoe.ComputerPlayer import ComputerPlayer
-from TicTacToe.src.tictactoe.Player import Player
+from classWorks.TicTacToe.src.tictactoe.Board import Board
+from classWorks.TicTacToe.src.tictactoe.ComputerPlayer import ComputerPlayer
+from classWorks.TicTacToe.src.tictactoe.Player import Player
 
 
 class Game:

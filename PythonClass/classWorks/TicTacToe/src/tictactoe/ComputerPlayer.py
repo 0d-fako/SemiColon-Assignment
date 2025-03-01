@@ -1,6 +1,6 @@
 import random
 
-from TicTacToe.src.tictactoe.Player import Player
+from classWorks.TicTacToe.src.tictactoe.Player import Player
 
 
 class ComputerPlayer(Player):
