@@ -51,6 +51,7 @@ def play_game():
             except ValueError as e:
                 print(f"Invalid move: {e}")
 
+
     print("\nFinal board:")
     print(game.display_board())
 
@@ -59,7 +60,6 @@ def play_game():
         print(f"Player {winner.symbol} wins!")
     else:
         print("It's a draw!")
-
 
 if __name__ == "__main__":
     play_game()
