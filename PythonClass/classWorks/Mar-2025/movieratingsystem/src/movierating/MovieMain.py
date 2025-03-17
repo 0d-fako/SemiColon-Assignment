@@ -30,7 +30,11 @@ def main():
             except NameError as e:
                 print(e)
         elif choice == '4':
-            app.view_all_average_rating()
+            try:
+                average_rating = app.view_all_average_rating()
+                print(f"Overall average rating for all movies: {average_rating}")
+            except NameError as e:
+                print(e)
         elif choice == '5':
             break
         else:

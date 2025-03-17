@@ -26,6 +26,6 @@ class Movie:
     def to_dict(self):
         return {
             'Movie Title': self.movie_title,
-            'Movie Date': self.movie_date,
+            'Movie Date': self.movie_date.strftime('%Y-%m-%d %H:%M:%S'),
             'Average Rating': self.get_average_rating()
         }

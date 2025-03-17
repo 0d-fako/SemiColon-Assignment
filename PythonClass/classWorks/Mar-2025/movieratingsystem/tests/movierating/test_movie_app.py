@@ -70,3 +70,11 @@ class TestMovie(TestCase):
         app.create_new_movie('The Movie')
         with self.assertRaises(NameError):
             app.rate_movie('Movie', 3)
+
+    def test_view_all_average_rating(self):
+        app = MovieApp()
+        app.create_new_movie('Movie 2')
+        app.create_new_movie('The Movie')
+        app.rate_movie('The Movie', 5)
+        app.rate_movie('Movie 2', 3)
+        self.assertEqual(4.0, app.view_all_average_rating())

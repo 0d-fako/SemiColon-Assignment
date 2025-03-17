@@ -30,24 +30,23 @@ class MovieApp:
         rating = movie.get_average_rating()
         return rating
 
-
     def view_all_average_rating(self):
-        if len(self.movies) == 0:
-            raise NameError("No Movies exists")
-        for movie in self.movies:
-            movie = self.movies[movie]
-            rating = movie.get_average_rating()
-        return f'{movie.movie_title}: {rating}'
+        if not self.movies:
+            raise ValueError("No movies exist")
+        average_ratings = [
+            movie.get_average_rating()
+            for movie in self.movies.values()
+            if movie.get_average_rating() > 0  # Exclude movies with no ratings
+        ]
+        if not average_ratings:
+            return 0  # No rated movies
 
+        return sum(average_ratings) / len(average_ratings)
 
     def find_movie_by_title(self, movie_title):
-        if len(self.movies) == 0:
-            raise NameError("No Movies exists")
-        for movie in self.movies:
-            movie = self.movies[movie_title]
-            return movie
-        return f"Movie '{movie_title}' doesn't exist"
-
+        if movie_title in self.movies:
+            return self.movies[movie_title]
+        raise NameError(f"Movie '{movie_title}' doesn't exist")
 
     def get_total_amount_of_movies(self):
         return len(self.movies)
