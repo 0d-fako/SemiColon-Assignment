@@ -10,12 +10,11 @@ class MovieApp:
             raise NameError("Movie '{}' already exists".format(movie_title))
         movie = Movie(movie_title)
         self.movies[movie_title] = movie
+        print(f"New movie created: {movie_title}")
 
 
     def rate_movie(self, movie_title, movie_rating):
-        if movie_title not in self.movies:
-            raise NameError("Movie '{}' doesn't exist".format(movie_title))
-        movie = self.movies[movie_title]
+        movie = self.find_movie_by_title(movie_title)
         movie.rating.append(movie_rating)
 
 
@@ -34,3 +33,11 @@ class MovieApp:
             movie = self.movies[movie]
             rating = movie.get_average_rating()
         return f'{movie.movie_title}: {rating}'
+
+
+    def find_movie_by_title(self, movie_title):
+        if len(self.movies) == 0:
+            raise NameError("No Movies exists")
+        for movie in self.movies:
+            movie = self.movies[movie_title]
+            return movie

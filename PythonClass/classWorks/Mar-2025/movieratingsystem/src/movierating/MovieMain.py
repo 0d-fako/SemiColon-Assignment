@@ -18,6 +18,7 @@ def main():
         elif choice == '2':
             movie_title = input("Please enter a movie title to rate: ")
             app.rate_movie(movie_title)
+
         elif choice == '3':
             movie_title = input("Please enter a movie to view rating: ")
             app.view_average_rating(movie_title)
@@ -28,3 +29,6 @@ def main():
         else:
             print("Invalid choice!")
 
+
+if __name__ == "__main__":
+    main()
