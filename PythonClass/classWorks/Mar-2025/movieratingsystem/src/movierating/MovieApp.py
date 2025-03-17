@@ -41,3 +41,8 @@ class MovieApp:
         for movie in self.movies:
             movie = self.movies[movie_title]
             return movie
+        return f"Movie '{movie_title}' doesn't exist"
+
+
+    def get_total_amount_of_movies(self):
+        return len(self.movies)

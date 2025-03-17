@@ -17,7 +17,13 @@ def main():
             app.create_new_movie(movie_title)
         elif choice == '2':
             movie_title = input("Please enter a movie title to rate: ")
-            app.rate_movie(movie_title)
+            movie = app.find_movie_by_title(movie_title)
+            movie_rating = int(input("Please enter a rating (1-5): "))
+            while movie_rating < 1 or movie_rating > 5:
+                print("Invalid rating")
+            movie_rating = int(input("Please enter a rating (1-5): "))
+            app.rate_movie(movie, movie_rating)
+
 
         elif choice == '3':
             movie_title = input("Please enter a movie to view rating: ")
