@@ -24,7 +24,6 @@ def main():
             movie_rating = int(input("Please enter a rating (1-5): "))
             app.rate_movie(movie, movie_rating)
 
-
         elif choice == '3':
             movie_title = input("Please enter a movie to view rating: ")
             app.view_average_rating(movie_title)

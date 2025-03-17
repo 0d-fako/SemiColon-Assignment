@@ -1,4 +1,5 @@
-from Movie import Movie
+from src.movierating.Movie import Movie
+
 
 class MovieApp:
     def __init__(self):
