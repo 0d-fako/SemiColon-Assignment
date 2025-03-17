@@ -4,77 +4,70 @@ from src.movierating.MovieApp import MovieApp
 
 
 class TestMovie(TestCase):
+    def setUp(self):
+        self.app = MovieApp()
 
     def test_that_movie_can_be_created(self):
-        app = MovieApp()
-        self.assertEqual(0, app.get_total_amount_of_movies())
-        app.create_new_movie('The Movie')
-        self.assertEqual(1, app.get_total_amount_of_movies())
+
+        self.assertEqual(0, self.app.get_total_amount_of_movies())
+        self.app.create_new_movie('The Movie')
+        self.assertEqual(1, self.app.get_total_amount_of_movies())
 
 
     def test_that_duplicate_movies_cant_be_created(self):
-        app = MovieApp()
-        self.assertEqual(0, app.get_total_amount_of_movies())
-        app.create_new_movie('The Movie')
-        self.assertEqual(1, app.get_total_amount_of_movies())
+        self.assertEqual(0, self.app.get_total_amount_of_movies())
+        self.app.create_new_movie('The Movie')
+        self.assertEqual(1, self.app.get_total_amount_of_movies())
         with self.assertRaises(NameError):
-            app.create_new_movie('The Movie')
+            self.app.create_new_movie('The Movie')
 
 
     def test_that_multiple_movies_can_be_created(self):
-        app = MovieApp()
-        self.assertEqual(0, app.get_total_amount_of_movies())
-        app.create_new_movie('The Movie')
-        app.create_new_movie('The Movie 2')
-        self.assertEqual(2, app.get_total_amount_of_movies())
+        self.assertEqual(0, self.app.get_total_amount_of_movies())
+        self.app.create_new_movie('The Movie')
+        self.app.create_new_movie('The Movie 2')
+        self.assertEqual(2, self.app.get_total_amount_of_movies())
 
 
     def test_that_created_movie_can_be_rated(self):
-        app = MovieApp()
-        app.create_new_movie('The Movie')
-        self.assertEqual(1, app.get_total_amount_of_movies())
-        app.rate_movie('The Movie', 5)
-        self.assertEqual(5, app.view_average_rating('The Movie'))
+        self.app.create_new_movie('The Movie')
+        self.assertEqual(1, self.app.get_total_amount_of_movies())
+        self.app.rate_movie('The Movie', 5)
+        self.assertEqual(5, self.app.view_average_rating('The Movie'))
 
 
     def test_that_created_movie_can_be_rated_multiple_times(self):
-        app = MovieApp()
-        app.create_new_movie('The Movie')
-        self.assertEqual(1, app.get_total_amount_of_movies())
-        app.rate_movie('The Movie', 5)
-        app.rate_movie('The Movie', 4)
-        app.rate_movie('The Movie', 3)
-        self.assertEqual(4.0, app.view_average_rating('The Movie'))
+        self.app.create_new_movie('The Movie')
+        self.assertEqual(1, self.app.get_total_amount_of_movies())
+        self.app.rate_movie('The Movie', 5)
+        self.app.rate_movie('The Movie', 4)
+        self.app.rate_movie('The Movie', 3)
+        self.assertEqual(4.0, self.app.view_average_rating('The Movie'))
 
 
     def test_that_created_movie_can_return_average_of_multiple_ratings(self):
-        app = MovieApp()
-        app.create_new_movie('The Movie')
-        self.assertEqual(1, app.get_total_amount_of_movies())
-        app.rate_movie('The Movie', 5)
-        app.rate_movie('The Movie', 4)
-        app.rate_movie('The Movie', 3)
-        self.assertEqual(4.0, app.view_average_rating('The Movie'))
-
+        self.app.create_new_movie('The Movie')
+        self.assertEqual(1, self.app.get_total_amount_of_movies())
+        self.app.rate_movie('The Movie', 5)
+        self.app.rate_movie('The Movie', 4)
+        self.app.rate_movie('The Movie', 3)
+        self.assertEqual(4.0, self.app.view_average_rating('The Movie'))
 
 
     def test_that_incorrect_rating_will_throw_exception(self):
-        app = MovieApp()
-        app.create_new_movie('The Movie')
+        self.app.create_new_movie('The Movie')
         with self.assertRaises(NameError):
-            app.rate_movie('The Movie', 16)
+            self.app.rate_movie('The Movie', 16)
 
 
     def test_that_rating_a_non_existing_movie_will_throw_exception(self):
-        app = MovieApp()
-        app.create_new_movie('The Movie')
+        self.app.create_new_movie('The Movie')
         with self.assertRaises(NameError):
-            app.rate_movie('Movie', 3)
+            self.app.rate_movie('Movie', 3)
 
     def test_view_all_average_rating(self):
-        app = MovieApp()
-        app.create_new_movie('Movie 2')
-        app.create_new_movie('The Movie')
-        app.rate_movie('The Movie', 5)
-        app.rate_movie('Movie 2', 3)
-        self.assertEqual(4.0, app.view_all_average_rating())
+        self.app.create_new_movie('Movie 2')
+        self.app.create_new_movie('The Movie')
+        self.app.rate_movie('The Movie', 5)
+        self.app.rate_movie('Movie 2', 3)
+        self.assertEqual(4.0, self.app.view_all_average_rating())

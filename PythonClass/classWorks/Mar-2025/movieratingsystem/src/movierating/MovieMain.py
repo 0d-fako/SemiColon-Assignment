@@ -13,8 +13,11 @@ def main():
         choice = input("Enter choice: ")
 
         if choice == '1':
-            movie_title = input("Please enter new movie name: ")
-            app.create_new_movie(movie_title)
+            try:
+                movie_title = input("Please enter new movie name: ")
+                app.create_new_movie(movie_title)
+            except NameError as e:
+                print(e)
         elif choice == '2':
             try:
                 movie_title = input("Please enter a movie title to rate: ")
