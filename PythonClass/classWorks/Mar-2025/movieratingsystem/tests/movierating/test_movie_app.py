@@ -8,7 +8,6 @@ class TestMovie(TestCase):
         self.app = MovieApp()
 
     def test_that_movie_can_be_created(self):
-
         self.assertEqual(0, self.app.get_total_amount_of_movies())
         self.app.create_new_movie('The Movie')
         self.assertEqual(1, self.app.get_total_amount_of_movies())

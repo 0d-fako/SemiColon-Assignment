@@ -16,7 +16,8 @@ class Movie:
         return self.movie_date
 
     def get_average_rating(self):
-        if self.rating is None: return 0
+        if not self.rating:
+            return 0
         return sum(self.rating) / len(self.rating)
 
     def get_length_of_movie_rating(self):
