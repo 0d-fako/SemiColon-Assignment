@@ -24,8 +24,8 @@ class MovieApp:
 
 
     def view_average_rating(self, movie_title):
-        if len(self.movies) == 0:
-            raise NameError("No Movies exists")
+        if len(self.movies) == 0 or movie_title not in self.movies:
+            raise NameError("Movie does not exists")
         movie = self.movies[movie_title]
         rating = movie.get_average_rating()
         return rating

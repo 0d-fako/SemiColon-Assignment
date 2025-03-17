@@ -24,8 +24,11 @@ def main():
             except NameError as e:
                 print(e)
         elif choice == '3':
-            movie_title = input("Please enter a movie to view average rating: ")
-            print(app.view_average_rating(movie_title))
+            try:
+                movie_title = input("Please enter a movie to view average rating: ")
+                print(app.view_average_rating(movie_title))
+            except NameError as e:
+                print(e)
         elif choice == '4':
             app.view_all_average_rating()
         elif choice == '5':
