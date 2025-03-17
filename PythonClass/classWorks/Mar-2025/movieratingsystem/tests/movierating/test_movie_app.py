@@ -63,3 +63,10 @@ class TestMovie(TestCase):
         app.create_new_movie('The Movie')
         with self.assertRaises(NameError):
             app.rate_movie('The Movie', 16)
+
+
+    def test_that_rating_a_non_existing_movie_will_throw_exception(self):
+        app = MovieApp()
+        app.create_new_movie('The Movie')
+        with self.assertRaises(NameError):
+            app.rate_movie('Movie', 3)

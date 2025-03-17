@@ -16,14 +16,13 @@ def main():
             movie_title = input("Please enter new movie name: ")
             app.create_new_movie(movie_title)
         elif choice == '2':
-            movie_title = input("Please enter a movie title to rate: ")
-            movie = app.find_movie_by_title(movie_title)
-            movie_rating = int(input("Please enter a rating (1-5): "))
-            while movie_rating < 1 or movie_rating > 5:
-                print("Invalid rating")
-            movie_rating = int(input("Please enter a rating (1-5): "))
-            app.rate_movie(movie, movie_rating)
-
+            try:
+                movie_title = input("Please enter a movie title to rate: ")
+                movie_rating = int(input("Please enter a rating (1-5): "))
+                app.rate_movie(movie_title, movie_rating)
+                print("Movie '{}' has been rated!".format(movie_title))
+            except NameError as e:
+                print(e)
         elif choice == '3':
             movie_title = input("Please enter a movie to view rating: ")
             app.view_average_rating(movie_title)
