@@ -70,3 +70,8 @@ class TestMovie(TestCase):
         self.app.rate_movie('The Movie', 5)
         self.app.rate_movie('Movie 2', 3)
         self.assertEqual(4.0, self.app.view_all_average_rating())
+
+
+    def test_empty_movie_title(self):
+        with self.assertRaises(NameError):
+            self.app.create_new_movie('')

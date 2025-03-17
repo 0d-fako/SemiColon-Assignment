@@ -9,6 +9,8 @@ class MovieApp:
     def create_new_movie(self, movie_title):
         if movie_title in self.movies:
             raise NameError("Movie '{}' already exists".format(movie_title))
+        if movie_title is None or movie_title.strip() == "":
+            raise NameError("Movie name cannot be Empty")
         movie = Movie(movie_title)
         self.movies[movie_title] = movie
         print(f"New movie created: {movie_title}")
