@@ -36,11 +36,10 @@ class MovieApp:
         average_ratings = [
             movie.get_average_rating()
             for movie in self.movies.values()
-            if movie.get_average_rating() > 0  # Exclude movies with no ratings
+            if movie.get_average_rating() > 0
         ]
         if not average_ratings:
-            return 0  # No rated movies
-
+            return 0
         return sum(average_ratings) / len(average_ratings)
 
     def find_movie_by_title(self, movie_title):
