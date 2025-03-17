@@ -19,6 +19,10 @@ class Movie:
         if self.rating is None: return 0
         return sum(self.rating) / len(self.rating)
 
+    def get_length_of_movie_rating(self):
+        return len(self.rating)
+
+
     def to_dict(self):
         return {
             'Movie Title': self.movie_title,

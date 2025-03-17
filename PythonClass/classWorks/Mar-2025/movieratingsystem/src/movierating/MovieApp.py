@@ -15,6 +15,10 @@ class MovieApp:
 
 
     def rate_movie(self, movie_title, movie_rating):
+        if movie_title not in self.movies:
+            raise NameError("Movie '{}' does not exist".format(movie_title))
+        if movie_rating < 1 or movie_rating > 5:
+            raise NameError("Movie '{}' is out of range".format(movie_title))
         movie = self.find_movie_by_title(movie_title)
         movie.rating.append(movie_rating)
 
