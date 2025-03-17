@@ -14,13 +14,13 @@ def main():
 
         if choice == '1':
             try:
-                movie_title = input("Please enter new movie name: ").lower()
+                movie_title = input("Please enter new movie name: ").lower().strip()
                 app.create_new_movie(movie_title)
             except NameError as e:
                 print(e)
         elif choice == '2':
             try:
-                movie_title = input("Please enter a movie title to rate: ").lower()
+                movie_title = input("Please enter a movie title to rate: ").lower().strip()
                 movie_rating = int(input("Please enter a rating (1-5): "))
                 app.rate_movie(movie_title, movie_rating)
                 print("Movie '{}' has been rated!".format(movie_title))
@@ -28,7 +28,7 @@ def main():
                 print(e)
         elif choice == '3':
             try:
-                movie_title = input("Please enter a movie to view average rating: ").lower()
+                movie_title = input("Please enter a movie to view average rating: ").lower().strip()
                 print(app.view_average_rating(movie_title))
             except NameError as e:
                 print(e)
