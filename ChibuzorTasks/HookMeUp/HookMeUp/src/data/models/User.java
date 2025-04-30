@@ -9,7 +9,6 @@ public class User {
     public User() {
     }
 
-
     public User(long id, String username, String email) {
         this.id = id;
         this.username = username;
@@ -45,7 +44,6 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
-                ", email='" + email + '\'' +
-                '}';
+                ", email='" + email + '\'' + '}';
     }
 }
