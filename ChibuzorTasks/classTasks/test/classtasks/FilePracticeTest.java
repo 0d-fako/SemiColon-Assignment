@@ -28,14 +28,13 @@ public class FilePracticeTest {
     @ParameterizedTest
     @NullAndEmptySource
     void testThatCreateFileIfFilePathNullOrEmptyThrowsException (String filePath) {
-        FilePractice filePractice = new FilePractice();
-        assertThrows( IllegalArgumentException.class, () -> filePractice.createFile(filePath));
+        assertThrows( IllegalArgumentException.class, () -> FilePractice.createFile(filePath));
     }
 
     @Test
     void testThatDuplicateFileNameThrowsException () {
-        FilePractice filePractice = new FilePractice();
-        assertThrows( IllegalArgumentException.class, () -> filePractice.createFile(path));
+        FilePractice.createFile("path");
+        assertThrows( IllegalArgumentException.class, () -> FilePractice.createFile("path"));
     }
 
 

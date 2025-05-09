@@ -9,6 +9,7 @@ public class FilePractice {
 
     public static void createFile(String filePath) {
         if (filePath == null || filePath.isEmpty()) throw new IllegalArgumentException("File path cannot be null or empty");
+        if (Files.exists(Paths.get(filePath))) throw new IllegalArgumentException("File already exists");
     }
 
     public static File findFileByPath(String filePath) {
@@ -17,6 +18,7 @@ public class FilePractice {
     }
 
     public static void writeToFile(String filePath, String content) {
+        if (filePath == null || filePath.isEmpty()) throw new IllegalArgumentException("File path cannot be null or empty");
 
     }
 }
