@@ -36,7 +36,9 @@ public class FilePractice {
            getValidUri(filePath);
            Path path = Path.of(filePath);
            if (!checkIfFileExists(Path.of(filePath))) throw new IllegalArgumentException("File does not exist");
-           Files.write(filePath, content.getBytes());
+           else{
+               Files.write(filePath, content.getBytes());
+           }
        } catch (IOException e){
            System.err.println(e.getMessage());
        }
@@ -63,3 +65,7 @@ public class FilePractice {
     }
 }
 
+
+// Append
+// Delete
+//Update
