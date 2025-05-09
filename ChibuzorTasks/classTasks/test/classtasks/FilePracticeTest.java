@@ -37,6 +37,20 @@ public class FilePracticeTest {
         assertThrows( IllegalArgumentException.class, () -> FilePractice.createFile("path"));
     }
 
+    @Test
+    void testThatWriteToAFileIfFilePathDoesNotExistThrowsException () {
+        assertThrows( IllegalArgumentException.class, () -> FilePractice.writeToFile(filePath, "Ifeanyi Weds Onyinye"));
+    }
+
+
+    @Test
+    void testThatWriteToAFileWithValidFilePathAndContentShouldBe(){
+        FilePractice.createFile("path");
+        String word = "Hello World";
+        FilePractice.writeToFile(word, path);
+        String content = FilePractice.getContentInFile("path");
+
+    }
 
 
 
