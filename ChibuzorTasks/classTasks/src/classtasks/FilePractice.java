@@ -28,12 +28,18 @@ public class FilePractice {
     }
 
     public static void writeToFile(String filePath, String content) {
-        if (filePath == null || filePath.isEmpty()) throw new IllegalArgumentException("File path cannot be null or empty");
-        if (content == null || content.isEmpty()) throw new IllegalArgumentException("File content cannot be null or empty");
-        getValidUri(filePath);
-        Path path = Path.of(filePath);
-        if(!checkIfFileExists(Path.of(filePath))) throw new IllegalArgumentException("File does not exist");
-        Files.write(filePath, content.getBytes());
+       try {
+           if (filePath == null || filePath.isEmpty())
+               throw new IllegalArgumentException("File path cannot be null or empty");
+           if (content == null || content.isEmpty())
+               throw new IllegalArgumentException("File content cannot be null or empty");
+           getValidUri(filePath);
+           Path path = Path.of(filePath);
+           if (!checkIfFileExists(Path.of(filePath))) throw new IllegalArgumentException("File does not exist");
+           Files.write(filePath, content.getBytes());
+       } catch (IOException e){
+           System.err.println(e.getMessage());
+       }
     }
 
     private static URI getValidUri(String filePath) {
@@ -51,6 +57,8 @@ public class FilePractice {
             Path foundPath = Path.of(path);
             if (!checkIfFileExists(foundPath)) throw new IllegalArgumentException("File does not exist");
 
+        }catch (IOException e){
+            System.err.println(e.getMessage());
         }
     }
 }

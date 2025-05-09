@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class FilePracticeTest {
 
@@ -49,6 +49,13 @@ public class FilePracticeTest {
         String word = "Hello World";
         FilePractice.writeToFile(word, path);
         String content = FilePractice.getContentInFile("path");
+        assertNotNull(content);
+        assertEquals(content, word);
+
+    }
+
+    @Test
+    void  testThatWriteMessageToAFileTwiceShouldHaveTwoOutput(){
 
     }
 
