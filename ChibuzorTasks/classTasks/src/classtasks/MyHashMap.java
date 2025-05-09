@@ -5,6 +5,18 @@ import java.util.*;
 public class MyHashMap {
 
     public static void main(String[] args) {
+
+        Comparator<Integer> com = new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                if (o1%10 > o2%10)
+                    return 1;
+                else
+                    return -1;
+            }
+        };
+
+
         Map<String, Integer> students = new HashMap<String, Integer>();
         students.put("Kevin", 23);
         students.put("John", 22);
@@ -22,12 +34,12 @@ public class MyHashMap {
 
         List<Integer> nums = new ArrayList<Integer>();
 
-        nums.add(1);
-        nums.add(2);
-        nums.add(3);
-        nums.add(4);
+        nums.add(18);
+        nums.add(26);
+        nums.add(31);
+        nums.add(45);
 
-        Collections.sort(nums);
+        nums.sort(com);
 
         System.out.println(nums);
 
