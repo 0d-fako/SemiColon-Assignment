@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="arraySearch">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/TestDrivenDevelopment/arraySearch/junit-jupiter-api_5.11.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/TestDrivenDevelopment/arraySearch/junit-platform-console-standalone-1.11.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/TestDrivenDevelopment/arraySearch/junit-platform-commons-1.11.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/TestDrivenDevelopment/arraySearch/opentest4j-1.3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/TestDrivenDevelopment/arraySearch/apiguardian-api-1.1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
