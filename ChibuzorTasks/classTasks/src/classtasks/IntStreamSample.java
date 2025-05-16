@@ -1,5 +1,6 @@
 package classtasks;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -11,6 +12,7 @@ public class IntStreamSample {
                 .stream()
                 .filter((number) -> number % 2 == 0)
                 .map(number -> number * 2)
+                .sorted()
                 .collect(Collectors.toList());
 
         System.out.println(evenNumber);
@@ -20,6 +22,8 @@ public class IntStreamSample {
         user.setLastName("Doe");
         user.setEmail("john@doe.com");
         user.setPassword("password");
+
+        
 
         List<User> users = List.of(user);
 

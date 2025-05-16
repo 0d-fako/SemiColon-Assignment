@@ -17,6 +17,7 @@ public class User implements Serializable {
 
     public User(){};
 
+
     public String getFirstName() {
         return firstName;
     }
@@ -48,4 +49,15 @@ public class User implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
+
 }
