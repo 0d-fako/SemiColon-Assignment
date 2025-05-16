@@ -12,17 +12,16 @@ public class FilePractice {
     public static void createFile(String filePath) {
         try {
             if (filePath == null || filePath.isEmpty()) throw new IllegalArgumentException("File path cannot be null or empty");
-            URI uri = Path.of();
+            URI uri = Path.of(filePath).toUri();
             if (Files.exists(Paths.get(filePath))) throw new IllegalArgumentException("File already exists");
         } catch ( IOException e){
             e .printStackTrace();
         }
-        ;
     }
 
     public static File findFileByPath(String filePath) {
         Path foundPath = Paths.get(filePath);
-        return Files.exists(foundPath) ? new File(path) : null;
+        return Files.exists(foundPath) ? foundPath.toFile() : null;
     }
 
     public static void writeToFile(String filePath, String content) {
@@ -35,7 +34,7 @@ public class FilePractice {
            Path path = Path.of(filePath);
            if (!checkIfFileExists(Path.of(filePath))) throw new IllegalArgumentException("File does not exist");
            else{
-               String foundWord = Files.readString();
+               String foundWord = Files.readString(Path.of(filePath));
                Files.write(Paths.get(filePath), content.getBytes());
            }
        } catch (IOException e){
@@ -45,7 +44,8 @@ public class FilePractice {
 
     private static URI getValidUri(String filePath) {
         return URI.create(filePath);
-    };
+    }
+
 
 
     private static boolean checkIfFileExists(Path foundPath) {
