@@ -16,15 +16,15 @@ public class FileExercise {
                 ){
 
 
+//
+//            User user = new User();
+//            user.setEmail("ollunimati@gmail.com");
+//            user.setPassword("1234");
+//            user.setFirstName("Olumide");
+//            user.setLastName("Fakorede");
+//            objectOutputStream.writeObject(user);
 
-            User user = new User();
-            user.setEmail("ollunimati@gmail.com");
-            user.setPassword("1234");
-            user.setFirstName("Olumide");
-            user.setLastName("Fakorede");
-            objectOutputStream.writeObject(user);
-
-//            User foundUser = (User) objectInputStream.readObject();
+            User foundUser = (User) objectInputStream.readObject();
 
 //            objectOutputStream.write(65);
 //            byte[] value = objectOutputStream.readAllBytes();
@@ -34,10 +34,7 @@ public class FileExercise {
 
 
 
-
-
-
-        }catch (IOException error ){
+        }catch (IOException | ClassNotFoundException error ){
             error.printStackTrace();
         }
     }

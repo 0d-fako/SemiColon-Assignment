@@ -6,18 +6,24 @@ import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
 public class FilePractice {
 
     public static void createFile(String filePath) {
         try {
             if (filePath == null || filePath.isEmpty()) throw new IllegalArgumentException("File path cannot be null or empty");
-            URI uri = Path.of(filePath).toUri();
-            if (Files.exists(Paths.get(filePath))) throw new IllegalArgumentException("File already exists");
-        } catch ( IOException e){
-            e .printStackTrace();
+            Path path = Paths.get(filePath);
+            if (Files.exists(path)) throw new IllegalArgumentException("File already exists");
+
+            Files.createFile(path);
+
+            System.out.println("File created successfully: " + filePath);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
+
 
     public static File findFileByPath(String filePath) {
         Path foundPath = Paths.get(filePath);
@@ -31,10 +37,11 @@ public class FilePractice {
            if (content == null || content.isEmpty())
                throw new IllegalArgumentException("File content cannot be null or empty");
            getValidUri(filePath);
-           Path path = Path.of(filePath);
-           if (!checkIfFileExists(Path.of(filePath))) throw new IllegalArgumentException("File does not exist");
+           Path path = Paths.get(filePath);
+           if (!checkIfFileExists(Paths.get(filePath))) throw new IllegalArgumentException("File does not exist");
            else{
-               String foundWord = Files.readString(Path.of(filePath));
+               List<String> lines = Files.readAllLines(Paths.get(filePath));
+               String contents = String.join("\n", lines);
                Files.write(Paths.get(filePath), content.getBytes());
            }
        } catch (IOException e){
@@ -53,17 +60,17 @@ public class FilePractice {
     }
 
     public static String getContentInFile(String path) {
-        try{
+        try {
             getValidUri(path);
-            Path foundPath = Path.of(path);
+            Path foundPath = Paths.get(path);
             if (!checkIfFileExists(foundPath)) throw new IllegalArgumentException("File does not exist");
             return new String(Files.readAllBytes(foundPath));
-
-        }catch (IOException e){
+        } catch (IOException e) {
             System.err.println(e.getMessage());
+            return "Error reading file content.";
         }
-        return path;
     }
+
 
     public static void deleteFile(String filePath) {
         Path path = Paths.get(filePath);
