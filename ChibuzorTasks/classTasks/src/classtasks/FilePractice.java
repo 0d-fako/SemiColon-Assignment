@@ -12,19 +12,17 @@ public class FilePractice {
     public static void createFile(String filePath) {
         try {
             if (filePath == null || filePath.isEmpty()) throw new IllegalArgumentException("File path cannot be null or empty");
-            URI uri = Path.of()
+            URI uri = Path.of();
             if (Files.exists(Paths.get(filePath))) throw new IllegalArgumentException("File already exists");
         } catch ( IOException e){
-            e.printStackTrace();
-
-
+            e .printStackTrace();
         }
         ;
     }
 
     public static File findFileByPath(String filePath) {
         Path foundPath = Paths.get(filePath);
-        return Files.exists(foundPath) ? foundPath.toFile() : null;
+        return Files.exists(foundPath) ? new File(path) : null;
     }
 
     public static void writeToFile(String filePath, String content) {
@@ -37,7 +35,8 @@ public class FilePractice {
            Path path = Path.of(filePath);
            if (!checkIfFileExists(Path.of(filePath))) throw new IllegalArgumentException("File does not exist");
            else{
-               Files.write(filePath, content.getBytes());
+               String foundWord = Files.readString();
+               Files.write(Paths.get(filePath), content.getBytes());
            }
        } catch (IOException e){
            System.err.println(e.getMessage());
@@ -58,14 +57,49 @@ public class FilePractice {
             getValidUri(path);
             Path foundPath = Path.of(path);
             if (!checkIfFileExists(foundPath)) throw new IllegalArgumentException("File does not exist");
+            return new String(Files.readAllBytes(foundPath));
 
         }catch (IOException e){
             System.err.println(e.getMessage());
         }
+        return path;
     }
+
+    public static void deleteFile(String filePath) {
+        Path path = Paths.get(filePath);
+        if (!Files.exists(path)) {
+            throw new IllegalArgumentException("File does not exist");
+        }
+
+        try {
+            Files.delete(path);
+            System.out.println("File deleted successfully: " + filePath);
+        } catch (IOException e) {
+            System.err.println("Error deleting file: " + e.getMessage());
+        }
+    }
+
+
+    public static void deleteIfExists(String filePath) {
+        Path path = Paths.get(filePath);
+        try {
+            if (Files.deleteIfExists(path)) {
+                System.out.println("File deleted: " + filePath);
+            } else {
+                System.out.println("File does not exist: " + filePath);
+            }
+        } catch (IOException e) {
+            System.err.println("Error deleting file: " + e.getMessage());
+        }
+    }
+
+
 }
 
 
 // Append
 // Delete
-//Update
+// Update
+// DeleteIfExist
+
+//InputStream and OutputStream

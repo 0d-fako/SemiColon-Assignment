@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 
+import java.nio.file.Files;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class FilePracticeTest {
@@ -15,13 +17,16 @@ public class FilePracticeTest {
 
     @BeforeEach
     void setUp() {
-
+        path = "C:\\Users\\Dell\\Desktop\\SemiColon-Assignment\\ChibuzorTasks\\classTasks\\src\\classtasks";
     }
-
 
     @AfterEach
     void tearDown() {
-
+        try{
+            Files.deleteIfExists(Path.of(path));
+        }catch (IOException err){
+            System.err.println(err.getMessage());
+        }
     }
 
 
