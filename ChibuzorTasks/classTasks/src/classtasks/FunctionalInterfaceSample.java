@@ -3,6 +3,7 @@ package classtasks;
 import java.util.function.BiPredicate;
 import java.util.function.DoublePredicate;
 import java.util.function.DoubleUnaryOperator;
+import java.util.function.IntSupplier;
 
 public class FunctionalInterfaceSample {
     public static void main(String[] args) {
@@ -34,6 +35,8 @@ public class FunctionalInterfaceSample {
 
 
         System.out.println(doubleUnaryOperator.applyAsDouble(12.0));
+
+
 
 
 

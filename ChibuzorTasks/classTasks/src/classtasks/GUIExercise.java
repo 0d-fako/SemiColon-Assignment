@@ -15,7 +15,13 @@ public class GUIExercise {
         frame.setLocationRelativeTo(null);
         JPanel panel = new JPanel();
         frame.add(panel);
+
     }
 
+    public static void inputTextField() {
+        JTextField textField = new JTextField();
+        textField.setEditable(false);
+
+    }
 
 }
