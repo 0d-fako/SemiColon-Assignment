@@ -42,7 +42,7 @@ public class FilePractice {
            else{
                List<String> lines = Files.readAllLines(Paths.get(filePath));
                String contents = String.join("\n", lines);
-               Files.write(Paths.get(filePath), content.getBytes());
+               Files.write(path, contents.getBytes());
            }
        } catch (IOException e){
            System.err.println(e.getMessage());
