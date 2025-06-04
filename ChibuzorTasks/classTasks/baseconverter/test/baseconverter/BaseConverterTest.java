@@ -10,7 +10,7 @@ import static org.junit.Assert.assertEquals;
 public class BaseConverterTest {
 
     @Test
-    public void baseConverterTest() {
+    public void baseConverterForDecimalTest() {
         int numberToConvert = 110;
         int newBase  = 10;
         int convertedInterger = 6;
@@ -20,7 +20,19 @@ public class BaseConverterTest {
         int ExpectedResult = converter.baseConverter(newBase, numberToConvert, currentBase);
         assertEquals(convertedInterger, ExpectedResult);
 
-
-
     }
+
+    @Test
+    public void baseConverterForOctalTest() {
+        int numberToConvert = 10;
+        int newBase  = 8;
+        int convertedInterger = 3;
+        int currentBase = 2;
+        BaseConverter converter = new BaseConverter();
+
+        int ExpectedResult = converter.baseConverter(newBase, numberToConvert, currentBase);
+        assertEquals(convertedInterger, ExpectedResult);
+        }
+
+
 }
