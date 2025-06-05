@@ -1,7 +1,6 @@
 package baseconverter;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -32,7 +31,18 @@ public class BaseConverterTest {
 
         int ExpectedResult = converter.baseConverter(newBase, numberToConvert, currentBase);
         assertEquals(convertedInterger, ExpectedResult);
-        }
+    }
 
+    @Test
+    public void baseConverterForTernaryTest() {
+        int numberToConvert = 10;
+        int newBase  = 10;
+        int convertedInterger = 3;
+        int currentBase = 3;
+        BaseConverter converter = new BaseConverter();
+
+        int ExpectedResult = converter.baseConverter(newBase, numberToConvert, currentBase);
+        assertEquals(convertedInterger, ExpectedResult);
+    }
 
 }
