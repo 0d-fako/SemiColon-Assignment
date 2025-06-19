@@ -16,6 +16,7 @@ public class GUIExercise {
         JPanel panel = new JPanel();
         frame.add(panel);
 
+
     }
 
     public static void inputTextField() {
